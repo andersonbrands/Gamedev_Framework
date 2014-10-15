@@ -6,8 +6,14 @@
 ***************************************************************************************/
 
 #include <Windows.h>
+#include "Game\GameApplication.h"
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int) {
+    GameApplication game;
+
+    if (game.initialize()) {
+        game.run();
+    }
 
     return 0;
 }

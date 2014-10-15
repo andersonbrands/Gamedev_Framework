@@ -82,14 +82,18 @@
   <ItemGroup>
     <ClCompile Include="src\Framework\Kernel\Kernel.cpp" />
     <ClCompile Include="src\Framework\Platform\Platform.cpp" />
+    <ClCompile Include="src\Game\GameApplication.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Framework\Application\Application.h" />
     <ClInclude Include="src\Framework\Kernel\Kernel.h" />
     <ClInclude Include="src\Framework\Kernel\Task.h" />
     <ClInclude Include="src\Framework\Platform\iPlatform.h" />
     <ClInclude Include="src\Framework\Platform\Platform.h" />
+    <ClInclude Include="src\Framework\Utilities\Singleton.h" />
     <ClInclude Include="src\Framework\Wrapper.h" />
+    <ClInclude Include="src\Game\GameApplication.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
