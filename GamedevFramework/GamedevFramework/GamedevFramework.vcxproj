@@ -80,7 +80,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Framework\Kernel\Kernel.cpp" />
+    <ClCompile Include="src\Framework\Platform\Platform.cpp" />
     <ClCompile Include="src\Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Framework\Kernel\Kernel.h" />
+    <ClInclude Include="src\Framework\Kernel\Task.h" />
+    <ClInclude Include="src\Framework\Platform\iPlatform.h" />
+    <ClInclude Include="src\Framework\Platform\Platform.h" />
+    <ClInclude Include="src\Framework\Wrapper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
