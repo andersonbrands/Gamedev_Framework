@@ -80,6 +80,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Framework\EventManager\Event.cpp" />
+    <ClCompile Include="src\Framework\EventManager\EventManager.cpp" />
     <ClCompile Include="src\Framework\Kernel\Kernel.cpp" />
     <ClCompile Include="src\Framework\Platform\Platform.cpp" />
     <ClCompile Include="src\Game\GameApplication.cpp" />
@@ -87,7 +89,11 @@
     <ClCompile Include="src\Platform\Windows\WindowsPlatform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Framework\EventManager\Event.h" />
     <ClInclude Include="src\Framework\Application\Application.h" />
+    <ClInclude Include="src\Framework\EventManager\EventHandler.h" />
+    <ClInclude Include="src\Framework\EventManager\EventId.h" />
+    <ClInclude Include="src\Framework\EventManager\EventManager.h" />
     <ClInclude Include="src\Framework\Kernel\Kernel.h" />
     <ClInclude Include="src\Framework\Kernel\Task.h" />
     <ClInclude Include="src\Framework\Platform\iPlatform.h" />

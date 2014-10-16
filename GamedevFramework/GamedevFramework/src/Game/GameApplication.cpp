@@ -6,6 +6,7 @@
 ***************************************************************************************/
 
 #include "GameApplication.h"
+#include "../Framework/EventManager/EventManager.h"
 
 GameApplication::GameApplication(): Application() {
 
@@ -24,8 +25,11 @@ bool GameApplication::initialize() {
 }
 
 void GameApplication::createSingletons() {
+    new EventManager();
 
 }
 void GameApplication::destroySingletons() {
 
+    assert(EventManager::getInstancePtr());
+    delete EventManager::getInstancePtr();
 }
