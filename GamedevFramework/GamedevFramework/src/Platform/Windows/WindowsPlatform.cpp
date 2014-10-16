@@ -15,7 +15,7 @@ WindowsPlatform::WindowsPlatform(const unsigned int priority)
     :	iPlatform(priority) {
     wc_.cbSize = sizeof(WNDCLASSEX);
     wc_.style = CS_CLASSDC;
-	wc_.lpfnWndProc = InitialWndProc;
+    wc_.lpfnWndProc = InitialWndProc;
     wc_.cbClsExtra = 0L;
     wc_.cbWndExtra = 0L;
     wc_.hInstance = GetModuleHandle(NULL);
@@ -36,7 +36,7 @@ WindowsPlatform::WindowsPlatform(const unsigned int priority)
     // Create the application's window
     hWnd_ = CreateWindow( CLASS_NAME, WINDOW_NAME,
                           WS_OVERLAPPEDWINDOW & ~WS_THICKFRAME & ~WS_MAXIMIZEBOX, lastWindowedPositionX_, lastWindowedPositionY_, w, h,
-                          GetDesktopWindow(), NULL, wc_.hInstance, NULL);
+                          GetDesktopWindow(), NULL, wc_.hInstance, this);
 
     // Initialize Direct3D
     if (SUCCEEDED(setupD3D())) {
