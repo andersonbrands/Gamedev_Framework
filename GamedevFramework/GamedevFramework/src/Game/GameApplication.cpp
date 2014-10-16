@@ -22,6 +22,9 @@ bool GameApplication::initialize() {
 
     createSingletons();
 
+    assert(Platform::getInstancePtr());
+    kernel_.addTask(Platform::getInstancePtr());
+
     return success;
 }
 
