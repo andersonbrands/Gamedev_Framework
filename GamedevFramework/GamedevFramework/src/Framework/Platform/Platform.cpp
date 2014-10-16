@@ -11,11 +11,20 @@ namespace Framework {
     bool Platform::isClosing_	= false;
 
     Platform::Platform(const unsigned int priority)
-		:	wPlatform(priority) {
-
+        :	wPlatform(priority) {
+        attachEvent(ev::PLATFORM_CLOSE, *this);
     }
 
     Platform::~Platform() {
     }
 
+    void Platform::handleEvent(Event* pEvent) {
+        switch (pEvent->getID()) {
+            case ev::PLATFORM_CLOSE:
+                isClosing_ = true;
+                break;
+            default:
+                break;
+        }
+    }
 }

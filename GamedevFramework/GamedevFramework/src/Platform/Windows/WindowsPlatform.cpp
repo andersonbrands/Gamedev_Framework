@@ -7,6 +7,8 @@
 
 #include "WindowsPlatform.h"
 
+#include "../../Framework/EventManager/EventManager.h"
+
 #define CLASS_NAME "Main"
 #define WINDOW_NAME "Frame dev project"
 
@@ -45,6 +47,14 @@ WindowsPlatform::WindowsPlatform(const unsigned int priority)
         UpdateWindow(hWnd_);
     }
 
+    registerEvent(ev::PLATFORM_SUSPEND);
+    registerEvent(ev::PLATFORM_RESUME);
+    registerEvent(ev::PLATFORM_STOP);
+    registerEvent(ev::ON_LOST_DEVICE);
+    registerEvent(ev::ON_RESET_DEVICE);
+    registerEvent(ev::CHECK_DEVICE_IS_LOST);
+    registerEvent(ev::TOGGLE_FULLSCREEN);
+    registerEvent(ev::PLATFORM_CLOSE);
 }
 
 WindowsPlatform::~WindowsPlatform() {
@@ -80,7 +90,7 @@ LRESULT WINAPI WindowsPlatform::MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPAR
             }
             return 0;
         case WM_CLOSE:
-            // TODO: send close event
+            sendEvent(ev::PLATFORM_CLOSE);
             DestroyWindow(hWnd_);
             return 0;
         case WM_DESTROY:
@@ -136,12 +146,12 @@ bool WindowsPlatform::start() {
 
 void WindowsPlatform::onSuspend() {
     setSuspended(true);
-    // TODO: send suspend event
+    sendEvent(ev::PLATFORM_SUSPEND);
 }
 
 void WindowsPlatform::update() {
     if (msg_.message == WM_QUIT) {
-        // TODO: send close vent
+        sendEvent(ev::PLATFORM_CLOSE);
         DestroyWindow(hWnd_);
     } else {
         if (PeekMessage(&msg_, NULL, 0U, 0U, PM_REMOVE)) {
@@ -154,11 +164,11 @@ void WindowsPlatform::update() {
 
 void WindowsPlatform::onResume() {
     setSuspended(false);
-    // TODO: send resume vent
+    sendEvent(ev::PLATFORM_RESUME);
 }
 
 void WindowsPlatform::stop() {
-    // TODO: send stop event
+    sendEvent(ev::PLATFORM_STOP);
 }
 
 void WindowsPlatform::toggleFullScreen() {
@@ -229,10 +239,10 @@ bool WindowsPlatform::isDeviceLost() {
     }
     // The device is lost but we can reset and restore it.
     else if( hr == D3DERR_DEVICENOTRESET ) {
-        // TODO: send ON_LOST_DEVICE event
+        sendEvent(ev::ON_LOST_DEVICE);
         if (!SUCCEEDED(g_pd3dDevice->Reset(&d3dParams_)))
             MessageBox(NULL, "Failed to reset device", "Error", MB_OK);
-        // TODO: send ON_RESET_DEVICE event
+        sendEvent(ev::ON_RESET_DEVICE);
         return false;
     } else
         return false;

@@ -22,12 +22,13 @@ namespace Framework {
         static const EventId PLATFORM_SUSPEND		= 4;
         static const EventId PLATFORM_RESUME		= 5;
         static const EventId PLATFORM_STOP			= 6;
-        static const EventId PRE_RENDER_EVENT		= 7;
-        static const EventId RENDER_EVENT			= 8;
-        static const EventId POST_RENDER_EVENT		= 9;
-        static const EventId PRE_UPDATE				= 10;
-        static const EventId UPDATE					= 11;
-        static const EventId POST_UPDATE			= 12;
+        static const EventId PLATFORM_CLOSE			= 7;
+        static const EventId PRE_RENDER_EVENT		= 8;
+        static const EventId RENDER_EVENT			= 9;
+        static const EventId POST_RENDER_EVENT		= 10;
+        static const EventId PRE_UPDATE				= 11;
+        static const EventId UPDATE					= 12;
+        static const EventId POST_UPDATE			= 13;
 
         // TODO: create game specific events outside framework
     }

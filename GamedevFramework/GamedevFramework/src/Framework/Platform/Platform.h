@@ -13,10 +13,12 @@
 #include "../Kernel/Task.h"
 #include "../Wrapper.h"
 #include "../Utilities/Singleton.h"
+#include "../EventManager/EventHandler.h"
+#include "../EventManager/EventManager.h"
 
 namespace Framework {
 
-    class Platform : public wPlatform, public Singleton<Platform> {
+    class Platform : public wPlatform, public EventHandler, public Singleton<Platform> {
         protected:
             static bool		isClosing_;
 
@@ -30,6 +32,8 @@ namespace Framework {
             static bool isClosing()	{
                 return isClosing_;
             }
+
+            virtual void handleEvent(Event* pEvent);
     };
 }
 
