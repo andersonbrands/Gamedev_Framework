@@ -7,6 +7,7 @@
 
 #include "GameApplication.h"
 #include "../Framework/EventManager/EventManager.h"
+#include "../Framework/Platform/Platform.h"
 
 GameApplication::GameApplication(): Application() {
 
@@ -26,9 +27,12 @@ bool GameApplication::initialize() {
 
 void GameApplication::createSingletons() {
     new EventManager();
-
+    new Platform( Task::PLATFORM_PRIORITY );
 }
 void GameApplication::destroySingletons() {
+
+    assert(Platform::getInstancePtr());
+    delete Platform::getInstancePtr();
 
     assert(EventManager::getInstancePtr());
     delete EventManager::getInstancePtr();
