@@ -12,22 +12,17 @@
 
 #include "../Kernel/Task.h"
 #include "../Wrapper.h"
+#include "../Utilities/Singleton.h"
 
 namespace Framework {
 
-    class Platform : public wPlatform {
+    class Platform : public wPlatform, public Singleton<Platform> {
         protected:
             static bool		isClosing_;
 
         public:
             Platform(const unsigned int priority);
             virtual ~Platform();
-
-            virtual bool	start();
-            virtual void	onSuspend();
-            virtual void	update();
-            virtual void	onResume();
-            virtual void	stop();
 
             static void clearClosing() {
                 isClosing_ = false;

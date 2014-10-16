@@ -8,12 +8,14 @@
 #ifndef WRAPPER_H_
 #define WRAPPER_H_
 
-#include "Platform\iPlatform.h"
+#include "../Platform/Windows/WindowsPlatform.h"
 
 namespace Framework {
 
-	typedef iPlatform wPlatform;
+    typedef WindowsPlatform wPlatform;
 
 }
+
+
 
 #endif // WRAPPER_H_
