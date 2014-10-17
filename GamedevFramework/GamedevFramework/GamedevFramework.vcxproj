@@ -102,6 +102,7 @@
     <ClInclude Include="src\Framework\Math\Vector3.h" />
     <ClInclude Include="src\Framework\Platform\iPlatform.h" />
     <ClInclude Include="src\Framework\Platform\Platform.h" />
+    <ClInclude Include="src\Framework\Utilities\Color.h" />
     <ClInclude Include="src\Framework\Utilities\Singleton.h" />
     <ClInclude Include="src\Framework\Wrapper.h" />
     <ClInclude Include="src\Game\GameApplication.h" />
