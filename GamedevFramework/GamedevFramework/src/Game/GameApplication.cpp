@@ -9,6 +9,7 @@
 #include "../Framework/EventManager/EventManager.h"
 #include "../Framework/Platform/Platform.h"
 #include "../Framework/Renderer/Renderer.h"
+#include "../Framework/Utilities/Timer.h"
 
 GameApplication::GameApplication(): Application() {
 
@@ -23,6 +24,9 @@ bool GameApplication::initialize() {
 
     createSingletons();
 
+    assert(Timer::getInstancePtr());
+    kernel_.addTask(Timer::getInstancePtr());
+
     assert(Platform::getInstancePtr());
     kernel_.addTask(Platform::getInstancePtr());
 
@@ -34,6 +38,7 @@ bool GameApplication::initialize() {
 
 void GameApplication::createSingletons() {
     new EventManager();
+    new Timer ( Task::TIMER_PRIORITY );
     new Platform( Task::PLATFORM_PRIORITY );
     new Renderer( Task::RENDER_PRIORITY );
 }
@@ -43,6 +48,9 @@ void GameApplication::destroySingletons() {
 
     assert(Platform::getInstancePtr());
     delete Platform::getInstancePtr();
+
+    assert(Timer::getInstancePtr());
+    delete Timer::getInstancePtr();
 
     assert(EventManager::getInstancePtr());
     delete EventManager::getInstancePtr();

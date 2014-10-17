@@ -10,6 +10,7 @@
 
 #include "../Platform/Windows/WindowsPlatform.h"
 #include "../Platform/Windows/Renderer/DirectXRenderer.h"
+#include "../Platform/Windows/Utilities/TimerWindows.h"
 
 namespace Framework {
 
@@ -17,6 +18,7 @@ namespace Framework {
 
     typedef DirectXRenderer		wRenderer;
 
+    typedef TimerWindows		wTimer;
 }
 
 
