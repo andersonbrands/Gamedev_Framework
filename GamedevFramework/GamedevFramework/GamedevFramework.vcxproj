@@ -86,8 +86,10 @@
     <ClCompile Include="src\Framework\Math\Matrix4.cpp" />
     <ClCompile Include="src\Framework\Math\Vector3.cpp" />
     <ClCompile Include="src\Framework\Platform\Platform.cpp" />
+    <ClCompile Include="src\Framework\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Game\GameApplication.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Platform\Windows\Renderer\DirectXRenderer.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsPlatform.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -102,10 +104,13 @@
     <ClInclude Include="src\Framework\Math\Vector3.h" />
     <ClInclude Include="src\Framework\Platform\iPlatform.h" />
     <ClInclude Include="src\Framework\Platform\Platform.h" />
+    <ClInclude Include="src\Framework\Renderer\iRenderer.h" />
+    <ClInclude Include="src\Framework\Renderer\Renderer.h" />
     <ClInclude Include="src\Framework\Utilities\Color.h" />
     <ClInclude Include="src\Framework\Utilities\Singleton.h" />
     <ClInclude Include="src\Framework\Wrapper.h" />
     <ClInclude Include="src\Game\GameApplication.h" />
+    <ClInclude Include="src\Platform\Windows\Renderer\DirectXRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsPlatform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
