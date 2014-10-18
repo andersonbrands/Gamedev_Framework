@@ -137,6 +137,7 @@
     <ClInclude Include="src\Framework\Utilities\iTimer.h" />
     <ClInclude Include="src\Framework\Utilities\Singleton.h" />
     <ClInclude Include="src\Framework\Utilities\Timer.h" />
+    <ClInclude Include="src\Framework\Utilities\UnorderedMapContainer.h" />
     <ClInclude Include="src\Framework\Wrapper.h" />
     <ClInclude Include="src\Game\GameApplication.h" />
     <ClInclude Include="src\Platform\Windows\Input\D3dKeyboard.h">

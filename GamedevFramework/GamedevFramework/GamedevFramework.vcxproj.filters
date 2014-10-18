@@ -146,5 +146,8 @@
     <ClInclude Include="src\Platform\Windows\Input\D3dKeyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Framework\Utilities\UnorderedMapContainer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
