@@ -99,6 +99,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="src\Framework\Renderer\Texture\TextureManager.cpp" />
     <ClCompile Include="src\Framework\Utilities\Timer.cpp" />
     <ClCompile Include="src\Game\GameApplication.cpp" />
     <ClCompile Include="src\Main.cpp" />
@@ -146,6 +147,14 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="src\Framework\Renderer\Texture\TextureId.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Renderer\Texture\TextureManager.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Framework\Utilities\Color.h" />
     <ClInclude Include="src\Framework\Utilities\iTimer.h" />
     <ClInclude Include="src\Framework\Utilities\Singleton.h" />
@@ -161,6 +170,10 @@
     <ClInclude Include="src\Platform\Windows\Renderer\Texture\TextureD3D.h" />
     <ClInclude Include="src\Platform\Windows\Utilities\TimerWindows.h" />
     <ClInclude Include="src\Platform\Windows\WindowsPlatform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="bin\data\textures\sample.png" />
+    <Image Include="data\textures\sample.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

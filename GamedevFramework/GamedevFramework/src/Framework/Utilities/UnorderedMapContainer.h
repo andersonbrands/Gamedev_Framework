@@ -37,7 +37,7 @@ namespace Framework {
             UnorderedMapContainer() {}
 
             virtual ~UnorderedMapContainer() {
-                releaseObjs();
+                releaseObjects();
             }
 
             void clear() {

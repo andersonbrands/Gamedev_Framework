@@ -11,6 +11,7 @@
 #include "../Framework/Renderer/Renderer.h"
 #include "../Framework/Utilities/Timer.h"
 #include "../Framework/Input/InputManager.h"
+#include "../Framework/Renderer/Texture/TextureManager.h"
 
 GameApplication::GameApplication(): Application() {
 
@@ -47,8 +48,12 @@ void GameApplication::createSingletons() {
     new Platform( Task::PLATFORM_PRIORITY );
     new InputManager( Task::INPUT_PRIORITY );
     new Renderer( Task::RENDER_PRIORITY );
+    new TextureManager("data/textures/");
 }
 void GameApplication::destroySingletons() {
+    assert(TextureManager::getInstancePtr());
+    delete TextureManager::getInstancePtr();
+
     assert(Renderer::getInstancePtr());
     delete Renderer::getInstancePtr();
 
