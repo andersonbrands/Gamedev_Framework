@@ -12,6 +12,7 @@
 #include "../Platform/Windows/Renderer/DirectXRenderer.h"
 #include "../Platform/Windows/Utilities/TimerWindows.h"
 #include "../Platform/Windows/Input/D3dKeyboard.h"
+#include "../Platform/Windows/Renderer/Texture/TextureD3D.h"
 
 namespace Framework {
 
@@ -19,6 +20,7 @@ namespace Framework {
     typedef DirectXRenderer		wRenderer;
     typedef TimerWindows		wTimer;
     typedef D3dKeyboard			wKeyboard;
+    typedef TextureD3D			wTexture;
 }
 
 #endif // WRAPPER_H_

@@ -103,6 +103,7 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\Renderer\DirectXRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\Renderer\Texture\TextureD3D.cpp" />
     <ClCompile Include="src\Platform\Windows\Utilities\TimerWindows.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsPlatform.cpp" />
   </ItemGroup>
@@ -133,6 +134,14 @@
     <ClInclude Include="src\Framework\Platform\Platform.h" />
     <ClInclude Include="src\Framework\Renderer\iRenderer.h" />
     <ClInclude Include="src\Framework\Renderer\Renderer.h" />
+    <ClInclude Include="src\Framework\Renderer\Texture\iTexture.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Renderer\Texture\Texture.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Framework\Utilities\Color.h" />
     <ClInclude Include="src\Framework\Utilities\iTimer.h" />
     <ClInclude Include="src\Framework\Utilities\Singleton.h" />
@@ -145,6 +154,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\Renderer\DirectXRenderer.h" />
+    <ClInclude Include="src\Platform\Windows\Renderer\Texture\TextureD3D.h" />
     <ClInclude Include="src\Platform\Windows\Utilities\TimerWindows.h" />
     <ClInclude Include="src\Platform\Windows\WindowsPlatform.h" />
   </ItemGroup>
