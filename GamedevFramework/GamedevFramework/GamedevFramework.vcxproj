@@ -95,6 +95,10 @@
     <ClCompile Include="src\Framework\Math\Vector3.cpp" />
     <ClCompile Include="src\Framework\Platform\Platform.cpp" />
     <ClCompile Include="src\Framework\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Framework\Renderer\Texture\Texture.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Framework\Utilities\Timer.cpp" />
     <ClCompile Include="src\Game\GameApplication.cpp" />
     <ClCompile Include="src\Main.cpp" />

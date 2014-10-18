@@ -1,24 +1,20 @@
 /***************************************************************************************
-*	Title: Texture.h
+*	Title: Texture.cpp
 *	Author: Brandao, Anderson
 *	Date: 2014
 *
 ***************************************************************************************/
 
-#ifndef TEXTURE_H_
-#define TEXTURE_H_
-
-#include "../../Wrapper.h"
+#include "Texture.h"
 
 namespace Framework {
 
-    class Texture : public wTexture {
-        private:
-        public:
-            Texture();
-            virtual ~Texture();
-    };
+    Texture::Texture() {
+
+    }
+
+    Texture::~Texture() {
+
+    }
 
 }
-
-#endif // TEXTURE_H_
