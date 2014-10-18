@@ -72,6 +72,12 @@
     <ClCompile Include="src\Framework\Renderer\Texture\TextureManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\Renderer\Sprite\SpriteD3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Renderer\Sprite\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Framework\Kernel\Kernel.h">
@@ -171,6 +177,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Framework\Renderer\Texture\TextureManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Renderer\Sprite\iSprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\Renderer\Sprite\SpriteD3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Renderer\Sprite\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

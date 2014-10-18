@@ -95,6 +95,10 @@
     <ClCompile Include="src\Framework\Math\Vector3.cpp" />
     <ClCompile Include="src\Framework\Platform\Platform.cpp" />
     <ClCompile Include="src\Framework\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Framework\Renderer\Sprite\Sprite.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Framework\Renderer\Texture\Texture.cpp">
       <SubType>
       </SubType>
@@ -108,6 +112,7 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\Renderer\DirectXRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\Renderer\Sprite\SpriteD3D.cpp" />
     <ClCompile Include="src\Platform\Windows\Renderer\Texture\TextureD3D.cpp" />
     <ClCompile Include="src\Platform\Windows\Utilities\TimerWindows.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsPlatform.cpp" />
@@ -139,6 +144,14 @@
     <ClInclude Include="src\Framework\Platform\Platform.h" />
     <ClInclude Include="src\Framework\Renderer\iRenderer.h" />
     <ClInclude Include="src\Framework\Renderer\Renderer.h" />
+    <ClInclude Include="src\Framework\Renderer\Sprite\iSprite.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Renderer\Sprite\Sprite.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Framework\Renderer\Texture\iTexture.h">
       <SubType>
       </SubType>
@@ -167,6 +180,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\Renderer\DirectXRenderer.h" />
+    <ClInclude Include="src\Platform\Windows\Renderer\Sprite\SpriteD3D.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\Renderer\Texture\TextureD3D.h" />
     <ClInclude Include="src\Platform\Windows\Utilities\TimerWindows.h" />
     <ClInclude Include="src\Platform\Windows\WindowsPlatform.h" />
