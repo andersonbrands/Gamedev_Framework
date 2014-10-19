@@ -82,6 +82,7 @@
   <ItemGroup>
     <ClCompile Include="src\Framework\EventManager\Event.cpp" />
     <ClCompile Include="src\Framework\EventManager\EventManager.cpp" />
+    <ClCompile Include="src\Framework\GameObjects\Components\TransformComponent.cpp" />
     <ClCompile Include="src\Framework\GameObjects\GameObject.cpp" />
     <ClCompile Include="src\Framework\Input\InputManager.cpp">
       <SubType>
@@ -93,6 +94,7 @@
     </ClCompile>
     <ClCompile Include="src\Framework\Kernel\Kernel.cpp" />
     <ClCompile Include="src\Framework\Math\Matrix4.cpp" />
+    <ClCompile Include="src\Framework\Math\Transform.cpp" />
     <ClCompile Include="src\Framework\Math\Vector3.cpp" />
     <ClCompile Include="src\Framework\Platform\Platform.cpp" />
     <ClCompile Include="src\Framework\Renderer\Renderer.cpp" />
@@ -128,6 +130,7 @@
     <ClInclude Include="src\Framework\EventManager\EventManager.h" />
     <ClInclude Include="src\Framework\GameObjects\Component.h" />
     <ClInclude Include="src\Framework\GameObjects\ComponentId.h" />
+    <ClInclude Include="src\Framework\GameObjects\Components\TransformComponent.h" />
     <ClInclude Include="src\Framework\GameObjects\GameObject.h" />
     <ClInclude Include="src\Framework\Input\iKeyboard.h">
       <SubType>
@@ -145,6 +148,7 @@
     <ClInclude Include="src\Framework\Kernel\Kernel.h" />
     <ClInclude Include="src\Framework\Kernel\Task.h" />
     <ClInclude Include="src\Framework\Math\Matrix4.h" />
+    <ClInclude Include="src\Framework\Math\Transform.h" />
     <ClInclude Include="src\Framework\Math\Vector3.h" />
     <ClInclude Include="src\Framework\Platform\iPlatform.h" />
     <ClInclude Include="src\Framework\Platform\Platform.h" />
