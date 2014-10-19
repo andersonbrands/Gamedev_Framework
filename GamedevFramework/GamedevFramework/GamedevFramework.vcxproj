@@ -82,6 +82,7 @@
   <ItemGroup>
     <ClCompile Include="src\Framework\EventManager\Event.cpp" />
     <ClCompile Include="src\Framework\EventManager\EventManager.cpp" />
+    <ClCompile Include="src\Framework\GameObjects\GameObject.cpp" />
     <ClCompile Include="src\Framework\Input\InputManager.cpp">
       <SubType>
       </SubType>
@@ -125,6 +126,9 @@
     <ClInclude Include="src\Framework\EventManager\EventHandler.h" />
     <ClInclude Include="src\Framework\EventManager\EventId.h" />
     <ClInclude Include="src\Framework\EventManager\EventManager.h" />
+    <ClInclude Include="src\Framework\GameObjects\Component.h" />
+    <ClInclude Include="src\Framework\GameObjects\ComponentId.h" />
+    <ClInclude Include="src\Framework\GameObjects\GameObject.h" />
     <ClInclude Include="src\Framework\Input\iKeyboard.h">
       <SubType>
       </SubType>
