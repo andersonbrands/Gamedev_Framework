@@ -82,6 +82,7 @@
   <ItemGroup>
     <ClCompile Include="src\Framework\EventManager\Event.cpp" />
     <ClCompile Include="src\Framework\EventManager\EventManager.cpp" />
+    <ClCompile Include="src\Framework\GameObjects\Components\MovementComponent.cpp" />
     <ClCompile Include="src\Framework\GameObjects\Components\TransformComponent.cpp" />
     <ClCompile Include="src\Framework\GameObjects\GameObject.cpp" />
     <ClCompile Include="src\Framework\Input\InputManager.cpp">
@@ -130,6 +131,7 @@
     <ClInclude Include="src\Framework\EventManager\EventManager.h" />
     <ClInclude Include="src\Framework\GameObjects\Component.h" />
     <ClInclude Include="src\Framework\GameObjects\ComponentId.h" />
+    <ClInclude Include="src\Framework\GameObjects\Components\MovementComponent.h" />
     <ClInclude Include="src\Framework\GameObjects\Components\TransformComponent.h" />
     <ClInclude Include="src\Framework\GameObjects\GameObject.h" />
     <ClInclude Include="src\Framework\Input\iKeyboard.h">
@@ -186,6 +188,10 @@
     <ClInclude Include="src\Framework\Utilities\Singleton.h" />
     <ClInclude Include="src\Framework\Utilities\Timer.h" />
     <ClInclude Include="src\Framework\Utilities\UnorderedMapContainer.h" />
+    <ClInclude Include="src\Framework\Utilities\Utils.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Framework\Wrapper.h" />
     <ClInclude Include="src\Game\GameApplication.h" />
     <ClInclude Include="src\Platform\Windows\Input\D3dKeyboard.h">
