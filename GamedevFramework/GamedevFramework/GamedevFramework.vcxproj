@@ -99,6 +99,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="src\Framework\Renderer\Sprite\SpriteManager.cpp" />
     <ClCompile Include="src\Framework\Renderer\Texture\Texture.cpp">
       <SubType>
       </SubType>
@@ -152,6 +153,8 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="src\Framework\Renderer\Sprite\SpriteId.h" />
+    <ClInclude Include="src\Framework\Renderer\Sprite\SpriteManager.h" />
     <ClInclude Include="src\Framework\Renderer\Texture\iTexture.h">
       <SubType>
       </SubType>
