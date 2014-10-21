@@ -24,7 +24,7 @@ namespace Framework {
     }
 
     void CollisionGroup::removeObject(GameObject* pGameObject) {
-        GameObjectVectorIterator iter(collisionObjects_.begin);
+        GameObjectVectorIterator iter(collisionObjects_.begin());
         for (; iter != collisionObjects_.end(); iter++) {
             if (*iter == pGameObject) {
                 collisionObjects_.erase(iter);
