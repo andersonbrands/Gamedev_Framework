@@ -99,6 +99,15 @@
     <ClCompile Include="src\Framework\GameObjects\Components\SpriteAnimationComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Framework\Collision\CollisionGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Collision\CollisionManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\GameObjects\Components\ColliderComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Framework\Kernel\Kernel.h">
@@ -240,6 +249,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Framework\GameObjects\Components\SpriteAnimationComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Collision\CollisionGroup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Collision\CollisionManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\GameObjects\Components\ColliderComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Collision\CollisionGroupId.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

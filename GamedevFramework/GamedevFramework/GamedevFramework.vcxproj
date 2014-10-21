@@ -80,8 +80,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Framework\Collision\CollisionGroup.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Collision\CollisionManager.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Framework\EventManager\Event.cpp" />
     <ClCompile Include="src\Framework\EventManager\EventManager.cpp" />
+    <ClCompile Include="src\Framework\GameObjects\Components\ColliderComponent.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Framework\GameObjects\Components\MovementComponent.cpp" />
     <ClCompile Include="src\Framework\GameObjects\Components\SpriteAnimationComponent.cpp" />
     <ClCompile Include="src\Framework\GameObjects\Components\TransformComponent.cpp" />
@@ -125,6 +137,18 @@
     <ClCompile Include="src\Platform\Windows\WindowsPlatform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Framework\Collision\CollisionGroup.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Collision\CollisionGroupId.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Collision\CollisionManager.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Framework\EventManager\Event.h" />
     <ClInclude Include="src\Framework\Application\Application.h" />
     <ClInclude Include="src\Framework\EventManager\EventHandler.h" />
@@ -132,6 +156,10 @@
     <ClInclude Include="src\Framework\EventManager\EventManager.h" />
     <ClInclude Include="src\Framework\GameObjects\Component.h" />
     <ClInclude Include="src\Framework\GameObjects\ComponentId.h" />
+    <ClInclude Include="src\Framework\GameObjects\Components\ColliderComponent.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Framework\GameObjects\Components\MovementComponent.h" />
     <ClInclude Include="src\Framework\GameObjects\Components\SpriteAnimationComponent.h" />
     <ClInclude Include="src\Framework\GameObjects\Components\TransformComponent.h" />
