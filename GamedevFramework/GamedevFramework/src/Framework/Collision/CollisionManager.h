@@ -11,26 +11,24 @@
 #define COLLISION_MANAGER_H_
 
 #include "../Utilities/Singleton.h"
+#include "../Utilities/UnorderedMapContainer.h"
+#include "CollisionGroupId.h"
 #include "CollisionGroup.h"
 
 namespace Framework {
 
-    class CollisionManager : public Singleton<CollisionManager> {
+    class CollisionManager : public UnorderedMapContainer<CollisionGroupId, CollisionGroup>, public Singleton<CollisionManager> {
         private:
-            typedef std::vector<CollisionGroup>	CollisionGroupVector;
-
-            CollisionGroupVector					collisionGroups_;
-
             void test(GameObject*, GameObject*);
 
         public:
             CollisionManager();
             virtual ~CollisionManager();
 
-            void addCollisionGroup();
-            void addObjectToGroup(const unsigned int groupIndex, GameObject* pObject);
-            void testAgainstGroup(const unsigned int groupIndex, GameObject* pObject);
-            void clearGroup(const unsigned int groupIndex);
+            void addCollisionGroup(CollisionGroupId groupId);
+            void addObjectToGroup(CollisionGroupId groupId, GameObject* pObject);
+            void testAgainstGroup(CollisionGroupId groupId, GameObject* pObject);
+            void clearGroup(CollisionGroupId groupId);
 
     };
 

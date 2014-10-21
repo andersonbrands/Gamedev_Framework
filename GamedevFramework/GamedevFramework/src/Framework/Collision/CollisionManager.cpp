@@ -21,24 +21,26 @@ namespace Framework {
 
     }
 
-    void CollisionManager::addCollisionGroup() {
-        collisionGroups_.push_back(CollisionGroup());
+    void CollisionManager::addCollisionGroup(CollisionGroupId groupId) {
+        addObject(groupId);
     }
 
-    void CollisionManager::addObjectToGroup(const unsigned int binIndex, GameObject* pObject) {
-        assert(binIndex < collisionGroups_.size());
-        collisionGroups_[binIndex].addObject(pObject);
+    void CollisionManager::addObjectToGroup(CollisionGroupId groupId, GameObject* pObject) {
+        auto group(getObject(groupId));
+        assert(group);
+        group->addObject(pObject);
     }
 
-    void CollisionManager::testAgainstGroup(const unsigned int binIndex, GameObject* pObject) {
-        assert(binIndex < collisionGroups_.size());
-        CollisionGroup& bin = collisionGroups_[binIndex];
-        GameObject* pGroupObject = bin.getFirst();
+    void CollisionManager::testAgainstGroup(CollisionGroupId groupId, GameObject* pObject) {
+        auto group(getObject(groupId));
+        assert(group);
+
+        GameObject* pGroupObject = group->getFirst();
         while (pGroupObject) {
 
             test(pObject, pGroupObject);
 
-            pGroupObject = bin.getNext();
+            pGroupObject = group->getNext();
         }
     }
 
@@ -51,12 +53,16 @@ namespace Framework {
         assert (pCollider1 && pCollider2);
 
         // TODO: complete collision test
+
+        // check for collider types compatibility
+
+        // if they are compatible then perform collision check
     }
 
-    void CollisionManager::clearGroup(const unsigned int binIndex) {
-        assert(binIndex < collisionGroups_.size());
-        CollisionGroup& bin = collisionGroups_[binIndex];
-        bin.clear();
+    void CollisionManager::clearGroup(CollisionGroupId groupId) {
+        auto group(getObject(groupId));
+        assert(group);
+        group->clear();
     }
 
 }
