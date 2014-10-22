@@ -57,6 +57,8 @@ namespace Framework {
         // check for collider types compatibility
 
         // if they are compatible then perform collision check
+
+		// handle collision
     }
 
     void CollisionManager::clearGroup(CollisionGroupId groupId) {

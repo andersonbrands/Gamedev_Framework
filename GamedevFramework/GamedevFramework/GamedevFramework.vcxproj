@@ -80,6 +80,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Framework\Collision\Colliders\AABBCollider.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Collision\Colliders\PointCollider.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Framework\Collision\CollisionGroup.cpp">
       <SubType>
       </SubType>
@@ -137,6 +145,18 @@
     <ClCompile Include="src\Platform\Windows\WindowsPlatform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Framework\Collision\Colliders\AABBCollider.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Collision\Colliders\Collider.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Collision\Colliders\PointCollider.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Framework\Collision\CollisionGroup.h">
       <SubType>
       </SubType>

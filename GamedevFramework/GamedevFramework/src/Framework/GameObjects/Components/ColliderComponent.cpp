@@ -11,7 +11,7 @@
 
 namespace Framework {
 
-    ColliderComponent::ColliderComponent(GameObject* pOwner) : Component(pOwner) {
+    ColliderComponent::ColliderComponent(GameObject* pOwner) : Component(pOwner), collider_(nullptr), colliderType_(Collider::ColliderType::UNDEFINED) {
 
     }
     ColliderComponent::~ColliderComponent() {
