@@ -14,7 +14,7 @@ namespace Framework {
         private:
         public:
             enum ColliderType {
-                UNDEFINED, AABB, SPHERE
+                UNDEFINED, AABB, POINT, SPHERE
             };
 
             Collider() {}
