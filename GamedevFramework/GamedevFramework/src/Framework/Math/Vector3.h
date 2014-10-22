@@ -60,6 +60,9 @@ namespace Framework {
 
             Vector3 operator -() const;
 
+            bool operator ==(const Vector3& rhs) const;
+            bool operator !=(const Vector3& rhs) const;
+
             // vector operations
             Vector3 cross( const Vector3& rhs) const;
             float dot(const Vector3& rhs) const;

@@ -142,6 +142,16 @@ namespace Framework {
         return Vector3(-x_, -y_, -z_);
     }
 
+    bool Vector3::operator ==(const Vector3& rhs) const {
+        if (x_ == rhs.x_ && y_ == rhs.y_ && z_ == rhs.z_)
+            return true;
+        else
+            return false;
+    }
+    bool Vector3::operator !=(const Vector3& rhs) const {
+        return !(*this == rhs);
+    }
+
     // vector operations
     Vector3 Vector3::cross( const Vector3& rhs) const {
         return Vector3(y_ * rhs.z_ - z_ * rhs.y_, z_ * rhs.x_ - x_ * rhs.z_, x_ * rhs.y_ - y_ * rhs.x_);
