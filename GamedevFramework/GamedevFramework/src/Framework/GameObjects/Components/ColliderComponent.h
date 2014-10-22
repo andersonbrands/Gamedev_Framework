@@ -13,16 +13,32 @@
 #include "../../Math/Vector3.h"
 #include "../../EventManager/EventHandler.h"
 #include "../../EventManager/Event.h"
+#include "../../Collision/Colliders/Collider.h"
 
 namespace Framework {
 
     class ColliderComponent : public Component, public EventHandler {
+        private:
+            Collider* collider_;
+            Collider::ColliderType colliderType_;
         public:
             ColliderComponent(GameObject* pOwner);
-            ~ColliderComponent();
+            virtual ~ColliderComponent();
 
             static ComponentId getId()	{
                 return comp::COLLIDER;
+            }
+
+            void setColliderType(Collider::ColliderType colliderType) {
+                colliderType_ = colliderType;
+            }
+
+            Collider::ColliderType getColliderType() {
+                return colliderType_;
+            }
+
+            Collider* getCollider() {
+                return collider_;
             }
     };
 
