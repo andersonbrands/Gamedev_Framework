@@ -23,12 +23,12 @@ namespace Framework {
         spriteV_.push_back(pSprite);
     }
 
-    void SpriteAnimation::goToAndPlay(int frame) {
+    void SpriteAnimation::goToAndPlay(unsigned int frame) {
         assert(frame <= totalFrames_);
         currentFrame_ = frame;
         play();
     }
-    void SpriteAnimation::goToAndPause(int frame) {
+    void SpriteAnimation::goToAndPause(unsigned int frame) {
         assert(frame <= totalFrames_);
         currentFrame_ = frame;
         pause();

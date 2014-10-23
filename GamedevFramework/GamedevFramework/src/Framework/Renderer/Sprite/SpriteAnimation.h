@@ -39,8 +39,8 @@ namespace Framework {
                 return currentFrame_;
             }
 
-            void goToAndPlay(int frame);
-            void goToAndPause(int frame);
+            void goToAndPlay(unsigned int frame);
+            void goToAndPause(unsigned int frame);
             void play();
             void stop();
             void pause();
