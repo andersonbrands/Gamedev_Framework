@@ -15,6 +15,7 @@ namespace Framework {
 
     class EventHandler {
         public:
+            // TODO: detach handled events at destruction
             virtual ~EventHandler()	{}
 
             virtual void handleEvent(Event* pEvent) = 0;
