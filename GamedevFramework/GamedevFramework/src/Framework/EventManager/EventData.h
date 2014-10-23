@@ -12,11 +12,10 @@
 #include "../GameObjects/GameObject.h"
 
 namespace Framework {
-
     namespace ev {
         namespace data {
 
-            struct CollisionEventData {
+            struct Collision {
                 GameObject* pGameObject;
             };
 
