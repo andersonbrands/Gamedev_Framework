@@ -75,7 +75,7 @@ void DirectXRenderer::setTransform(const Vector3& pos, const Vector3& scale, con
     pWin_->getDevice()->SetTransform(D3DTS_WORLD, &WorldMat);
 }
 
-void DirectXRenderer::setupViewMatrices(const Vector3& camPos, const Vector3& camTarget, const Vector3& upVector /*= Vector3(0.0f, 0.1f, 0.0f) */) {
+void DirectXRenderer::setupViewMatrix(const Vector3& camPos, const Vector3& camTarget, const Vector3& upVector /*= Vector3(0.0f, 0.1f, 0.0f) */) {
     // Set up the view matrix.
     // This defines which way the 'camera' will look at, and which way is up.
     D3DXVECTOR3 vCamera(camPos.getX(), camPos.getY(), camPos.getZ());
@@ -94,6 +94,23 @@ void DirectXRenderer::setupViewMatrices(const Vector3& camPos, const Vector3& ca
     pWin_->getDevice()->SetTransform(D3DTS_PROJECTION, &matProj);
 }
 
+void DirectXRenderer::setupFovLHPerspectiveProjectionMatrix(float verticalFieldOfView, float aspectRatio, float zNear, float zFar) {
+    D3DXMATRIX matProj;
+    D3DXMatrixPerspectiveFovLH(&matProj, verticalFieldOfView, aspectRatio, zNear, zFar);
+    pWin_->getDevice()->SetTransform(D3DTS_PROJECTION, &matProj);
+}
+
+void DirectXRenderer::setupLHPerspectiveProjectionMatrix(float w, float h, float zNear, float zFar) {
+    D3DXMATRIX matProj;
+    D3DXMatrixPerspectiveLH(&matProj, w, h, zNear, zFar);
+    pWin_->getDevice()->SetTransform(D3DTS_PROJECTION, &matProj);
+}
+
+void DirectXRenderer::setupLHOrthogonalProjectionMatrix(float w, float h, float zNear, float zFar) {
+    D3DXMATRIX matProj;
+    D3DXMatrixOrthoLH(&matProj, w, h, zNear, zFar);
+    pWin_->getDevice()->SetTransform(D3DTS_PROJECTION, &matProj);
+}
 
 void DirectXRenderer::drawLine(const Vector3& from, const Vector3& to, const ColorARGB& color/* = ColorARGB(1.0f, 1.0f, 1.0f, 1.0f)*/) {
     const DWORD vertex_difuse(D3DFVF_XYZ | D3DFVF_DIFFUSE);

@@ -24,9 +24,13 @@ namespace Framework {
             explicit iRenderer(const unsigned int priority): Task( priority ) {}
             virtual ~iRenderer() {}
 
-            virtual void iRenderer::setTransform(const Matrix4& matrix) = 0;
-            virtual void iRenderer::setTransform(const Vector3& pos, const Vector3& scale, const Vector3& rotation) = 0;
-            virtual void iRenderer::setupViewMatrices(const Vector3& camPos, const Vector3& camTarget, const Vector3& upVector = Vector3(0.0f, 0.1f, 0.0f)) = 0;
+            virtual void setTransform(const Matrix4& matrix) = 0;
+            virtual void setTransform(const Vector3& pos, const Vector3& scale, const Vector3& rotation) = 0;
+            virtual void setupViewMatrix(const Vector3& camPos, const Vector3& camTarget, const Vector3& upVector = Vector3(0.0f, 0.1f, 0.0f)) = 0;
+
+            virtual void setupFovLHPerspectiveProjectionMatrix(float verticalFieldOfView, float aspectRatio, float zNear, float zFar) = 0;
+            virtual void setupLHPerspectiveProjectionMatrix(float w, float h, float zNear, float zFar) = 0;
+            virtual void setupLHOrthogonalProjectionMatrix(float w, float h, float zNear, float zFar) = 0;
 
             virtual void drawLine(const Vector3& from, const Vector3& to, const ColorARGB& color = ColorARGB(1.0f, 1.0f, 1.0f, 1.0f)) = 0;
             virtual void drawAABB(const Vector3& min, const Vector3& max, const ColorARGB& color) = 0;
