@@ -20,7 +20,6 @@ namespace Framework {
     class ColliderComponent : public Component, public EventHandler {
         private:
             Collider* collider_;
-            Collider::ColliderType colliderType_;
         public:
             ColliderComponent(GameObject* pOwner);
             virtual ~ColliderComponent();
@@ -29,13 +28,7 @@ namespace Framework {
                 return comp::COLLIDER;
             }
 
-            void setColliderType(Collider::ColliderType colliderType) {
-                colliderType_ = colliderType;
-            }
-
-            Collider::ColliderType getColliderType() {
-                return colliderType_;
-            }
+            bool collides(ColliderComponent* pCollider);
 
             Collider* getCollider() {
                 return collider_;
