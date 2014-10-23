@@ -13,9 +13,10 @@
 #include <unordered_map>
 #include "Component.h"
 #include "ComponentId.h"
+#include "../EventManager/EventHandler.h"
 
 namespace Framework {
-    class GameObject {
+    class GameObject : public EventHandler {
             template <class T>
             friend T* component_cast(GameObject& object);
 
@@ -37,6 +38,8 @@ namespace Framework {
         public:
             GameObject();
             virtual ~GameObject();
+
+            virtual void handleEvent(Event* pEvent) {}
 
             template <class T>
             bool addComponent();
