@@ -8,19 +8,21 @@
 #ifndef COLLIDER_H_
 #define COLLIDER_H_
 
+#include <cassert>
+
 namespace Framework {
 
     class Collider {
         private:
         public:
-            enum ColliderType {
-                UNDEFINED, AABB, POINT, SPHERE
-            };
-
             Collider() {}
             virtual ~Collider() {}
 
-            virtual bool collides() = 0;
+            virtual bool collides(const Collider*) const = 0 {
+                // collision have to be properly handled by derived classes
+                assert(false);
+                return false;
+            }
     };
 
 }
