@@ -9,6 +9,8 @@
 
 #include "CollisionManager.h"
 #include "../GameObjects/Components/ColliderComponent.h"
+#include "Colliders\Collider.h"
+#include "../EventManager/EventManager.h"
 #include <cassert>
 
 namespace Framework {
@@ -52,13 +54,11 @@ namespace Framework {
 
         assert (pCollider1 && pCollider2);
 
-        // TODO: complete collision test
-
-        // check for collider types compatibility
-
-        // if they are compatible then perform collision check
-
-		// handle collision
+        if (pCollider1->getCollider()->collides(pCollider2->getCollider())) {
+            // create collision event data
+            sendEventToHandler(ev::COLISION, *go1, nullptr);
+            sendEventToHandler(ev::COLISION, *go2, nullptr);
+        }
     }
 
     void CollisionManager::clearGroup(CollisionGroupId groupId) {
