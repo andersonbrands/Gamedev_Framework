@@ -11,6 +11,7 @@
 #include "../GameObjects/Components/ColliderComponent.h"
 #include "Colliders\Collider.h"
 #include "../EventManager/EventManager.h"
+#include "../EventManager/EventData.h"
 #include <cassert>
 
 namespace Framework {
@@ -55,9 +56,11 @@ namespace Framework {
         assert (pCollider1 && pCollider2);
 
         if (pCollider1->getCollider()->collides(pCollider2->getCollider())) {
-            // create collision event data
-            sendEventToHandler(ev::id::COLISION, *go1, nullptr);
-            sendEventToHandler(ev::id::COLISION, *go2, nullptr);
+            ev::data::Collision collisionData;
+            collisionData.pGameObject = go2;
+            sendEventToHandler(ev::id::COLISION, *go1, &collisionData);
+            collisionData.pGameObject = go1;
+            sendEventToHandler(ev::id::COLISION, *go2, &collisionData);
         }
     }
 
