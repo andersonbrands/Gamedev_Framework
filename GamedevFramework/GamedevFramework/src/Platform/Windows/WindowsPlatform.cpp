@@ -47,14 +47,14 @@ WindowsPlatform::WindowsPlatform(const unsigned int priority)
         UpdateWindow(hWnd_);
     }
 
-    registerEvent(ev::PLATFORM_SUSPEND);
-    registerEvent(ev::PLATFORM_RESUME);
-    registerEvent(ev::PLATFORM_STOP);
-    registerEvent(ev::ON_LOST_DEVICE);
-    registerEvent(ev::ON_RESET_DEVICE);
-    registerEvent(ev::CHECK_DEVICE_IS_LOST);
-    registerEvent(ev::TOGGLE_FULLSCREEN);
-    registerEvent(ev::PLATFORM_CLOSE);
+    registerEvent(ev::id::PLATFORM_SUSPEND);
+    registerEvent(ev::id::PLATFORM_RESUME);
+    registerEvent(ev::id::PLATFORM_STOP);
+    registerEvent(ev::id::ON_LOST_DEVICE);
+    registerEvent(ev::id::ON_RESET_DEVICE);
+    registerEvent(ev::id::CHECK_DEVICE_IS_LOST);
+    registerEvent(ev::id::TOGGLE_FULLSCREEN);
+    registerEvent(ev::id::PLATFORM_CLOSE);
 }
 
 WindowsPlatform::~WindowsPlatform() {
@@ -90,7 +90,7 @@ LRESULT WINAPI WindowsPlatform::MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPAR
             }
             return 0;
         case WM_CLOSE:
-            sendEvent(ev::PLATFORM_CLOSE);
+            sendEvent(ev::id::PLATFORM_CLOSE);
             DestroyWindow(hWnd_);
             return 0;
         case WM_DESTROY:
@@ -146,12 +146,12 @@ bool WindowsPlatform::start() {
 
 void WindowsPlatform::onSuspend() {
     setSuspended(true);
-    sendEvent(ev::PLATFORM_SUSPEND);
+    sendEvent(ev::id::PLATFORM_SUSPEND);
 }
 
 void WindowsPlatform::update() {
     if (msg_.message == WM_QUIT) {
-        sendEvent(ev::PLATFORM_CLOSE);
+        sendEvent(ev::id::PLATFORM_CLOSE);
         DestroyWindow(hWnd_);
     } else {
         if (PeekMessage(&msg_, NULL, 0U, 0U, PM_REMOVE)) {
@@ -164,11 +164,11 @@ void WindowsPlatform::update() {
 
 void WindowsPlatform::onResume() {
     setSuspended(false);
-    sendEvent(ev::PLATFORM_RESUME);
+    sendEvent(ev::id::PLATFORM_RESUME);
 }
 
 void WindowsPlatform::stop() {
-    sendEvent(ev::PLATFORM_STOP);
+    sendEvent(ev::id::PLATFORM_STOP);
 }
 
 void WindowsPlatform::toggleFullScreen() {
@@ -239,10 +239,10 @@ bool WindowsPlatform::isDeviceLost() {
     }
     // The device is lost but we can reset and restore it.
     else if( hr == D3DERR_DEVICENOTRESET ) {
-        sendEvent(ev::ON_LOST_DEVICE);
+        sendEvent(ev::id::ON_LOST_DEVICE);
         if (!SUCCEEDED(g_pd3dDevice->Reset(&d3dParams_)))
             MessageBox(NULL, "Failed to reset device", "Error", MB_OK);
-        sendEvent(ev::ON_RESET_DEVICE);
+        sendEvent(ev::id::ON_RESET_DEVICE);
         return false;
     } else
         return false;

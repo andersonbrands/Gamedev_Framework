@@ -12,7 +12,7 @@ namespace Framework {
 
     Platform::Platform(const unsigned int priority)
         :	wPlatform(priority) {
-        attachEvent(ev::PLATFORM_CLOSE, *this);
+        attachEvent(ev::id::PLATFORM_CLOSE, *this);
     }
 
     Platform::~Platform() {
@@ -20,7 +20,7 @@ namespace Framework {
 
     void Platform::handleEvent(Event* pEvent) {
         switch (pEvent->getID()) {
-            case ev::PLATFORM_CLOSE:
+            case ev::id::PLATFORM_CLOSE:
                 isClosing_ = true;
                 break;
             default:

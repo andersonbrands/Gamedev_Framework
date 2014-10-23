@@ -33,8 +33,8 @@ namespace Framework {
         currentUpdate_ = getUpdateFrame();
         nextUpdate_ = currentUpdate_;
 
-        attachEvent(ev::PLATFORM_SUSPEND, *this);
-        attachEvent(ev::PLATFORM_RESUME, *this);
+        attachEvent(ev::id::PLATFORM_SUSPEND, *this);
+        attachEvent(ev::id::PLATFORM_RESUME, *this);
 
         return true;
     }
@@ -82,10 +82,10 @@ namespace Framework {
 
     void Timer::handleEvent(Event* pEvent) {
         switch (pEvent->getID()) {
-            case ev::PLATFORM_SUSPEND:
+            case ev::id::PLATFORM_SUSPEND:
                 onSuspend();
                 break;
-            case ev::PLATFORM_RESUME:
+            case ev::id::PLATFORM_RESUME:
                 onResume();
             default:
                 break;

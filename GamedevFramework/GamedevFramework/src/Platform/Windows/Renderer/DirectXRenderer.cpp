@@ -10,9 +10,9 @@
 #include "../../../Framework/Platform/Platform.h"
 
 DirectXRenderer::DirectXRenderer(const unsigned int priority) : iRenderer(priority), pWin_(nullptr) {
-    registerEvent(ev::PRE_RENDER_EVENT);
-    registerEvent(ev::RENDER_EVENT);
-    registerEvent(ev::POST_RENDER_EVENT);
+    registerEvent(ev::id::PRE_RENDER_EVENT);
+    registerEvent(ev::id::RENDER_EVENT);
+    registerEvent(ev::id::POST_RENDER_EVENT);
 
     assert(Platform::getInstancePtr());
     pWin_ = static_cast<WindowsPlatform*>(Platform::getInstancePtr());
@@ -20,9 +20,9 @@ DirectXRenderer::DirectXRenderer(const unsigned int priority) : iRenderer(priori
 }
 
 DirectXRenderer::~DirectXRenderer() {
-    unregisterEvent(ev::PRE_RENDER_EVENT);
-    unregisterEvent(ev::RENDER_EVENT);
-    unregisterEvent(ev::POST_RENDER_EVENT);
+    unregisterEvent(ev::id::PRE_RENDER_EVENT);
+    unregisterEvent(ev::id::RENDER_EVENT);
+    unregisterEvent(ev::id::POST_RENDER_EVENT);
 }
 
 
@@ -186,19 +186,19 @@ void DirectXRenderer::stop() {
 
 void DirectXRenderer::update() {
     if (!isSuspended()) {
-        sendEvent(ev::PRE_RENDER_EVENT);
+        sendEvent(ev::id::PRE_RENDER_EVENT);
 
         pWin_->getDevice() -> Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(50, 50, 50), 1.0f, 0);
 
         if (SUCCEEDED(pWin_->getDevice()->BeginScene())) {
 
-            sendEvent(ev::RENDER_EVENT);
+            sendEvent(ev::id::RENDER_EVENT);
 
             pWin_->getDevice()->EndScene();
         }
         // Present the backbuffer to the display.
         pWin_->getDevice() -> Present(NULL, NULL, NULL, NULL);
 
-        sendEvent(ev::POST_RENDER_EVENT);
+        sendEvent(ev::id::POST_RENDER_EVENT);
     }
 }

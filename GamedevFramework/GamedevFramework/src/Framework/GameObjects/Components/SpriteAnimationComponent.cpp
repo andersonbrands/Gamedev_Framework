@@ -14,8 +14,8 @@
 namespace Framework {
 
     SpriteAnimationComponent::SpriteAnimationComponent(GameObject* pOwner) : Component(pOwner), animation_(25, 12) {
-        attachEvent(ev::RENDER_EVENT, *this);
-        attachEvent(ev::UPDATE, *this);
+        attachEvent(ev::id::RENDER_EVENT, *this);
+        attachEvent(ev::id::UPDATE, *this);
     }
 
     SpriteAnimationComponent::~SpriteAnimationComponent() {
@@ -24,7 +24,7 @@ namespace Framework {
 
     void SpriteAnimationComponent::handleEvent(Event* pEvent) {
         switch (pEvent->getID()) {
-            case ev::RENDER_EVENT: {
+            case ev::id::RENDER_EVENT: {
                 assert(Renderer::getInstancePtr());
 
                 TransformComponent* transformComp = component_cast<TransformComponent>(getOwner());
@@ -39,7 +39,7 @@ namespace Framework {
 
             }
             break;
-            case ev::UPDATE: {
+            case ev::id::UPDATE: {
                 animation_.update();
             }
             break;

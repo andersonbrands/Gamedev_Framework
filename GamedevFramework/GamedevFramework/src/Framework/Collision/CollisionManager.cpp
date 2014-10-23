@@ -56,8 +56,8 @@ namespace Framework {
 
         if (pCollider1->getCollider()->collides(pCollider2->getCollider())) {
             // create collision event data
-            sendEventToHandler(ev::COLISION, *go1, nullptr);
-            sendEventToHandler(ev::COLISION, *go2, nullptr);
+            sendEventToHandler(ev::id::COLISION, *go1, nullptr);
+            sendEventToHandler(ev::id::COLISION, *go2, nullptr);
         }
     }
 
