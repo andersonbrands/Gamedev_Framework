@@ -171,6 +171,7 @@
     </ClInclude>
     <ClInclude Include="src\Framework\EventManager\Event.h" />
     <ClInclude Include="src\Framework\Application\Application.h" />
+    <ClInclude Include="src\Framework\EventManager\EventData.h" />
     <ClInclude Include="src\Framework\EventManager\EventHandler.h" />
     <ClInclude Include="src\Framework\EventManager\EventId.h" />
     <ClInclude Include="src\Framework\EventManager\EventManager.h" />

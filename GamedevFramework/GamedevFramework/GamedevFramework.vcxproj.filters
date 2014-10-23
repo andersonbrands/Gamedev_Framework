@@ -278,6 +278,9 @@
     <ClInclude Include="src\Framework\Collision\Colliders\PointCollider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Framework\EventManager\EventData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="bin\data\textures\sample.png">
