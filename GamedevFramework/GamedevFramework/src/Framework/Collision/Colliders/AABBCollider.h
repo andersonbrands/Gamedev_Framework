@@ -22,8 +22,9 @@ namespace Framework {
             AABBCollider();
             virtual ~AABBCollider();
 
+            virtual bool collides(Collider*) const;
             virtual bool collides(const AABBCollider&) const;
-			virtual bool collides(const PointCollider&) const;
+            virtual bool collides(const PointCollider&) const;
 
             void setMin(const Vector3& min) {
                 min_ = min;

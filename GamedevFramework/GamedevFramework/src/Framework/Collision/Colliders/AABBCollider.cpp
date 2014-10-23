@@ -17,6 +17,18 @@ namespace Framework {
 
     }
 
+    bool AABBCollider::collides(Collider* pCollider) const {
+        AABBCollider* aabb(static_cast<AABBCollider*>(pCollider));
+        if (aabb)
+            return collides(*aabb);
+
+        PointCollider* point(static_cast<PointCollider*>(pCollider));
+        if (point)
+            return collides(*point);
+
+        return Collider::collides(pCollider);
+    }
+
     bool AABBCollider::collides(const PointCollider& pointCollider) const {
         bool collides(true);
 

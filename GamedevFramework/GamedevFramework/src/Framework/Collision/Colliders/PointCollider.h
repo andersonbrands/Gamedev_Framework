@@ -20,6 +20,9 @@ namespace Framework {
             PointCollider();
             virtual ~PointCollider();
 
+            virtual bool collides(Collider*) const;
+            virtual bool collides(const PointCollider&) const;
+
             const Vector3 getPoint() const {
                 return point_;
             }
