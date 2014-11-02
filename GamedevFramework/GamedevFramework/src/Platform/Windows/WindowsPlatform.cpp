@@ -31,7 +31,7 @@ WindowsPlatform::WindowsPlatform(const unsigned int priority)
 
     RegisterClassEx(&wc_);
 
-    const int w(800), h(600);
+    const int w(480), h(320);
     lastWindowedPositionX_ = 400;
     lastWindowedPositionY_ = 100;
 
