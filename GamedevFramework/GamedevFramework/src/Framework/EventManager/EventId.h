@@ -33,7 +33,9 @@ namespace Framework {
             static const EventId POST_UPDATE			= 13;
             static const EventId COLISION				= 14;
 
-            // TODO: create game specific events outside framework
+            // EVENT_ID_OFFSET is used to separate Framework events from game specific events
+#define EVENT_ID_OFFSET 50
+
         }
     }
 }
