@@ -133,6 +133,10 @@
     <ClCompile Include="src\Framework\Renderer\Texture\TextureManager.cpp" />
     <ClCompile Include="src\Framework\Utilities\Timer.cpp" />
     <ClCompile Include="src\Game\GameApplication.cpp" />
+    <ClCompile Include="src\Game\GameTask.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Platform\Windows\Input\D3dKeyboard.cpp">
       <SubType>
@@ -234,6 +238,10 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="src\Framework\Scene\iScene.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Framework\Utilities\Color.h" />
     <ClInclude Include="src\Framework\Utilities\iTimer.h" />
     <ClInclude Include="src\Framework\Utilities\Singleton.h" />
@@ -245,6 +253,10 @@
     </ClInclude>
     <ClInclude Include="src\Framework\Wrapper.h" />
     <ClInclude Include="src\Game\GameApplication.h" />
+    <ClInclude Include="src\Game\GameTask.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\Input\D3dKeyboard.h">
       <SubType>
       </SubType>

@@ -114,6 +114,9 @@
     <ClCompile Include="src\Framework\Collision\Colliders\PointCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\GameTask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Framework\Kernel\Kernel.h">
@@ -279,6 +282,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Framework\EventManager\EventData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameTask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Scene\iScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
