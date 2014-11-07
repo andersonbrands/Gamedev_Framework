@@ -12,9 +12,5 @@ namespace Framework {
 
     typedef unsigned int SpriteId;
 
-    namespace spr {
-        //static const SpriteId SPRITE_NAME = id;
-        static const SpriteId SAMPLE = 0;
-    }
 }
 #endif // SPRITE_ID_H_
