@@ -18,10 +18,6 @@ namespace Framework {
         std::string name;
     } TextureIdAndName;
 
-    namespace tex {
-        //static const TextureIdAndName TEXTURE_NAME	= { id, name };
-        static const TextureIdAndName SAMPLE		= { 0, "sample.png" };
-    }
 }
 
 #endif // TEXTURE_ID_H_
