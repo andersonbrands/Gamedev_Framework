@@ -12,19 +12,21 @@ namespace Framework {
 
     class Texture;
 
+    enum SpriteAlign {
+        TOP_LEFT,
+        TOP_RIGHT,
+        BOTTOM_RIGHT,
+        BOTTOM_LEFT,
+        CENTER,
+        CENTER_LEFT,
+        CENTER_TOP,
+        CENTER_RIGHT,
+        CENTER_BOTTOM
+    };
+
     class iSprite {
         public:
-            enum SpriteAlign {
-                TOP_LEFT,
-                TOP_RIGHT,
-                BOTTOM_RIGHT,
-                BOTTOM_LEFT,
-                CENTER,
-                CENTER_LEFT,
-                CENTER_TOP,
-                CENTER_RIGHT,
-                CENTER_BOTTOM
-            };
+
 
             iSprite() {}
             virtual ~iSprite() {}

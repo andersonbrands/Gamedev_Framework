@@ -80,32 +80,32 @@ void SpriteD3D::applySettings() {
     D3DXVECTOR3 offset(0, 0, 0);
 
     switch (align_) {
-        case iSprite::BOTTOM_LEFT:
+        case SpriteAlign::BOTTOM_LEFT:
             // no offset needed
             createVertexBuffer();
             return;
-        case iSprite::TOP_LEFT:
+        case SpriteAlign::TOP_LEFT:
             offset = vertices_[0].position;
             break;
-        case iSprite::TOP_RIGHT:
+        case SpriteAlign::TOP_RIGHT:
             offset = vertices_[1].position;
             break;
-        case iSprite::BOTTOM_RIGHT:
+        case SpriteAlign::BOTTOM_RIGHT:
             offset = vertices_[2].position;
             break;
-        case iSprite::CENTER:
+        case SpriteAlign::CENTER:
             offset = D3DXVECTOR3(width_/2.0f, height_/2.0f, 0);
             break;
-        case iSprite::CENTER_LEFT:
+        case SpriteAlign::CENTER_LEFT:
             offset = D3DXVECTOR3(0, height_/2.0f, 0);
             break;
-        case iSprite::CENTER_TOP:
+        case SpriteAlign::CENTER_TOP:
             offset = D3DXVECTOR3(width_/2.0f, height_, 0);
             break;
-        case iSprite::CENTER_RIGHT:
+        case SpriteAlign::CENTER_RIGHT:
             offset = D3DXVECTOR3(width_, height_/2.0f, 0);
             break;
-        case iSprite::CENTER_BOTTOM:
+        case SpriteAlign::CENTER_BOTTOM:
             offset = D3DXVECTOR3(width_/2.0f, 0, 0);
             break;
         default:
