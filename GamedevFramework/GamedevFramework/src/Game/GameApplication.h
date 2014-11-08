@@ -9,12 +9,13 @@
 #define GAME_APPLICATION_H_
 
 #include "../Framework\Application\Application.h"
+#include "GameTask.h"
 
 using namespace Framework;
 
 class GameApplication : public Application {
     private:
-
+        GameTask* pGameTask_;
     protected:
         virtual void createSingletons();
         virtual void destroySingletons();

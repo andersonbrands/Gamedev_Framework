@@ -12,13 +12,17 @@
 #include "../Framework/Utilities/Timer.h"
 #include "../Framework/Input/InputManager.h"
 #include "../Framework/Renderer/Texture/TextureManager.h"
+#include "../Framework/Renderer/Sprite/SpriteManager.h"
 
-GameApplication::GameApplication(): Application() {
+GameApplication::GameApplication(): Application(), pGameTask_(nullptr) {
 
 }
 
 GameApplication::~GameApplication() {
-
+    if (pGameTask_) {
+        delete pGameTask_;
+        pGameTask_ = nullptr;
+    }
 }
 
 bool GameApplication::initialize() {
@@ -39,6 +43,9 @@ bool GameApplication::initialize() {
     assert(Renderer::getInstancePtr());
     kernel_.addTask(Renderer::getInstancePtr());
 
+    pGameTask_ = new GameTask(Task::GAME_PRIORITY);
+    kernel_.addTask(pGameTask_);
+
     return success;
 }
 
@@ -49,8 +56,12 @@ void GameApplication::createSingletons() {
     new InputManager( Task::INPUT_PRIORITY );
     new Renderer( Task::RENDER_PRIORITY );
     new TextureManager("data/textures/");
+    new SpriteManager();
 }
 void GameApplication::destroySingletons() {
+    assert(SpriteManager::getInstancePtr());
+    delete SpriteManager::getInstancePtr();
+
     assert(TextureManager::getInstancePtr());
     delete TextureManager::getInstancePtr();
 
