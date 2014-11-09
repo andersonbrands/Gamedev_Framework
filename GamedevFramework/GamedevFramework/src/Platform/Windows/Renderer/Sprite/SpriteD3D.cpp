@@ -39,6 +39,7 @@ void SpriteD3D::setUVCoords(int index, float u, float v) {
 }
 
 void SpriteD3D::render() {
+	// TODO: is all this necessary here, can it be done outside sprite? Like, grouping sprites according to their rendering settings and rendering them "togheter"
     assert(Platform::getInstancePtr());
     WindowsPlatform* pWin(static_cast<WindowsPlatform*>(Platform::getInstancePtr()));
     assert(pWin);
@@ -57,6 +58,7 @@ void SpriteD3D::render() {
     pWin->getDevice()->SetRenderState(D3DRS_SRCBLEND,  D3DBLEND_SRCALPHA);
     pWin->getDevice()->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
 
+	// this is the only thing specific to this sprite instance here, hence is it the only thing really needed here?
     pWin->getDevice()->SetStreamSource(0, pVertexBuffer_, 0, sizeof(SPRITE_VERTEX));
     pWin->getDevice()->SetFVF(FVF_SPRITE_VERTEX);
     pWin->getDevice()->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 2);
