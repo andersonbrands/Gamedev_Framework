@@ -7,15 +7,23 @@
 
 #include "GameTask.h"
 
-GameTask::GameTask(const unsigned int priority) : Task(priority), state_(MAIN_MENU) {
+GameTask::GameTask(const unsigned int priority) : Task(priority), state_(MAIN_MENU), pMainMenu_(nullptr) {
 
 }
 
 GameTask::~GameTask() {
-
+    if (pMainMenu_) {
+        delete pMainMenu_;
+        pMainMenu_ = nullptr;
+    }
 }
 
 bool GameTask::start() {
+    pMainMenu_ = new MainMenu();
+
+    pMainMenu_->load();
+    pMainMenu_->init();
+
     return true;
 }
 

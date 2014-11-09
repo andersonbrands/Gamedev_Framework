@@ -9,6 +9,7 @@
 #define GAME_TASK_H_
 
 #include "../Framework/Kernel/Task.h"
+#include "Scenes\MainMenu.h"
 
 using namespace Framework;
 
@@ -19,6 +20,8 @@ class GameTask : public Task {
         };
     private:
         GameState state_;
+
+        MainMenu* pMainMenu_;
     public:
         GameTask(const unsigned int priority);
         virtual ~GameTask();

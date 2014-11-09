@@ -117,6 +117,9 @@
     <ClCompile Include="src\Game\GameTask.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\Scenes\MainMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Framework\Kernel\Kernel.h">
@@ -290,12 +293,27 @@
     <ClInclude Include="src\Framework\Scene\iScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Game\Scenes\MainMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Ids\EventIds.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Ids\TextureIds.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Ids\SpriteIds.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="bin\data\textures\sample.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="data\textures\sample.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\textures\main_menu_sprite_sheet.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
