@@ -26,6 +26,13 @@ SpriteD3D::~SpriteD3D() {
     }
 }
 
+void SpriteD3D::setUVCoords(float minU, float maxU, float minV, float maxV) {
+    setUVCoords(0 , minU, minV);
+    setUVCoords(1 , maxU, minV);
+    setUVCoords(2 , maxU, maxV);
+    setUVCoords(3 , minU, maxV);
+}
+
 void SpriteD3D::setUVCoords(int index, float u, float v) {
     vertices_[index].u = u;
     vertices_[index].v = v;
