@@ -29,13 +29,14 @@ class SpriteD3D : public iSprite {
         void createVertexBuffer();
 
     protected:
+        virtual void setUVCoords(int index, float u, float v);
         virtual void applySettings();
 
     public:
         SpriteD3D();
         virtual ~SpriteD3D();
 
-        virtual void setUVCoords(int index, float u, float v);
+        virtual void setUVCoords(float minU, float maxU, float minV, float maxV);
         virtual void render();
 
         virtual void setup(Texture *texture, SpriteAlign align, float h, float w) = 0;

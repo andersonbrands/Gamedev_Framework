@@ -31,13 +31,14 @@ namespace Framework {
             iSprite() {}
             virtual ~iSprite() {}
 
-            virtual void setUVCoords(int index, float u, float v) = 0;
+            virtual void setUVCoords(float minU, float maxU, float minV, float maxV) = 0;
             virtual void setup(Texture *texture, SpriteAlign align, float h, float w) = 0;
 
             virtual void render() = 0;
 
         protected:
             virtual void applySettings() = 0;
+            virtual void setUVCoords(int index, float u, float v) = 0;
             Texture *pTexture_;
             SpriteAlign align_;
             float height_;
