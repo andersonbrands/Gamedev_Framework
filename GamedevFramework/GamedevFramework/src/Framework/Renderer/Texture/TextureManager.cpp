@@ -23,5 +23,7 @@ namespace Framework {
             result->load(TEXTURE_DIR, idAndName.name);
         return result;
     }
-
+    void TextureManager::unloadTexture(const TextureIdAndName &idAndName) {
+        removeObject(idAndName.id);
+    }
 }

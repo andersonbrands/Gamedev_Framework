@@ -30,6 +30,7 @@ namespace Framework {
             }
 
             Texture* loadTexture(const TextureIdAndName &idAndName);
+            void unloadTexture(const TextureIdAndName &idAndName);
 
             Texture* getTexture(const TextureId &id) {
                 return getObject(id);
