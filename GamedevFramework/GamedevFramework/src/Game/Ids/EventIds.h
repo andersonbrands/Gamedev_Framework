@@ -10,8 +10,13 @@
 
 #include "../../Framework/EventManager/EventId.h"
 
+using namespace Framework;
+
 namespace ev {
-    // static const EventId EVENT_NAME	= EVENT_ID_OFFSET + value;
+
+    namespace id {
+        // static const EventId EVENT_NAME	= EVENT_ID_OFFSET + value;
+    }
 }
 
 #endif // EVENT_IDS_H_
