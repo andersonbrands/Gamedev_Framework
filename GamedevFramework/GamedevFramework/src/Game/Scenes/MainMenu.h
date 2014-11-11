@@ -16,8 +16,6 @@ using namespace Framework;
 
 class MainMenu : public iScene, public EventHandler {
     private:
-        Sprite* pBackground_;
-        Sprite* pGameName_;
 
     public:
         MainMenu();
