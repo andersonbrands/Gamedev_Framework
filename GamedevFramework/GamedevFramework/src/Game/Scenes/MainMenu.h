@@ -18,8 +18,6 @@ class MainMenu : public iScene, public EventHandler {
     private:
         Sprite* pBackground_;
         Sprite* pGameName_;
-        Sprite* pPlayBt_;
-        Sprite* pSettingBt_;
 
     public:
         MainMenu();
