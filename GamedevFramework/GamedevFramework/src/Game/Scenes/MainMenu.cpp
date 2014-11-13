@@ -13,6 +13,8 @@
 #include "../../Framework/EventManager/EventId.h"
 #include "../Ids/TextureIds.h"
 #include "../Ids/SpriteIds.h"
+#include "../Ids/EventIds.h"
+#include "../../Framework/Input/InputManager.h"
 
 MainMenu::MainMenu() : pBackground_(nullptr), pGameName_(nullptr), pPlayBt_(nullptr), pSettingBt_(nullptr) {
 
@@ -52,7 +54,13 @@ void MainMenu::init() {
     attachEvent(ev::id::PRE_RENDER_EVENT, *this);
 }
 void MainMenu::update() {
+    auto pInput(InputManager::getInstancePtr());
 
+    assert(pInput);
+
+    if (pInput->getKeyboard()->onKeyUp(DIK_P)) {
+        sendEvent(game::ev::id::PLAY_BT_PRESSED);
+    }
 }
 
 void MainMenu::handleEvent(Event* pEvent) {
@@ -85,6 +93,9 @@ void MainMenu::unload() {
     assert(texManager);
 
     texManager->unloadTexture(tex::MAIN_MENU_SPR_SHEET);
+
+    detachEvent(ev::id::RENDER_EVENT, *this);
+    detachEvent(ev::id::PRE_RENDER_EVENT, *this);
 }
 void MainMenu::dispose() {
 

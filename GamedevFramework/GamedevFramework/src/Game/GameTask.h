@@ -10,10 +10,12 @@
 
 #include "../Framework/Kernel/Task.h"
 #include "Scenes\MainMenu.h"
+#include "Scenes\InGame.h"
+#include "../Framework/EventManager/EventHandler.h"
 
 using namespace Framework;
 
-class GameTask : public Task {
+class GameTask : public Task, public EventHandler {
         enum GameState {
             MAIN_MENU,
             IN_GAME
@@ -21,7 +23,10 @@ class GameTask : public Task {
     private:
         GameState state_;
 
-        MainMenu* pMainMenu_;
+        iScene* pCurrentScene_;
+        void initCurrentScene();
+        void disposeCurrentScene();
+
     public:
         GameTask(const unsigned int priority);
         virtual ~GameTask();
@@ -31,6 +36,8 @@ class GameTask : public Task {
         virtual void 	update();
         virtual void 	onResume();
         virtual void 	stop();
+
+        virtual void handleEvent(Event* pEvent);
 };
 
 #endif // GAME_TASK_H_

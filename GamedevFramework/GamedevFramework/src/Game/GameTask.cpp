@@ -6,24 +6,27 @@
 ***************************************************************************************/
 
 #include "GameTask.h"
+#include "../Framework/EventManager/EventManager.h"
+#include "Ids\EventIds.h"
 
-GameTask::GameTask(const unsigned int priority) : Task(priority), state_(MAIN_MENU), pMainMenu_(nullptr) {
+GameTask::GameTask(const unsigned int priority) : Task(priority), state_(MAIN_MENU), pCurrentScene_(nullptr) {
 
 }
 
 GameTask::~GameTask() {
-    if (pMainMenu_) {
-        delete pMainMenu_;
-        pMainMenu_ = nullptr;
+    if (pCurrentScene_) {
+        disposeCurrentScene();
     }
 }
 
 bool GameTask::start() {
-    pMainMenu_ = new MainMenu();
+    registerEvent(game::ev::id::PLAY_BT_PRESSED);
+    attachEvent(game::ev::id::PLAY_BT_PRESSED, *this);
 
-    pMainMenu_->load();
-    pMainMenu_->init();
+    registerEvent(game::ev::id::BACK_TO_MAIN_MENU);
+    attachEvent(game::ev::id::BACK_TO_MAIN_MENU, *this);
 
+    initCurrentScene();
     return true;
 }
 
@@ -33,15 +36,9 @@ void GameTask::onSuspend() {
 
 void GameTask::update() {
     if (isSuspended()) return;
+    assert(pCurrentScene_);
+    pCurrentScene_->update();
 
-    switch (state_) {
-        case MAIN_MENU:
-            break;
-        case IN_GAME:
-            break;
-        default:
-            break;
-    }
 }
 
 void GameTask::onResume() {
@@ -50,4 +47,44 @@ void GameTask::onResume() {
 
 void GameTask::stop() {
 
+}
+
+void GameTask::handleEvent(Event* pEvent) {
+    switch (pEvent->getID()) {
+        case game::ev::id::PLAY_BT_PRESSED:
+            disposeCurrentScene();
+            state_ = IN_GAME;
+            initCurrentScene();
+            break;
+        case game::ev::id::BACK_TO_MAIN_MENU:
+            disposeCurrentScene();
+            state_ = MAIN_MENU;
+            initCurrentScene();
+            break;
+        default:
+            break;
+    }
+}
+
+void GameTask::initCurrentScene() {
+    switch (state_) {
+        case GameTask::MAIN_MENU:
+            pCurrentScene_ = new MainMenu();
+            break;
+        case GameTask::IN_GAME:
+            pCurrentScene_ = new InGame();
+            break;
+        default:
+            break;
+    }
+
+    pCurrentScene_->load();
+    pCurrentScene_->init();
+}
+void GameTask::disposeCurrentScene() {
+    assert(pCurrentScene_);
+    pCurrentScene_->unload();
+    pCurrentScene_->dispose();
+    delete pCurrentScene_;
+    pCurrentScene_ = nullptr;
 }

@@ -59,6 +59,8 @@ namespace Framework {
 
                         added = addedIter.second;
                     }
+                } else {
+                    return iter->second;
                 }
 
                 if (added) {
