@@ -251,7 +251,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\Framework\Utilities\Color.h" />
+    <ClInclude Include="src\Framework\Utilities\Functors.h" />
     <ClInclude Include="src\Framework\Utilities\iTimer.h" />
+    <ClInclude Include="src\Framework\Utilities\PoolAllocator.h" />
+    <ClInclude Include="src\Framework\Utilities\PoolObject.h" />
     <ClInclude Include="src\Framework\Utilities\Singleton.h" />
     <ClInclude Include="src\Framework\Utilities\Timer.h" />
     <ClInclude Include="src\Framework\Utilities\UnorderedMapContainer.h" />
