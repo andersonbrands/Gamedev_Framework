@@ -19,10 +19,7 @@ GameApplication::GameApplication(): Application(), pGameTask_(nullptr) {
 }
 
 GameApplication::~GameApplication() {
-    if (pGameTask_) {
-        delete pGameTask_;
-        pGameTask_ = nullptr;
-    }
+
 }
 
 bool GameApplication::initialize() {
@@ -59,6 +56,11 @@ void GameApplication::createSingletons() {
     new SpriteManager();
 }
 void GameApplication::destroySingletons() {
+    if (pGameTask_) {
+        delete pGameTask_;
+        pGameTask_ = nullptr;
+    }
+
     assert(SpriteManager::getInstancePtr());
     delete SpriteManager::getInstancePtr();
 
