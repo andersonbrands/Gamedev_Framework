@@ -53,6 +53,15 @@ namespace Framework {
         z_ = z;
     }
 
+    void Vector3::set(float value) {
+        x_ = y_ = z_ = value;
+    }
+    void Vector3::set(float x, float y, float z) {
+        x_ = x;
+        y_ = y;
+        z_ = z;
+    }
+
     // operators
     Vector3 Vector3::operator +( const Vector3& rhs ) const {
         return Vector3(x_ + rhs.x_, y_ + rhs.y_, z_ + rhs.z_);

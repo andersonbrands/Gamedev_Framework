@@ -36,6 +36,8 @@ namespace Framework {
             void setX(const float x );
             void setY(const float y );
             void setZ(const float z );
+            void set(float value);
+            void set(float x, float y, float z);
 
             // operators
             Vector3 operator +( const Vector3& rhs ) const;
