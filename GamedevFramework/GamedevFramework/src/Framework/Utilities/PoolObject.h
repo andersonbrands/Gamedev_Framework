@@ -8,20 +8,24 @@
 #ifndef POOL_OBJECT_H_
 #define POOL_OBJECT_H_
 
-class PoolObject {
-    private:
-        bool free_;
-    public:
-        PoolObject();
-        virtual ~PoolObject();
+namespace Framework {
 
-        bool isFree() const {
-            return free_;
-        }
+    class PoolObject {
+        private:
+            bool free_;
+        public:
+            PoolObject() : free_(true) {}
+            virtual ~PoolObject() {}
 
-        void setIsFree(bool free) {
-            free_ = free;
-        }
-};
+            bool isFree() const {
+                return free_;
+            }
+
+            void setIsFree(bool free) {
+                free_ = free;
+            }
+    };
+
+}
 
 #endif // POOL_OBJECT_H_
