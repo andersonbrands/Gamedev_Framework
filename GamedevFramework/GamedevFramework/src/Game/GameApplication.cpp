@@ -13,9 +13,10 @@
 #include "../Framework/Input/InputManager.h"
 #include "../Framework/Renderer/Texture/TextureManager.h"
 #include "../Framework/Renderer/Sprite/SpriteManager.h"
+#include "../Framework/Utilities/Utils.h"
 
 GameApplication::GameApplication(): Application(), pGameTask_(nullptr) {
-
+    seed();
 }
 
 GameApplication::~GameApplication() {
