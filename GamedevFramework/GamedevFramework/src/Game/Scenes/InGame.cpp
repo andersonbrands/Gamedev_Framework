@@ -42,6 +42,7 @@ void InGame::update() {
 
     if (pInput->getKeyboard()->onKeyUp(DIK_B)) {
         sendEvent(game::ev::id::BACK_TO_MAIN_MENU);
+        return;
     }
 
     starDust_.update();
