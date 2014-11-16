@@ -43,7 +43,7 @@ namespace Framework {
 
         private:
             TimeUnits	timeLastFrame_;
-            int			frameDt_;// delta frame in miliseconds
+            TimeUnits	frameDt_;// delta frame in miliseconds
             float		simulationMultiplier_;
             TimeUnits	gameTime_;// game time in miliseconds
 
