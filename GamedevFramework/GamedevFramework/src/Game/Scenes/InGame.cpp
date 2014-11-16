@@ -52,7 +52,7 @@ void InGame::unload() {
     auto texManager(TextureManager::getInstancePtr());
     assert(texManager);
 
-    texManager->unloadTexture(tex::MAIN_MENU_SPR_SHEET);
+    texManager->unloadTexture(tex::IN_GAME_SPR_SHEET);
 
     detachEvent(ev::id::RENDER_EVENT, *this);
     detachEvent(ev::id::PRE_RENDER_EVENT, *this);
