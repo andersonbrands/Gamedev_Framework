@@ -7,6 +7,7 @@
 
 #include "Star.h"
 #include "../../Framework/Utilities/Utils.h"
+#include "../../Framework/Utilities/Timer.h"
 
 Star::Star() : PoolObject(), pos_(), scale_(), rotation_() {
     setIsFree(false);
@@ -16,12 +17,14 @@ Star::~Star() {
 
 }
 
-void Star::spawn() {
+void Star::spawn(bool atTop /* = false*/) {
     float posX		= rand_float(-24.0f, 24.0f);
-    float posY		= rand_float(-16.0f, 16.0f);
     float scaleX	= rand_float(0.2f, 0.35f);
     float scaleY	= rand_float(0.2f, 0.35f);
     float rotation	= rand_float(0.0f, 6.28f);
+
+    float posY(16.0f);
+    if (!atTop) posY = rand_float(-16.0f, 16.0f);
 
     spawn(posX, posY, scaleX, scaleY, rotation);
 }
@@ -33,5 +36,10 @@ void Star::spawn(float posX, float posY, float scaleX, float scaleY, float rotat
 }
 
 void Star::update() {
-
+    auto pTimer(Timer::getInstancePtr());
+    assert(pTimer);
+    pos_ += Vector3(0.0f, -2.0f * pTimer->getTimeSim(), 0.0f);
+    if (pos_.getY() < -16.0f) {
+        spawn(true);
+    }
 }

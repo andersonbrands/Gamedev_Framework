@@ -34,7 +34,7 @@ class Star : public PoolObject {
             return rotation_;
         }
 
-        void spawn();
+        void spawn(bool atTop = false);
         void spawn(float posX, float posY, float scaleX, float scaleY, float rotation);
 
         void update();

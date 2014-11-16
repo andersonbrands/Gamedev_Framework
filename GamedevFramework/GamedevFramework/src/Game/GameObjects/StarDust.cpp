@@ -40,7 +40,14 @@ void StarDust::init() {
 }
 
 void StarDust::update() {
-
+    auto iter(objects_.begin());
+    while (iter!=objects_.end()) {
+        Star* pStar(*iter);
+        if (!pStar->isFree()) {
+            pStar->update();
+        }
+        ++iter;
+    }
 }
 void StarDust::render() const {
     auto renderer(Renderer::getInstancePtr());
@@ -54,7 +61,7 @@ void StarDust::render() const {
             renderer->setTransform(pStar->getPos(), pStar->getScale(), pStar->getRotation());
             pStarSprite_->render();
         }
-        iter++;
+        ++iter;
     }
 
 }
