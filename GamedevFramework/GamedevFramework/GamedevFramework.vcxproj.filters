@@ -349,5 +349,8 @@
     <Image Include="data\textures\main_menu_sprite_sheet.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="data\textures\in_game_sprite_sheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

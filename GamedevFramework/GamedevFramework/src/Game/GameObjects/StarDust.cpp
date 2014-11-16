@@ -29,10 +29,10 @@ void StarDust::init() {
     auto texManager(TextureManager::getInstancePtr());
     assert(texManager);
 
-    auto pTexture(texManager->getTexture(tex::MAIN_MENU_SPR_SHEET.id));
+    auto pTexture(texManager->getTexture(tex::IN_GAME_SPR_SHEET.id));
 
     // configure sprite
-    pStarSprite_->setUVCoords(0.9375f, 0.943f, 0.0f, 0.0058f);
+    pStarSprite_->setUVCoords(0.9902f, 1.0f, 0.0f, 0.0097f);
     pStarSprite_->setup(pTexture, SpriteAlign::CENTER, 1.0f, 1.0f);
 
     Spawn sp;

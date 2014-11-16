@@ -24,8 +24,8 @@ InGame::~InGame() {
 void InGame::load() {
     auto texManager(TextureManager::getInstancePtr());
     assert(texManager);
-    // TODO: create a new texture for this scene
-    Texture* pTexture = texManager->loadTexture(tex::MAIN_MENU_SPR_SHEET);
+
+    Texture* pTexture = texManager->loadTexture(tex::IN_GAME_SPR_SHEET);
 }
 
 void InGame::init() {
