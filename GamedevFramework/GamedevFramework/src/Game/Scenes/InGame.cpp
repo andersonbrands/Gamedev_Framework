@@ -8,9 +8,10 @@
 #include "InGame.h"
 #include "../../Framework/Input/InputManager.h"
 #include "../../Framework/EventManager/EventManager.h"
+#include "../../Framework/Renderer/Renderer.h"
 #include "../Ids/EventIds.h"
 
-InGame::InGame() {
+InGame::InGame() : iScene(), starDust_(200) {
 
 }
 
@@ -23,7 +24,10 @@ void InGame::load() {
 }
 
 void InGame::init() {
+    starDust_.init();
 
+    attachEvent(ev::id::RENDER_EVENT, *this);
+    attachEvent(ev::id::PRE_RENDER_EVENT, *this);
 }
 
 void InGame::update() {
@@ -37,9 +41,29 @@ void InGame::update() {
 }
 
 void InGame::unload() {
-
+    detachEvent(ev::id::RENDER_EVENT, *this);
+    detachEvent(ev::id::PRE_RENDER_EVENT, *this);
 }
 
 void InGame::dispose() {
+
+}
+
+void InGame::handleEvent(Event* pEvent) {
+    switch (pEvent->getID()) {
+        case ev::id::RENDER_EVENT: {
+            starDust_.render();
+            break;
+        }
+        case ev::id::PRE_RENDER_EVENT: {
+            auto pRenderer = Renderer::getInstancePtr();
+            assert(pRenderer);
+            pRenderer->setupViewMatrix(Vector3(0.0f), Vector3(0.0f, 0.0f, 1.0f), Vector3(0.0f, 1.0f, 0.0f));
+            pRenderer->setupLHOrthogonalProjectionMatrix(48.0f, 32.0f, -1.0f, 4.0f);
+            break;
+        }
+        default:
+            break;
+    }
 
 }

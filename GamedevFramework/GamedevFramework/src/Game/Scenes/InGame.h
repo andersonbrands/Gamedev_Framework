@@ -9,11 +9,15 @@
 #define IN_GAME_H_
 
 #include "../../Framework/Scene/iScene.h"
+#include "../GameObjects/StarDust.h"
+#include "../../Framework/EventManager/EventHandler.h"
 
 using namespace Framework;
 
-class InGame : public iScene {
+
+class InGame : public iScene, public EventHandler {
     private:
+        StarDust starDust_;
     public:
         InGame();
         virtual ~InGame();
@@ -23,6 +27,8 @@ class InGame : public iScene {
         virtual void update();
         virtual void unload();
         virtual void dispose();
+
+        virtual void handleEvent(Event* pEvent);
 };
 
 #endif // IN_GAME_H_

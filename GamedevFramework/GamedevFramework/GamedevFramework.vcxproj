@@ -132,7 +132,19 @@
     </ClCompile>
     <ClCompile Include="src\Framework\Renderer\Texture\TextureManager.cpp" />
     <ClCompile Include="src\Framework\Utilities\Timer.cpp" />
+    <ClCompile Include="src\Framework\Utilities\Utils.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Game\GameApplication.cpp" />
+    <ClCompile Include="src\Game\GameObjects\Star.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameObjects\StarDust.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Game\GameTask.cpp">
       <SubType>
       </SubType>
@@ -218,6 +230,10 @@
     <ClInclude Include="src\Framework\Platform\iPlatform.h" />
     <ClInclude Include="src\Framework\Platform\Platform.h" />
     <ClInclude Include="src\Framework\Renderer\iRenderer.h" />
+    <ClInclude Include="src\Framework\Renderer\Renderable.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Framework\Renderer\Renderer.h" />
     <ClInclude Include="src\Framework\Renderer\Sprite\iSprite.h">
       <SubType>
@@ -264,6 +280,14 @@
     </ClInclude>
     <ClInclude Include="src\Framework\Wrapper.h" />
     <ClInclude Include="src\Game\GameApplication.h" />
+    <ClInclude Include="src\Game\GameObjects\Star.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\StarDust.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Game\GameTask.h">
       <SubType>
       </SubType>
