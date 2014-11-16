@@ -9,7 +9,9 @@
 #include "../../Framework/Input/InputManager.h"
 #include "../../Framework/EventManager/EventManager.h"
 #include "../../Framework/Renderer/Renderer.h"
+#include "../../Framework/Renderer/Texture/TextureManager.h"
 #include "../Ids/EventIds.h"
+#include "../Ids/TextureIds.h"
 
 InGame::InGame() : iScene(), starDust_(200) {
 
@@ -20,7 +22,10 @@ InGame::~InGame() {
 }
 
 void InGame::load() {
-
+    auto texManager(TextureManager::getInstancePtr());
+    assert(texManager);
+    // TODO: create a new texture for this scene
+    Texture* pTexture = texManager->loadTexture(tex::MAIN_MENU_SPR_SHEET);
 }
 
 void InGame::init() {
@@ -41,6 +46,11 @@ void InGame::update() {
 }
 
 void InGame::unload() {
+    auto texManager(TextureManager::getInstancePtr());
+    assert(texManager);
+
+    texManager->unloadTexture(tex::MAIN_MENU_SPR_SHEET);
+
     detachEvent(ev::id::RENDER_EVENT, *this);
     detachEvent(ev::id::PRE_RENDER_EVENT, *this);
 }

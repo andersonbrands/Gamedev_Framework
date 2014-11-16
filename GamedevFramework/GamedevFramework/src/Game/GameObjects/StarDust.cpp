@@ -28,8 +28,8 @@ void StarDust::init() {
 
     auto texManager(TextureManager::getInstancePtr());
     assert(texManager);
-    // TODO: create a new Texture
-    auto pTexture(texManager->loadTexture(tex::MAIN_MENU_SPR_SHEET));
+
+    auto pTexture(texManager->getTexture(tex::MAIN_MENU_SPR_SHEET.id));
 
     // configure sprite
     pStarSprite_->setUVCoords(0.9375f, 0.943f, 0.0f, 0.0058f);
