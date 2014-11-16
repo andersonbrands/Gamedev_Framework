@@ -9,12 +9,13 @@
 #include "TransformComponent.h"
 #include "../GameObject.h"
 #include "../../Utilities/Timer.h"
+#include "../../EventManager/EventManager.h"
 
 namespace Framework {
 
     MovementComponent::MovementComponent(GameObject* pOwner) :
         Component(pOwner), up_(0,1,0), forward_(0,0,1), right_(1,0,0), acceleration_(0), velocity_(0) {
-
+        attachEvent(ev::id::UPDATE, *this);
     }
 
     void MovementComponent::setup(const Vector3& up, const Vector3& forward, const Vector3& right) {
@@ -24,7 +25,7 @@ namespace Framework {
     }
 
     MovementComponent::~MovementComponent() {
-
+        detachEvent(ev::id::UPDATE, *this);
     }
 
     const Vector3 MovementComponent::getUp() {
@@ -94,6 +95,17 @@ namespace Framework {
         tr.translate(result);
 
         return result;
+    }
+
+    void MovementComponent::handleEvent(Event* pEvent) {
+        switch (pEvent->getID()) {
+            case ev::id::UPDATE: {
+                move();
+            }
+            break;
+            default:
+                break;
+        }
     }
 
 }

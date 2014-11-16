@@ -9,13 +9,14 @@
 #include "../ComponentId.h"
 #include "../../Math/Vector3.h"
 #include "../../Utilities/Utils.h"
+#include "../../EventManager/EventHandler.h"
 
 #ifndef MOVEMENT_COMPONENT_H_
 #define MOVEMENT_COMPONENT_H_
 
 namespace Framework {
 
-    class MovementComponent : public Component {
+    class MovementComponent : public Component, public EventHandler {
         private:
             Vector3 up_;
             Vector3 forward_;
@@ -48,6 +49,8 @@ namespace Framework {
             void accelerate(const Direction direction, float value);
 
             const Vector3 move();
+
+            void handleEvent(Event* pEvent);
     };
 
 }
