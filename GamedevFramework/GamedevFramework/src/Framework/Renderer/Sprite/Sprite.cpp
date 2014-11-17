@@ -6,6 +6,7 @@
 ***************************************************************************************/
 
 #include "Sprite.h"
+#include "../Texture/TextureManager.h"
 
 namespace Framework {
 
@@ -17,12 +18,20 @@ namespace Framework {
 
     }
 
-    void Sprite::setup(Texture *texture, SpriteAlign align, float h, float w) {
-        align_ = align;
-        height_ = h;
-        width_ = w;
+    void Sprite::setup(const Vector3& uuWidth, const Vector3& vvHeight, unsigned int textureId, SpriteAlign align) {
+        setUVCoords(uuWidth.getX(), uuWidth.getY(), vvHeight.getX(), vvHeight.getY());
 
-        pTexture_ = texture;
+        align_ = align;
+        height_ = vvHeight.getZ();
+        width_ = uuWidth.getZ();
+
+        auto texManager(TextureManager::getInstancePtr());
+        assert(texManager);
+
+        auto pTexture(texManager->getTexture(textureId));
+        assert(pTexture);
+
+        pTexture_ = pTexture;
 
         applySettings();
     }

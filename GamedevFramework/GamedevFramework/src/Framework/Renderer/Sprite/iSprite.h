@@ -8,6 +8,8 @@
 #ifndef I_SPRITE_H_
 #define I_SPRITE_H_
 
+#include "../../Math/Vector3.h"
+
 namespace Framework {
 
     class Texture;
@@ -26,19 +28,17 @@ namespace Framework {
 
     class iSprite {
         public:
-
-
             iSprite() {}
             virtual ~iSprite() {}
 
-            virtual void setUVCoords(float minU, float maxU, float minV, float maxV) = 0;
-            virtual void setup(Texture *texture, SpriteAlign align, float h, float w) = 0;
+            virtual void setup(const Vector3& uuWidth, const Vector3& vvHeight, unsigned int textureId, SpriteAlign align) = 0;
 
             virtual void render() = 0;
 
         protected:
             virtual void applySettings() = 0;
-            virtual void setUVCoords(int index, float u, float v) = 0;
+            virtual void setUVCoord(int index, float u, float v) = 0;
+            virtual void setUVCoords(float minU, float maxU, float minV, float maxV) = 0;
             Texture *pTexture_;
             SpriteAlign align_;
             float height_;

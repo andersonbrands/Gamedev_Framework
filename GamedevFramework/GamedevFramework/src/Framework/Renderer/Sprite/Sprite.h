@@ -9,6 +9,7 @@
 #define SPRITE_H_
 
 #include "../../Wrapper.h"
+#include "../../Math/Vector3.h"
 
 namespace Framework {
 
@@ -18,7 +19,7 @@ namespace Framework {
             Sprite();
             virtual ~Sprite();
 
-            void setup(Texture *texture, SpriteAlign align, float h, float w);
+            virtual void setup(const Vector3& uuWidth, const Vector3& vvHeight, unsigned int textureId, SpriteAlign align);
     };
 
 }

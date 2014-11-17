@@ -29,17 +29,17 @@ class SpriteD3D : public iSprite {
         void createVertexBuffer();
 
     protected:
-        virtual void setUVCoords(int index, float u, float v);
+        virtual void setUVCoord(int index, float u, float v);
         virtual void applySettings();
+        virtual void setUVCoords(float minU, float maxU, float minV, float maxV);
 
     public:
         SpriteD3D();
         virtual ~SpriteD3D();
 
-        virtual void setUVCoords(float minU, float maxU, float minV, float maxV);
         virtual void render();
 
-        virtual void setup(Texture *texture, SpriteAlign align, float h, float w) = 0;
+        virtual void setup(const Vector3& uuWidth, const Vector3& vvHeight, unsigned int textureId, SpriteAlign align) = 0;
 };
 
 #endif // SPRITE_D3D_H_
