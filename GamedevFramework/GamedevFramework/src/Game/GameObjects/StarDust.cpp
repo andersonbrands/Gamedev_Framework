@@ -21,19 +21,11 @@ StarDust::~StarDust() {
 }
 
 void StarDust::init() {
-    auto sprManager(SpriteManager::getInstancePtr());
-    assert(sprManager);
-    pStarSprite_ = sprManager->addSprite(spr::STAR_SPRITE);
+    pStarSprite_ = SpriteManager::getInstancePtr()->addSprite(spr::STAR_SPRITE);
     assert(pStarSprite_);
 
-    auto texManager(TextureManager::getInstancePtr());
-    assert(texManager);
-
-    auto pTexture(texManager->getTexture(tex::IN_GAME_SPR_SHEET.id));
-
     // configure sprite
-    pStarSprite_->setUVCoords(0.9903f, 1.0f, 0.0f, 0.0097f);
-    pStarSprite_->setup(pTexture, SpriteAlign::CENTER, 1.0f, 1.0f);
+    pStarSprite_->setup(Vector3(0.9903f, 1.0f, 1.0f), Vector3(0.0f, 0.0097f, 1.0f), tex::IN_GAME_SPR_SHEET.id, SpriteAlign::CENTER);
 
     Spawn sp;
     for_each(objects_.begin(), objects_.end(), sp);

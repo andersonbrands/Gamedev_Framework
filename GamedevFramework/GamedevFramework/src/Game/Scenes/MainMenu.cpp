@@ -34,20 +34,16 @@ void MainMenu::load() {
     assert(sprManager);
 
     pBackground_	= sprManager->addSprite(spr::MAIN_MENU_BACKGROUND);
-    pBackground_->setUVCoords(0.0f, 0.937f, 0.0f, 0.625f);
-    pBackground_->setup(pTexture, SpriteAlign::CENTER, 32.0f, 48.0f);
+    pBackground_->setup(Vector3(0.0f, 0.937f, 48.0f), Vector3(0.0f, 0.625f, 32.0f), tex::MAIN_MENU_SPR_SHEET.id, SpriteAlign::CENTER);
 
     pGameName_		= sprManager->addSprite(spr::MAIN_MENU_GAME_NAME);
-    pGameName_->setUVCoords(0.0f, 0.468f, 0.625f, 0.781f);
-    pGameName_->setup(pTexture, SpriteAlign::CENTER_TOP, 8.0f, 24.0f);
+    pGameName_->setup(Vector3(0.0f, 0.468f, 24.0f), Vector3(0.625f, 0.781f, 8.0f), tex::MAIN_MENU_SPR_SHEET.id, SpriteAlign::CENTER_TOP);
 
     pPlayBt_		= sprManager->addSprite(spr::MAIN_MENU_PLAY_BT);
-    pPlayBt_->setUVCoords(0.0f, 0.195f, 0.781f, 0.843f);
-    pPlayBt_->setup(pTexture, SpriteAlign::CENTER, 3.2f, 10.0f);
+    pPlayBt_->setup(Vector3(0.0f, 0.195f, 10.0f), Vector3(0.781f, 0.843f, 3.2f), tex::MAIN_MENU_SPR_SHEET.id, SpriteAlign::CENTER);
 
     pSettingBt_		= sprManager->addSprite(spr::MAIN_MENU_SETTINGS_BT);
-    pSettingBt_->setUVCoords(0.0f, 0.195f, 0.843f, 0.906f);
-    pSettingBt_->setup(pTexture, SpriteAlign::CENTER_TOP, 3.2f, 10.0f);
+    pSettingBt_->setup(Vector3(0.0f, 0.195f, 10.0f), Vector3(0.843f, 0.906f, 3.2f), tex::MAIN_MENU_SPR_SHEET.id, SpriteAlign::CENTER_TOP);
 }
 void MainMenu::init() {
     attachEvent(ev::id::RENDER_EVENT, *this);
