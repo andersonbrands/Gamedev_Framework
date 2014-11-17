@@ -14,6 +14,7 @@
 
 #include "../Math/Vector3.h"
 #include "../Math/Matrix4.h"
+#include "../Math/Transform.h"
 #include "../Utilities/Color.h"
 
 namespace Framework {
@@ -24,6 +25,7 @@ namespace Framework {
             explicit iRenderer(const unsigned int priority): Task( priority ) {}
             virtual ~iRenderer() {}
 
+            virtual void setTransform(const Transform& transform) = 0;
             virtual void setTransform(const Matrix4& matrix) = 0;
             virtual void setTransform(const Vector3& pos, const Vector3& scale, const Vector3& rotation) = 0;
             virtual void setupViewMatrix(const Vector3& camPos, const Vector3& camTarget, const Vector3& upVector = Vector3(0.0f, 0.1f, 0.0f)) = 0;

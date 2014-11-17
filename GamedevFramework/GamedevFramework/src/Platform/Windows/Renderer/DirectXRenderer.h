@@ -30,6 +30,7 @@ class DirectXRenderer : public iRenderer {
         explicit DirectXRenderer(const unsigned int priority);
         virtual ~DirectXRenderer();
 
+        virtual void setTransform(const Transform& transform);
         virtual void setTransform(const Matrix4& matrix);
         virtual void setTransform(const Vector3& pos, const Vector3& scale, const Vector3& rotation);
         virtual void setupViewMatrix(const Vector3& camPos, const Vector3& camTarget, const Vector3& upVector = Vector3(0.0f, 0.1f, 0.0f) );

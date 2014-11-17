@@ -25,6 +25,9 @@ DirectXRenderer::~DirectXRenderer() {
     unregisterEvent(ev::id::POST_RENDER_EVENT);
 }
 
+void DirectXRenderer::setTransform(const Transform& transform) {
+    setTransform(transform.getTranslation(), transform.getScale(), transform.getRotation());
+}
 
 void DirectXRenderer::setTransform(const Matrix4& matrix) {
     D3DMATRIX worldMat;
@@ -45,7 +48,6 @@ void DirectXRenderer::setTransform(const Matrix4& matrix) {
     worldMat._42 = matrix.get(7);// y'
     worldMat._43 = matrix.get(11);// z'
     worldMat._44 = matrix.get(15);
-
 
     pWin_->getDevice()->SetTransform(D3DTS_WORLD, &worldMat);
 }
