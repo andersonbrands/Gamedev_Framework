@@ -21,6 +21,7 @@ PlayerShip::PlayerShip() {
 
 PlayerShip::~PlayerShip() {
     detachEvent(ev::id::PRE_UPDATE, *this);
+	detachEvent(ev::id::RENDER_EVENT, *this);
 }
 
 void PlayerShip::init() {
