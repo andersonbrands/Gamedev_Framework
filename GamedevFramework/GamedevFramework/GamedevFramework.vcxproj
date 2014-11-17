@@ -137,6 +137,14 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="src\Game\GameApplication.cpp" />
+    <ClCompile Include="src\Game\GameObjects\PlayerShip.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameObjects\Ship.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Game\GameObjects\Star.cpp">
       <SubType>
       </SubType>
@@ -280,6 +288,14 @@
     </ClInclude>
     <ClInclude Include="src\Framework\Wrapper.h" />
     <ClInclude Include="src\Game\GameApplication.h" />
+    <ClInclude Include="src\Game\GameObjects\PlayerShip.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\Ship.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Game\GameObjects\Star.h">
       <SubType>
       </SubType>

@@ -20,6 +20,7 @@ namespace spr {
     static const SpriteId MAIN_MENU_PLAY_BT		= 3;
     static const SpriteId MAIN_MENU_SETTINGS_BT	= 4;
     static const SpriteId STAR_SPRITE			= 5;
+    static const SpriteId PLAYER_SHIP_SPRITE	= 6;
 }
 
 #endif // SPRITE_IDS_H_

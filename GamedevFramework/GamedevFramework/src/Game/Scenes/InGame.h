@@ -10,6 +10,7 @@
 
 #include "../../Framework/Scene/iScene.h"
 #include "../GameObjects/StarDust.h"
+#include "../GameObjects/PlayerShip.h"
 #include "../../Framework/EventManager/EventHandler.h"
 
 using namespace Framework;
@@ -18,6 +19,7 @@ using namespace Framework;
 class InGame : public iScene, public EventHandler {
     private:
         StarDust starDust_;
+        PlayerShip playerShip_;
     public:
         InGame();
         virtual ~InGame();
