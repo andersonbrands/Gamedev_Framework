@@ -26,6 +26,9 @@ bool GameTask::start() {
     registerEvent(game::ev::id::BACK_TO_MAIN_MENU);
     attachEvent(game::ev::id::BACK_TO_MAIN_MENU, *this);
 
+    registerEvent(ev::id::UPDATE);
+    registerEvent(ev::id::PRE_UPDATE);
+
     initCurrentScene();
     return true;
 }
@@ -36,9 +39,12 @@ void GameTask::onSuspend() {
 
 void GameTask::update() {
     if (isSuspended()) return;
+
+    sendEvent(ev::id::PRE_UPDATE);
+
     assert(pCurrentScene_);
     pCurrentScene_->update();
-
+    sendEvent(ev::id::UPDATE);
 }
 
 void GameTask::onResume() {
