@@ -56,22 +56,22 @@ namespace Framework {
     }
     void MovementComponent::accelerate(const Direction direction, float value) {
         switch (direction) {
-            case dir::FORWARD:
+            case Direction::FORWARD:
                 accelerate(forward_ * value);
                 break;
-            case dir::BACKWARD:
+            case Direction::BACKWARD:
                 accelerate(forward_ * (-value));
                 break;
-            case dir::UP:
+            case Direction::UP:
                 accelerate(up_ * value);
                 break;
-            case dir::DOWN:
+            case Direction::DOWN:
                 accelerate(up_ * (-value));
                 break;
-            case dir::RIGHT:
+            case Direction::RIGHT:
                 accelerate(right_ * value);
                 break;
-            case dir::LEFT:
+            case Direction::LEFT:
                 accelerate(right_ * (-value));
                 break;
             default:

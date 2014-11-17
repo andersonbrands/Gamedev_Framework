@@ -12,12 +12,11 @@
 #include <ctime>
 
 namespace Framework {
-    enum Direction;
-    namespace dir {
-        enum Direction {
-            FORWARD, BACKWARD, UP, DOWN, RIGHT, LEFT
-        };
-    }
+
+    enum Direction {
+        FORWARD, BACKWARD, UP, DOWN, RIGHT, LEFT
+    };
+
 
     void seed();
     int rand_int(int, int);
