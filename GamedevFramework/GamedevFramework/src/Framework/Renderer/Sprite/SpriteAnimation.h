@@ -30,7 +30,7 @@ namespace Framework {
 
             vector<Sprite*> spriteV_;
         public:
-            SpriteAnimation(unsigned int totalFrames, float fps);
+            SpriteAnimation(unsigned int totalFrames, float fps, bool loop);
             virtual ~SpriteAnimation();
 
             void addFrame(Sprite* pSprite);
