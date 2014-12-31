@@ -11,6 +11,10 @@
 
 namespace Framework {
 
+	SpriteAnimation::SpriteAnimation(unsigned int totalFrames, float fps) : totalFrames_(totalFrames), currentFrame_(0), fps_(fps), spf_(1/fps), loop_(true), playing_(false), deltaTime_(0.0f), spriteV_() {
+        spriteV_.reserve(totalFrames_);
+    }
+
     SpriteAnimation::SpriteAnimation(unsigned int totalFrames, float fps, bool loop) : totalFrames_(totalFrames), currentFrame_(0), fps_(fps), spf_(1/fps), loop_(loop), playing_(false), deltaTime_(0.0f), spriteV_() {
         spriteV_.reserve(totalFrames_);
     }
