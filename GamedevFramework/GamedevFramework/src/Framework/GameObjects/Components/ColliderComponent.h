@@ -19,7 +19,7 @@ namespace Framework {
 
     class ColliderComponent : public Component, public EventHandler {
         private:
-            Collider* collider_;
+            Collider* pCollider_;
         public:
             ColliderComponent(GameObject* pOwner);
             virtual ~ColliderComponent();
@@ -31,7 +31,7 @@ namespace Framework {
             bool collides(ColliderComponent* pCollider);
 
             Collider* getCollider() {
-                return collider_;
+                return pCollider_;
             }
     };
 

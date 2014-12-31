@@ -13,13 +13,13 @@
 
 namespace Framework {
 
-    ColliderComponent::ColliderComponent(GameObject* pOwner) : Component(pOwner), collider_(nullptr) {
+    ColliderComponent::ColliderComponent(GameObject* pOwner) : Component(pOwner), pCollider_(nullptr) {
 
     }
     ColliderComponent::~ColliderComponent() {
     }
 
     bool ColliderComponent::collides(ColliderComponent* pCollider) {
-        return collider_->collides(pCollider->getCollider());
+        return pCollider_->collides(pCollider->getCollider());
     }
 }
