@@ -86,13 +86,12 @@ namespace Framework {
 
         TransformComponent* pTransformComp(component_cast<TransformComponent>(*getOwner()));
         assert(pTransformComp);
-        Transform& tr(pTransformComp->getTransform());
 
         assert(Timer::getInstancePtr());
 
         Vector3 result(velocity_ * Timer::getInstancePtr()->getTimeSim());
 
-        tr.translate(result);
+        pTransformComp->translate(result);
 
         return result;
     }

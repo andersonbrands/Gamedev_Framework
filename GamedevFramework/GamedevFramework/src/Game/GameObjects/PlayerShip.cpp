@@ -30,12 +30,9 @@ void PlayerShip::init() {
 
     pSprite_->setup(Vector3(0.0f, 0.0566f, 2.9f), Vector3(0.0f, 0.0468f, 2.4f), tex::IN_GAME_SPR_SHEET.id, SpriteAlign::CENTER);
 
-    auto &tr(component_cast<TransformComponent>(this)->getTransform());
+    auto tr(component_cast<TransformComponent>(this));
 
-    tr.setTranslation(Vector3(0.0f, -13.5f, -0.1f));
-
-    component_cast<TransformComponent>(this)->getTransform();
-
+    tr->setTranslation(Vector3(0.0f, -13.5f, -0.1f));
 
     attachEvent(ev::id::PRE_UPDATE, *this);
     attachEvent(ev::id::RENDER_EVENT, *this);
@@ -54,7 +51,7 @@ void PlayerShip::handleEvent(Event* pEvent) {
         case ev::id::RENDER_EVENT: {
             auto pRenderer = Renderer::getInstancePtr();
             assert(pRenderer);
-            pRenderer->setTransform(component_cast<TransformComponent>(this)->getTransform());
+			pRenderer->setTransform(*static_cast<Transform*>(component_cast<TransformComponent>(this)));
 
             pSprite_->render();
             break;
