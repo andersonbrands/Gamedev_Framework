@@ -19,7 +19,8 @@ namespace Framework {
     }
 
     SpriteAnimationComponent::~SpriteAnimationComponent() {
-
+		detachEvent(ev::id::RENDER_EVENT, *this);
+        detachEvent(ev::id::UPDATE, *this);
     }
 
     void SpriteAnimationComponent::handleEvent(Event* pEvent) {

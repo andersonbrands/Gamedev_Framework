@@ -123,5 +123,13 @@ void MainMenu::unload() {
     detachEvent(ev::id::PRE_RENDER_EVENT, *this);
 }
 void MainMenu::dispose() {
+    if (pPlayBt_) {
+        delete pPlayBt_;
+        pPlayBt_ = nullptr;
+    }
 
+    if (pSettingBt_) {
+        delete pSettingBt_;
+        pSettingBt_ = nullptr;
+    }
 }
