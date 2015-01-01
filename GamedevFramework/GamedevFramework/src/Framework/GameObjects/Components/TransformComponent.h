@@ -17,7 +17,7 @@
 namespace Framework {
     class GameObject;
 
-    class TransformComponent: public Component {
+    class TransformComponent: public Component, public Transform {
         public:
             static ComponentId getId() {
                 return comp::TRANSFORM;
@@ -25,15 +25,7 @@ namespace Framework {
 
             explicit TransformComponent(GameObject* pOwner);
             virtual ~TransformComponent();
-
-            Transform& getTransform() {
-                return transform_;
-            }
-            const Transform& getTransform() const {
-                return transform_;
-            }
         private:
-            Transform transform_;
 
     };
 }

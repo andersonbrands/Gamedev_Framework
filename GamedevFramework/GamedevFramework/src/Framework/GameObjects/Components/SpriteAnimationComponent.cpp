@@ -29,11 +29,10 @@ namespace Framework {
 
                 TransformComponent* transformComp = component_cast<TransformComponent>(getOwner());
                 assert(transformComp);
-                Transform& tr = transformComp->getTransform();
 
-                tr.setMatrix();
+                transformComp->setMatrix();
 
-                Renderer::getInstancePtr()->setTransform(tr.getMatrix());
+                Renderer::getInstancePtr()->setTransform(transformComp->getMatrix());
 
                 animation_.render();
 
