@@ -19,8 +19,7 @@ namespace Framework {
 
     class SpriteAnimation {
         private:
-            unsigned int totalFrames_;
-            // starts count at 1, zero means no frame is to be displayed
+            // frame starts count at 1, zero means no frame is to be displayed
             unsigned int currentFrame_;
             float fps_;
             float spf_;
@@ -30,6 +29,7 @@ namespace Framework {
 
             vector<Sprite*> spriteV_;
         public:
+            SpriteAnimation();
             SpriteAnimation(unsigned int totalFrames, float fps);
             SpriteAnimation(unsigned int totalFrames, float fps, bool loop);
             virtual ~SpriteAnimation();

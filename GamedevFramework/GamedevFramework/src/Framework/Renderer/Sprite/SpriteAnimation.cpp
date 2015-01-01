@@ -11,12 +11,16 @@
 
 namespace Framework {
 
-	SpriteAnimation::SpriteAnimation(unsigned int totalFrames, float fps) : totalFrames_(totalFrames), currentFrame_(0), fps_(fps), spf_(1/fps), loop_(true), playing_(false), deltaTime_(0.0f), spriteV_() {
-        spriteV_.reserve(totalFrames_);
+    SpriteAnimation::SpriteAnimation() : currentFrame_(0), fps_(24), spf_(1/fps_), loop_(true), playing_(false), deltaTime_(0.0f), spriteV_() {
+
     }
 
-    SpriteAnimation::SpriteAnimation(unsigned int totalFrames, float fps, bool loop) : totalFrames_(totalFrames), currentFrame_(0), fps_(fps), spf_(1/fps), loop_(loop), playing_(false), deltaTime_(0.0f), spriteV_() {
-        spriteV_.reserve(totalFrames_);
+    SpriteAnimation::SpriteAnimation(unsigned int reserveFrames, float fps) : currentFrame_(0), fps_(fps), spf_(1/fps), loop_(true), playing_(false), deltaTime_(0.0f), spriteV_() {
+        spriteV_.reserve(reserveFrames);
+    }
+
+    SpriteAnimation::SpriteAnimation(unsigned int reserveFrames, float fps, bool loop) : currentFrame_(0), fps_(fps), spf_(1/fps), loop_(loop), playing_(false), deltaTime_(0.0f), spriteV_() {
+        spriteV_.reserve(reserveFrames);
     }
 
     SpriteAnimation::~SpriteAnimation() {
@@ -28,12 +32,12 @@ namespace Framework {
     }
 
     void SpriteAnimation::goToAndPlay(unsigned int frame) {
-        assert(frame <= totalFrames_);
+        assert(frame <= spriteV_.size());
         currentFrame_ = frame;
         play();
     }
     void SpriteAnimation::goToAndPause(unsigned int frame) {
-        assert(frame <= totalFrames_);
+        assert(frame <= spriteV_.size());
         currentFrame_ = frame;
         pause();
     }
@@ -70,7 +74,7 @@ namespace Framework {
             deltaTime_ -= spf_;
         }
 
-        if (currentFrame_ > totalFrames_) {
+        if (currentFrame_ > spriteV_.size()) {
             if (loop_)
                 currentFrame_ = 1;
             else

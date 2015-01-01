@@ -13,7 +13,7 @@
 
 namespace Framework {
 
-    SpriteAnimationComponent::SpriteAnimationComponent(GameObject* pOwner) : Component(pOwner), animation_(25, 12) {
+    SpriteAnimationComponent::SpriteAnimationComponent(GameObject* pOwner) : Component(pOwner), SpriteAnimation() {
         attachEvent(ev::id::RENDER_EVENT, *this);
         attachEvent(ev::id::UPDATE, *this);
     }
@@ -34,12 +34,12 @@ namespace Framework {
 
                 Renderer::getInstancePtr()->setTransform(transformComp->getMatrix());
 
-                animation_.render();
+                render();
 
             }
             break;
             case ev::id::UPDATE: {
-                animation_.update();
+                update();
             }
             break;
             default:

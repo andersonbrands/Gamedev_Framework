@@ -16,7 +16,7 @@
 
 namespace Framework {
 
-    class SpriteAnimationComponent : public Component, public EventHandler {
+    class SpriteAnimationComponent : public Component, public EventHandler, public SpriteAnimation {
         private:
         public:
             explicit SpriteAnimationComponent(GameObject* pOwner);
@@ -24,18 +24,6 @@ namespace Framework {
 
             static ComponentId getId()	{
                 return comp::SPRITE_ANIMATION;
-            }
-
-            SpriteAnimation animation_;
-
-            void play() {
-                animation_.play();
-            }
-            void pause() {
-                animation_.pause();
-            }
-            void stop() {
-                animation_.stop();
             }
 
             void handleEvent(Event* pEvent);
