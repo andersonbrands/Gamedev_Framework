@@ -11,6 +11,7 @@
 #include "../../Framework/Scene/iScene.h"
 #include "../../Framework/Renderer/Sprite/Sprite.h"
 #include "../../Framework/EventManager/EventHandler.h"
+#include "../../Framework/GameObjects/GameObject.h"
 
 using namespace Framework;
 
@@ -18,8 +19,10 @@ class MainMenu : public iScene, public EventHandler {
     private:
         Sprite* pBackground_;
         Sprite* pGameName_;
-        Sprite* pPlayBt_;
-        Sprite* pSettingBt_;
+        GameObject* pPlayBt_;
+        GameObject* pSettingBt_;
+
+        GameObject* pMouseIndicator_;
 
     public:
         MainMenu();
