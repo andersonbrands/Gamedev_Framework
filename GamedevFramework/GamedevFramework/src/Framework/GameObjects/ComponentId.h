@@ -10,7 +10,8 @@ namespace Framework {
         static const ComponentId TRANSFORM			= 1;
         static const ComponentId MOVEMENT			= 2;
         static const ComponentId SPRITE_ANIMATION	= 3;
-		static const ComponentId COLLIDER			= 4;
+        static const ComponentId SPRITE				= 4;
+        static const ComponentId COLLIDER			= 5;
     }
 }
 
