@@ -16,7 +16,7 @@
 #include "../Ids/EventIds.h"
 #include "../../Framework/Input/InputManager.h"
 #include "../../Framework/GameObjects/Components/TransformComponent.h"
-#include "../../Framework/GameObjects/Components/SpriteAnimationComponent.h"
+#include "../../Framework/GameObjects/Components/SpriteComponent.h"
 #include "../../Framework/GameObjects/Components/ColliderComponent.h"
 
 
@@ -35,7 +35,7 @@ void MainMenu::load() {
     tr->setTranslation(Vector3(0.0f, 0.0f, 0.0f));
     tr->setRotation(Vector3(0.0f));
     tr->setScale(Vector3(1.0f));
-    assert(pPlayBt_->addComponent<SpriteAnimationComponent>());
+    assert(pPlayBt_->addComponent<SpriteComponent>());
     //assert(pPlayBt_->addComponent<ColliderComponent>());
 
     pSettingBt_ = new GameObject;
@@ -44,7 +44,7 @@ void MainMenu::load() {
     tr->setTranslation(Vector3(0.0f, -3.4f, 0.0f));
     tr->setRotation(Vector3(0.0f));
     tr->setScale(Vector3(1.0f));
-    assert(pSettingBt_->addComponent<SpriteAnimationComponent>());
+    assert(pSettingBt_->addComponent<SpriteComponent>());
     //assert(pSettingBt_->addComponent<ColliderComponent>());
 
 
@@ -64,17 +64,11 @@ void MainMenu::load() {
 
     Sprite* pPlaySprite		= sprManager->addSprite(spr::MAIN_MENU_PLAY_BT);
     pPlaySprite->setup(Vector3(0.0f, 0.195f, 10.0f), Vector3(0.781f, 0.843f, 3.2f), tex::MAIN_MENU_SPR_SHEET.id, SpriteAlign::CENTER);
+    component_cast<SpriteComponent>(pPlayBt_)->setSprite(pPlaySprite);
 
     Sprite* pSettingSprite		= sprManager->addSprite(spr::MAIN_MENU_SETTINGS_BT);
     pSettingSprite->setup(Vector3(0.0f, 0.195f, 10.0f), Vector3(0.843f, 0.906f, 3.2f), tex::MAIN_MENU_SPR_SHEET.id, SpriteAlign::CENTER_TOP);
-
-    SpriteAnimationComponent* pPlaySpriteComp(component_cast<SpriteAnimationComponent>(pPlayBt_));
-    pPlaySpriteComp->addFrame(pPlaySprite);
-    pPlaySpriteComp->goToAndPause(1);
-
-    SpriteAnimationComponent* pSettingSpriteComp(component_cast<SpriteAnimationComponent>(pSettingBt_));
-    pSettingSpriteComp->addFrame(pSettingSprite);
-    pSettingSpriteComp->goToAndPause(1);
+    component_cast<SpriteComponent>(pSettingBt_)->setSprite(pSettingSprite);
 }
 void MainMenu::init() {
     attachEvent(ev::id::RENDER_EVENT, *this);
