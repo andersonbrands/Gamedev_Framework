@@ -14,7 +14,7 @@
 namespace Framework {
 
     MovementComponent::MovementComponent(GameObject* pOwner) :
-        Component(pOwner), up_(0,1,0), forward_(0,0,1), right_(1,0,0), acceleration_(0), velocity_(0) {
+        Component(pOwner), up_(0,1,0), forward_(0,0,1), right_(1,0,0), acceleration_(0), velocity_(0), maxSpeed_(0.0f), maxSpeedSquared_(0.0f) {
         attachEvent(ev::id::UPDATE, *this);
     }
 
@@ -83,6 +83,11 @@ namespace Framework {
         velocity_ += acceleration_;
 
         acceleration_ = Vector3(0.0f);
+
+        if (maxSpeedSquared_ != 0.0f && maxSpeedSquared_ < velocity_.lengthSquared()) {
+            velocity_.normalise();
+            velocity_ *= maxSpeed_;
+        }
 
         TransformComponent* pTransformComp(component_cast<TransformComponent>(*getOwner()));
         assert(pTransformComp);

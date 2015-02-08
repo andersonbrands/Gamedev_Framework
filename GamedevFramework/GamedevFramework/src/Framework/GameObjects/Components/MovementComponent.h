@@ -24,6 +24,9 @@ namespace Framework {
             Vector3 acceleration_;
             Vector3 velocity_;
 
+            float maxSpeed_;
+            float maxSpeedSquared_;
+
         public:
             explicit MovementComponent(GameObject* pOwner);
 
@@ -40,6 +43,11 @@ namespace Framework {
             const Vector3 getRight();
             const Vector3 getAcceleration();
             const Vector3 getVelocity();
+
+            void setMaxSpeed(float maxSpeed) {
+                maxSpeed_ = maxSpeed;
+                maxSpeedSquared_ = maxSpeed * maxSpeed;
+            }
 
             void setAcceleration(const Vector3& acceleration);
             void setVelocity(const Vector3& velocity);
