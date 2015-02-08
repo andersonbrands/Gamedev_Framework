@@ -19,8 +19,8 @@ Star::~Star() {
 
 void Star::spawn(bool atTop /* = false*/) {
     float posX		= rand_float(-24.0f, 24.0f);
-    float scaleX	= rand_float(0.2f, 0.35f);
-    float scaleY	= rand_float(0.2f, 0.35f);
+    float scaleX	= rand_float(0.2f, 0.25f);
+    float scaleY	= rand_float(0.2f, 0.25f);
     float rotation	= rand_float(0.0f, 6.28f);
 
     float posY(16.0f);
