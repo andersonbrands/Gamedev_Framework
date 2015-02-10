@@ -141,6 +141,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="src\Game\GameApplication.cpp" />
+    <ClCompile Include="src\Game\GameObjects\Components\PlayerShipMovement.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Game\GameObjects\PlayerShip.cpp">
       <SubType>
       </SubType>
@@ -296,6 +300,10 @@
     </ClInclude>
     <ClInclude Include="src\Framework\Wrapper.h" />
     <ClInclude Include="src\Game\GameApplication.h" />
+    <ClInclude Include="src\Game\GameObjects\Components\PlayerShipMovement.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Game\GameObjects\PlayerShip.h">
       <SubType>
       </SubType>

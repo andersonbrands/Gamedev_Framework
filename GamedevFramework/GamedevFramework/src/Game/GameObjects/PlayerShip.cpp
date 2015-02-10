@@ -13,10 +13,12 @@
 #include "../Ids/EventIds.h"
 #include "../Ids/SpriteIds.h"
 #include "../Ids/TextureIds.h"
+#include "Components\PlayerShipMovement.h"
 
 int PlayerShip::MAX_HP = 100;
 
 PlayerShip::PlayerShip() {
+    assert(addComponent<PlayerShipMovement>());
 }
 
 PlayerShip::~PlayerShip() {
@@ -33,7 +35,7 @@ void PlayerShip::init() {
     auto tr(component_cast<TransformComponent>(this));
     tr->setTranslation(Vector3(0.0f, -13.5f, -0.1f));
 
-    auto move(component_cast<MovementComponent>(this));
+    auto move(component_cast<PlayerShipMovement>(this));
     move->setMaxSpeed(15.0f);
 
     attachEvent(ev::id::PRE_UPDATE, *this);
