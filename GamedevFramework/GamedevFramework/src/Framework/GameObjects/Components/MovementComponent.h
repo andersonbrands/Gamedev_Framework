@@ -10,6 +10,8 @@
 #include "../../Math/Vector3.h"
 #include "../../Utilities/Utils.h"
 #include "../../EventManager/EventHandler.h"
+#include "TransformComponent.h"
+#include "../GameObject.h"
 
 #ifndef MOVEMENT_COMPONENT_H_
 #define MOVEMENT_COMPONENT_H_
@@ -17,7 +19,7 @@
 namespace Framework {
 
     class MovementComponent : public Component, public EventHandler {
-        private:
+        protected:
             Vector3 up_;
             Vector3 forward_;
             Vector3 right_;
@@ -56,7 +58,9 @@ namespace Framework {
             void accelerate(const Vector3& acc);
             void accelerate(const Direction direction, float value);
 
+            virtual void preMovement();
             const Vector3 move();
+            virtual void postMovement();
 
             void handleEvent(Event* pEvent);
     };

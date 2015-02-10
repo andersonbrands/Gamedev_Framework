@@ -6,8 +6,6 @@
 ***************************************************************************************/
 
 #include "MovementComponent.h"
-#include "TransformComponent.h"
-#include "../GameObject.h"
 #include "../../Utilities/Timer.h"
 #include "../../EventManager/EventManager.h"
 
@@ -79,6 +77,9 @@ namespace Framework {
         }
     }
 
+    void MovementComponent::preMovement() {
+    }
+
     const Vector3 MovementComponent::move() {
         velocity_ += acceleration_;
 
@@ -101,10 +102,15 @@ namespace Framework {
         return result;
     }
 
+    void MovementComponent::postMovement() {
+    }
+
     void MovementComponent::handleEvent(Event* pEvent) {
         switch (pEvent->getID()) {
             case ev::id::UPDATE: {
+                preMovement();
                 move();
+                postMovement();
             }
             break;
             default:
