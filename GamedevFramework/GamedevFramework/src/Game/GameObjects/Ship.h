@@ -11,7 +11,6 @@
 #include "../../Framework/GameObjects/GameObject.h"
 
 #include "../../Framework/GameObjects/Components/TransformComponent.h"
-#include "../../Framework/GameObjects/Components/MovementComponent.h"
 #include "../../Framework/Renderer/Sprite/Sprite.h"
 
 using namespace Framework;

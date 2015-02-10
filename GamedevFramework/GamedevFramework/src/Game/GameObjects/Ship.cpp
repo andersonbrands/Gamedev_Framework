@@ -9,7 +9,6 @@
 
 Ship::Ship() : hp_(0), pSprite_(nullptr) {
     assert(addComponent<TransformComponent>());
-    assert(addComponent<MovementComponent>());
 }
 
 Ship::~Ship() {
