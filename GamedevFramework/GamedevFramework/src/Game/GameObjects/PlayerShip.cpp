@@ -35,9 +35,6 @@ void PlayerShip::init() {
     auto tr(component_cast<TransformComponent>(this));
     tr->setTranslation(Vector3(0.0f, -13.5f, -0.1f));
 
-    auto move(component_cast<PlayerShipMovement>(this));
-    move->setMaxSpeed(15.0f);
-
     attachEvent(ev::id::PRE_UPDATE, *this);
     attachEvent(ev::id::RENDER_EVENT, *this);
 }

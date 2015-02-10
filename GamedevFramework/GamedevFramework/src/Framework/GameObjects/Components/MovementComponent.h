@@ -29,6 +29,8 @@ namespace Framework {
             float maxSpeed_;
             float maxSpeedSquared_;
 
+            float frictionMultiplier_;
+
         public:
             explicit MovementComponent(GameObject* pOwner);
 
@@ -45,6 +47,10 @@ namespace Framework {
             const Vector3 getRight();
             const Vector3 getAcceleration();
             const Vector3 getVelocity();
+
+            void setFrictionMultiplier(float frictionMultiplier) {
+                frictionMultiplier_ = frictionMultiplier;
+            }
 
             void setMaxSpeed(float maxSpeed) {
                 maxSpeed_ = maxSpeed;

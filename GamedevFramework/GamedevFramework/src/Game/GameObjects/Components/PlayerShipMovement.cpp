@@ -8,7 +8,8 @@
 #include "PlayerShipMovement.h"
 
 PlayerShipMovement::PlayerShipMovement(GameObject* pOwner) : MovementComponent(pOwner) {
-
+    setMaxSpeed(18.0f);
+    setFrictionMultiplier(0.9f);
 }
 
 PlayerShipMovement::~PlayerShipMovement() {
@@ -23,12 +24,12 @@ void PlayerShipMovement::postMovement() {
 
     const Vector3& tr(pTransformComp->getTranslation());
 
-    float limit(24.0f);
+    float limit(23.3f);
 
     if (tr.getX() < -limit) {
         pTransformComp->setTranslation(Vector3(-limit, tr.getY(), tr.getZ()));
         velocity_ *= Vector3(0.0f, 1.0f, 1.0f);
-    } else if (tr.getX() > 24.0f) {
+	} else if (tr.getX() > limit) {
         pTransformComp->setTranslation(Vector3(limit, tr.getY(), tr.getZ()));
         velocity_ *= Vector3(0.0f, 1.0f, 1.0f);
     }

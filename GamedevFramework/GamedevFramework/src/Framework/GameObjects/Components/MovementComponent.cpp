@@ -12,7 +12,7 @@
 namespace Framework {
 
     MovementComponent::MovementComponent(GameObject* pOwner) :
-        Component(pOwner), up_(0,1,0), forward_(0,0,1), right_(1,0,0), acceleration_(0), velocity_(0), maxSpeed_(0.0f), maxSpeedSquared_(0.0f) {
+        Component(pOwner), up_(0,1,0), forward_(0,0,1), right_(1,0,0), acceleration_(0), velocity_(0), maxSpeed_(0.0f), maxSpeedSquared_(0.0f), frictionMultiplier_(1.0f) {
         attachEvent(ev::id::UPDATE, *this);
     }
 
@@ -90,13 +90,17 @@ namespace Framework {
             velocity_ *= maxSpeed_;
         }
 
-        TransformComponent* pTransformComp(component_cast<TransformComponent>(*getOwner()));
-        assert(pTransformComp);
+        velocity_ *= frictionMultiplier_;
+        if (velocity_.lengthSquared() < 0.001f) {
+            velocity_ = Vector3(0.0f);
+        }
 
         assert(Timer::getInstancePtr());
 
         Vector3 result(velocity_ * Timer::getInstancePtr()->getTimeSim());
 
+        TransformComponent* pTransformComp(component_cast<TransformComponent>(*getOwner()));
+        assert(pTransformComp);
         pTransformComp->translate(result);
 
         return result;
