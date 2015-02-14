@@ -72,6 +72,12 @@ LRESULT WINAPI WindowsPlatform::MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPAR
             else
                 onResume();
             return 0;
+        case WM_ENTERSIZEMOVE:
+            onSuspend();
+            return 0;
+        case WM_EXITSIZEMOVE:
+            onResume();
+            return 0;
         case WM_SIZE:
             switch (wParam) {
                 case SIZE_MINIMIZED:

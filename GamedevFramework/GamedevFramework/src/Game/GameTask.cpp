@@ -26,6 +26,9 @@ bool GameTask::start() {
     registerEvent(game::ev::id::BACK_TO_MAIN_MENU);
     attachEvent(game::ev::id::BACK_TO_MAIN_MENU, *this);
 
+    attachEvent(ev::id::PLATFORM_SUSPEND, *this);
+    attachEvent(ev::id::PLATFORM_RESUME, *this);
+
     registerEvent(ev::id::UPDATE);
     registerEvent(ev::id::PRE_UPDATE);
 
@@ -66,6 +69,12 @@ void GameTask::handleEvent(Event* pEvent) {
             disposeCurrentScene();
             state_ = MAIN_MENU;
             initCurrentScene();
+            break;
+        case ev::id::PLATFORM_SUSPEND:
+            onSuspend();
+            break;
+        case ev::id::PLATFORM_RESUME:
+            onResume();
             break;
         default:
             break;
