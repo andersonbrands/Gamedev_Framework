@@ -145,6 +145,22 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="src\Game\GameObjects\Enemies\EnemyAShip.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameObjects\Enemies\EnemyBShip.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameObjects\Enemies\EnemyCShip.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameObjects\Enemies\EnemyShip.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Game\GameObjects\PlayerShip.cpp">
       <SubType>
       </SubType>
@@ -301,6 +317,22 @@
     <ClInclude Include="src\Framework\Wrapper.h" />
     <ClInclude Include="src\Game\GameApplication.h" />
     <ClInclude Include="src\Game\GameObjects\Components\PlayerShipMovement.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\Enemies\EnemyAShip.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\Enemies\EnemyBShip.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\Enemies\EnemyCShip.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\Enemies\EnemyShip.h">
       <SubType>
       </SubType>
     </ClInclude>

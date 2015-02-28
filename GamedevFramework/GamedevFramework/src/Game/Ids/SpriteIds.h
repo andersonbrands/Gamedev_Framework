@@ -21,6 +21,7 @@ namespace spr {
     static const SpriteId MAIN_MENU_SETTINGS_BT	= 4;
     static const SpriteId STAR_SPRITE			= 5;
     static const SpriteId PLAYER_SHIP_SPRITE	= 6;
+    static const SpriteId ENEMY_A_SHIP_SPRITE	= 7;
 }
 
 #endif // SPRITE_IDS_H_
