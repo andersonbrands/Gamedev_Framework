@@ -13,7 +13,7 @@
 #include "../Ids/EventIds.h"
 #include "../Ids/TextureIds.h"
 
-InGame::InGame() : iScene(), starDust_(200), playerShip_() {
+InGame::InGame() : iScene(), starDust_(200), playerShip_(), enemyManager_() {
 
 }
 
@@ -32,6 +32,8 @@ void InGame::init() {
     starDust_.init();
 
     playerShip_.init();
+
+    enemyManager_.init();
 
     attachEvent(ev::id::RENDER_EVENT, *this);
     attachEvent(ev::id::PRE_RENDER_EVENT, *this);

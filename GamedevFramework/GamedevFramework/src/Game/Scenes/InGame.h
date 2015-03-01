@@ -12,6 +12,7 @@
 #include "../GameObjects/StarDust.h"
 #include "../GameObjects/PlayerShip.h"
 #include "../../Framework/EventManager/EventHandler.h"
+#include "../GameObjects/Enemies/EnemyManager.h"
 
 using namespace Framework;
 
@@ -20,6 +21,8 @@ class InGame : public iScene, public EventHandler {
     private:
         StarDust starDust_;
         PlayerShip playerShip_;
+        EnemyManager enemyManager_;
+
     public:
         InGame();
         virtual ~InGame();
