@@ -21,7 +21,7 @@ class EnemyShip : public Ship {
         void setActive(bool active) {
             active_ = active;
         }
-        bool isActive() {
+        bool isActive() const {
             return active_;
         }
 
