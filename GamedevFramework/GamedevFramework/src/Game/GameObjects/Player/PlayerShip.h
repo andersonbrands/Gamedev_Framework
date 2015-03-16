@@ -8,7 +8,7 @@
 #ifndef PLAYER_SHIP_H_
 #define PLAYER_SHIP_H_
 
-#include "Ship.h"
+#include "../Ship.h"
 
 using namespace Framework;
 

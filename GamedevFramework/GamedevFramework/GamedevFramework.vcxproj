@@ -165,7 +165,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="src\Game\GameObjects\PlayerShip.cpp">
+    <ClCompile Include="src\Game\GameObjects\Player\PlayerShip.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -344,7 +344,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="src\Game\GameObjects\PlayerShip.h">
+    <ClInclude Include="src\Game\GameObjects\Player\PlayerShip.h">
       <SubType>
       </SubType>
     </ClInclude>

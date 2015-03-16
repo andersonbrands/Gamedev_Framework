@@ -10,7 +10,7 @@
 
 #include "../../Framework/Scene/iScene.h"
 #include "../GameObjects/StarDust.h"
-#include "../GameObjects/PlayerShip.h"
+#include "../GameObjects/Player/PlayerShip.h"
 #include "../../Framework/EventManager/EventHandler.h"
 #include "../GameObjects/Enemies/EnemyManager.h"
 

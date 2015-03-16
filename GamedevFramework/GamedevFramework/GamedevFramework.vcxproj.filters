@@ -135,9 +135,6 @@
     <ClCompile Include="src\Game\GameObjects\Ship.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\GameObjects\PlayerShip.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Framework\GameObjects\Components\SpriteComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -157,6 +154,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Game\GameObjects\Enemies\EnemyManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameObjects\Player\PlayerShip.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -368,9 +368,6 @@
     <ClInclude Include="src\Game\GameObjects\Ship.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\GameObjects\PlayerShip.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Framework\GameObjects\Components\SpriteComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -390,6 +387,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Game\GameObjects\Enemies\EnemyManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\Player\PlayerShip.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

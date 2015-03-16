@@ -6,14 +6,14 @@
 ***************************************************************************************/
 
 #include "PlayerShip.h"
-#include "../../Framework/Input/InputManager.h"
-#include "../../Framework/Renderer/Sprite/SpriteManager.h"
-#include "../../Framework/EventManager/EventManager.h"
-#include "../../Framework/Renderer/Renderer.h"
-#include "../Ids/EventIds.h"
-#include "../Ids/SpriteIds.h"
-#include "../Ids/TextureIds.h"
-#include "Components\PlayerShipMovement.h"
+#include "../../../Framework/Input/InputManager.h"
+#include "../../../Framework/Renderer/Sprite/SpriteManager.h"
+#include "../../../Framework/EventManager/EventManager.h"
+#include "../../../Framework/Renderer/Renderer.h"
+#include "../../Ids/EventIds.h"
+#include "../../Ids/SpriteIds.h"
+#include "../../Ids/TextureIds.h"
+#include "../Components\PlayerShipMovement.h"
 
 int PlayerShip::MAX_HP = 100;
 
