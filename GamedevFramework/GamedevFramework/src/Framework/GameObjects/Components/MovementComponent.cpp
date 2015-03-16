@@ -110,6 +110,9 @@ namespace Framework {
     }
 
     void MovementComponent::handleEvent(Event* pEvent) {
+        if (!getOwner()->isActive())
+            return;
+
         switch (pEvent->getID()) {
             case ev::id::UPDATE: {
                 preMovement();

@@ -30,6 +30,7 @@ MainMenu::~MainMenu() {
 
 void MainMenu::load() {
     pPlayBt_ = new GameObject;
+	pPlayBt_->setActive(true);
     assert(pPlayBt_->addComponent<TransformComponent>());
     TransformComponent* tr(component_cast<TransformComponent>(pPlayBt_));
     tr->setTranslation(Vector3(0.0f, 0.0f, 0.0f));
@@ -39,6 +40,7 @@ void MainMenu::load() {
     //assert(pPlayBt_->addComponent<ColliderComponent>());
 
     pSettingBt_ = new GameObject;
+	pSettingBt_->setActive(true);
     assert(pSettingBt_->addComponent<TransformComponent>());
     tr = component_cast<TransformComponent>(pSettingBt_);
     tr->setTranslation(Vector3(0.0f, -3.4f, 0.0f));

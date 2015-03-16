@@ -6,9 +6,7 @@
 ***************************************************************************************/
 
 #include "ColliderComponent.h"
-#include "../../Collision/Colliders/AABBCollider.h"
-#include "../../Collision/Colliders/PointCollider.h"
-
+#include "../GameObject.h"
 #include <cassert>
 
 namespace Framework {
@@ -16,10 +14,15 @@ namespace Framework {
     ColliderComponent::ColliderComponent(GameObject* pOwner) : Component(pOwner), pCollider_(nullptr) {
 
     }
+
     ColliderComponent::~ColliderComponent() {
     }
 
     bool ColliderComponent::collides(ColliderComponent* pCollider) {
+        if (!getOwner()->isActive() || !pCollider->getOwner()->isActive())
+            return false;
+
+
         return pCollider_->collides(pCollider->getCollider());
     }
 }

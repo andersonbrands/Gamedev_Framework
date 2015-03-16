@@ -22,6 +22,9 @@ namespace Framework {
     }
 
     void SpriteComponent::handleEvent(Event* pEvent) {
+        if (!getOwner()->isActive())
+            return;
+
         switch (pEvent->getID()) {
             case ev::id::RENDER_EVENT: {
                 assert(Renderer::getInstancePtr());

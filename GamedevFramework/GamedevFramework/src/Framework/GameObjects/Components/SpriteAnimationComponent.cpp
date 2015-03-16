@@ -19,11 +19,14 @@ namespace Framework {
     }
 
     SpriteAnimationComponent::~SpriteAnimationComponent() {
-		detachEvent(ev::id::RENDER_EVENT, *this);
+        detachEvent(ev::id::RENDER_EVENT, *this);
         detachEvent(ev::id::UPDATE, *this);
     }
 
     void SpriteAnimationComponent::handleEvent(Event* pEvent) {
+        if (!getOwner()->isActive())
+            return;
+
         switch (pEvent->getID()) {
             case ev::id::RENDER_EVENT: {
                 assert(Renderer::getInstancePtr());

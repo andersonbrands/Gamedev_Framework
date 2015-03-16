@@ -35,9 +35,18 @@ namespace Framework {
 
             Component*	getComponent(ComponentId id);
 
+            bool active_;
+
         public:
             GameObject();
             virtual ~GameObject();
+
+            void setActive(bool active) {
+                active_ = active;
+            }
+            bool isActive() const {
+                return active_;
+            }
 
             virtual void handleEvent(Event* pEvent) {}
 

@@ -10,7 +10,7 @@
 #include "GameObject.h"
 
 namespace Framework {
-    GameObject::GameObject() {
+    GameObject::GameObject() : active_(false) {
 
     }
 

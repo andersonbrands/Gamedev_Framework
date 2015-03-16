@@ -12,18 +12,9 @@
 
 class EnemyShip : public Ship {
     private:
-        bool active_;
-
     public:
         EnemyShip();
         virtual ~EnemyShip();
-
-        void setActive(bool active) {
-            active_ = active;
-        }
-        bool isActive() const {
-            return active_;
-        }
 
         virtual void	init() = 0;
         virtual int		getMaxHp() = 0;

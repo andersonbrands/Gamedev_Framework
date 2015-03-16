@@ -27,6 +27,8 @@ PlayerShip::~PlayerShip() {
 }
 
 void PlayerShip::init() {
+	setActive(true);
+
     pSprite_ = SpriteManager::getInstancePtr()->addSprite(spr::PLAYER_SHIP_SPRITE);
     assert(pSprite_);
 

@@ -10,7 +10,7 @@
 #include "../../../Framework/EventManager/EventManager.h"
 #include "../../../Framework/Renderer/Renderer.h"
 
-EnemyShip::EnemyShip() : active_(false) {
+EnemyShip::EnemyShip() {
     attachEvent(ev::id::RENDER_EVENT, *this);
 }
 
