@@ -21,11 +21,7 @@ StarDust::~StarDust() {
 }
 
 void StarDust::init() {
-    pStarSprite_ = SpriteManager::getInstancePtr()->addSprite(spr::STAR_SPRITE);
-    assert(pStarSprite_);
-
-    // configure sprite
-    pStarSprite_->setup(Vector3(0.9903f, 1.0f, 1.0f), Vector3(0.0f, 0.0097f, 1.0f), tex::IN_GAME_SPR_SHEET.id, SpriteAlign::CENTER);
+    pStarSprite_ = SpriteManager::getInstancePtr()->getSprite(spr::STAR_SPRITE);
 
     Spawn sp;
     for_each(objects_.begin(), objects_.end(), sp);

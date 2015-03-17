@@ -10,8 +10,10 @@
 #include "../../Framework/EventManager/EventManager.h"
 #include "../../Framework/Renderer/Renderer.h"
 #include "../../Framework/Renderer/Texture/TextureManager.h"
+#include "../../Framework/Renderer/Sprite/SpriteManager.h"
 #include "../Ids/EventIds.h"
 #include "../Ids/TextureIds.h"
+#include "../Ids/SpriteIds.h"
 
 InGame::InGame() : iScene(), starDust_(200), playerShip_(), enemyManager_() {
 
@@ -26,6 +28,14 @@ void InGame::load() {
     assert(texManager);
 
     Texture* pTexture = texManager->loadTexture(tex::IN_GAME_SPR_SHEET);
+
+    auto sprManager(SpriteManager::getInstancePtr());
+    assert(sprManager);
+
+    sprManager->addSprite(spr::STAR_SPRITE);
+    sprManager->addSprite(spr::PLAYER_SHIP_SPRITE);
+    sprManager->addSprite(spr::ENEMY_A_SHIP_SPRITE);
+
 }
 
 void InGame::init() {
@@ -57,6 +67,13 @@ void InGame::unload() {
     assert(texManager);
 
     texManager->unloadTexture(tex::IN_GAME_SPR_SHEET);
+
+    auto sprManager(SpriteManager::getInstancePtr());
+    assert(sprManager);
+
+    sprManager->removeSprite(spr::STAR_SPRITE);
+    sprManager->removeSprite(spr::PLAYER_SHIP_SPRITE);
+    sprManager->removeSprite(spr::ENEMY_A_SHIP_SPRITE);
 
     detachEvent(ev::id::RENDER_EVENT, *this);
     detachEvent(ev::id::PRE_RENDER_EVENT, *this);

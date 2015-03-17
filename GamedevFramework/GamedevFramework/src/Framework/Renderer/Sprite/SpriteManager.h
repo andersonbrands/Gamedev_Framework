@@ -21,12 +21,20 @@ namespace Framework {
             SpriteManager();
             virtual ~SpriteManager();
 
-            Sprite* addSprite(const SpriteId &id) {
-                return addObject(id);
+            Sprite* getSprite(const SpriteInfo &info) {
+                Sprite* pSprite(getObject(info.id));
+                assert(pSprite);
+                return pSprite;
             }
 
-            Sprite* getSprite(const SpriteId &id) {
-                return getObject(id);
+            void addSprite(const SpriteInfo &info) {
+                Sprite* pSprite(addObject(info.id));
+                assert(pSprite);
+                pSprite->setup(info.uuWidth, info.vvHeight, info.textureId, info.align);
+            }
+
+            void removeSprite(const SpriteInfo &info) {
+                removeObject(info.id);
             }
     };
 

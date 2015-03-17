@@ -29,10 +29,7 @@ PlayerShip::~PlayerShip() {
 void PlayerShip::init() {
 	setActive(true);
 
-    pSprite_ = SpriteManager::getInstancePtr()->addSprite(spr::PLAYER_SHIP_SPRITE);
-    assert(pSprite_);
-
-    pSprite_->setup(Vector3(0.0f, 0.0566f, 2.9f), Vector3(0.0f, 0.0468f, 2.4f), tex::IN_GAME_SPR_SHEET.id, SpriteAlign::CENTER);
+    pSprite_ = SpriteManager::getInstancePtr()->getSprite(spr::PLAYER_SHIP_SPRITE);
 
     auto tr(component_cast<TransformComponent>(this));
     tr->setTranslation(Vector3(0.0f, -13.5f, -0.1f));

@@ -28,10 +28,7 @@ EnemyCShip::~EnemyCShip() {
 
 void EnemyCShip::init() {
     // TODO: change sprite
-    pSprite_ = SpriteManager::getInstancePtr()->addSprite(spr::ENEMY_A_SHIP_SPRITE);
-    assert(pSprite_);
-
-    pSprite_->setup(Vector3(0.0f, 0.0585f, 3.0f), Vector3(0.0468f, 0.1053f, 3.0f), tex::IN_GAME_SPR_SHEET.id, SpriteAlign::CENTER);
+    pSprite_ = SpriteManager::getInstancePtr()->getSprite(spr::ENEMY_A_SHIP_SPRITE);
 
     component_cast<TransformComponent>(this)->setScale(Vector3(1.0f));
     component_cast<TransformComponent>(this)->setRotation(Vector3(0.0f));

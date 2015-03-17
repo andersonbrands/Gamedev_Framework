@@ -29,27 +29,6 @@ MainMenu::~MainMenu() {
 }
 
 void MainMenu::load() {
-    pPlayBt_ = new GameObject;
-	pPlayBt_->setActive(true);
-    assert(pPlayBt_->addComponent<TransformComponent>());
-    TransformComponent* tr(component_cast<TransformComponent>(pPlayBt_));
-    tr->setTranslation(Vector3(0.0f, 0.0f, 0.0f));
-    tr->setRotation(Vector3(0.0f));
-    tr->setScale(Vector3(1.0f));
-    assert(pPlayBt_->addComponent<SpriteComponent>());
-    //assert(pPlayBt_->addComponent<ColliderComponent>());
-
-    pSettingBt_ = new GameObject;
-	pSettingBt_->setActive(true);
-    assert(pSettingBt_->addComponent<TransformComponent>());
-    tr = component_cast<TransformComponent>(pSettingBt_);
-    tr->setTranslation(Vector3(0.0f, -3.4f, 0.0f));
-    tr->setRotation(Vector3(0.0f));
-    tr->setScale(Vector3(1.0f));
-    assert(pSettingBt_->addComponent<SpriteComponent>());
-    //assert(pSettingBt_->addComponent<ColliderComponent>());
-
-
     auto texManager(TextureManager::getInstancePtr());
     assert(texManager);
 
@@ -58,23 +37,48 @@ void MainMenu::load() {
     auto sprManager(SpriteManager::getInstancePtr());
     assert(sprManager);
 
-    pBackground_	= sprManager->addSprite(spr::MAIN_MENU_BACKGROUND);
-    pBackground_->setup(Vector3(0.0f, 0.937f, 48.0f), Vector3(0.0f, 0.625f, 32.0f), tex::MAIN_MENU_SPR_SHEET.id, SpriteAlign::CENTER);
-
-    pGameName_		= sprManager->addSprite(spr::MAIN_MENU_GAME_NAME);
-    pGameName_->setup(Vector3(0.0f, 0.468f, 24.0f), Vector3(0.625f, 0.781f, 8.0f), tex::MAIN_MENU_SPR_SHEET.id, SpriteAlign::CENTER_TOP);
-
-    Sprite* pPlaySprite		= sprManager->addSprite(spr::MAIN_MENU_PLAY_BT);
-    pPlaySprite->setup(Vector3(0.0f, 0.195f, 10.0f), Vector3(0.781f, 0.843f, 3.2f), tex::MAIN_MENU_SPR_SHEET.id, SpriteAlign::CENTER);
-    component_cast<SpriteComponent>(pPlayBt_)->setSprite(pPlaySprite);
-
-    Sprite* pSettingSprite		= sprManager->addSprite(spr::MAIN_MENU_SETTINGS_BT);
-    pSettingSprite->setup(Vector3(0.0f, 0.195f, 10.0f), Vector3(0.843f, 0.906f, 3.2f), tex::MAIN_MENU_SPR_SHEET.id, SpriteAlign::CENTER_TOP);
-    component_cast<SpriteComponent>(pSettingBt_)->setSprite(pSettingSprite);
+    sprManager->addSprite(spr::MAIN_MENU_BACKGROUND);
+    sprManager->addSprite(spr::MAIN_MENU_GAME_NAME);
+    sprManager->addSprite(spr::MAIN_MENU_PLAY_BT);
+    sprManager->addSprite(spr::MAIN_MENU_SETTINGS_BT);
 }
 void MainMenu::init() {
     attachEvent(ev::id::RENDER_EVENT, *this);
     attachEvent(ev::id::PRE_RENDER_EVENT, *this);
+
+    auto sprManager(SpriteManager::getInstancePtr());
+    assert(sprManager);
+
+    // init playBt
+    pPlayBt_ = new GameObject;
+    assert(pPlayBt_->addComponent<TransformComponent>());
+    TransformComponent* tr(component_cast<TransformComponent>(pPlayBt_));
+    tr->setTranslation(Vector3(0.0f, 0.0f, 0.0f));
+    tr->setRotation(Vector3(0.0f));
+    tr->setScale(Vector3(1.0f));
+    assert(pPlayBt_->addComponent<SpriteComponent>());
+    component_cast<SpriteComponent>(pPlayBt_)->setSprite(sprManager->getSprite(spr::MAIN_MENU_PLAY_BT));
+    //assert(pPlayBt_->addComponent<ColliderComponent>());
+    pPlayBt_->setActive(true);
+
+
+    // init settingBt
+    pSettingBt_ = new GameObject;
+    assert(pSettingBt_->addComponent<TransformComponent>());
+    tr = component_cast<TransformComponent>(pSettingBt_);
+    tr->setTranslation(Vector3(0.0f, -3.4f, 0.0f));
+    tr->setRotation(Vector3(0.0f));
+    tr->setScale(Vector3(1.0f));
+    assert(pSettingBt_->addComponent<SpriteComponent>());
+    component_cast<SpriteComponent>(pSettingBt_)->setSprite(sprManager->getSprite(spr::MAIN_MENU_SETTINGS_BT));
+    //assert(pSettingBt_->addComponent<ColliderComponent>());
+    pSettingBt_->setActive(true);
+
+    // background
+    pBackground_	= sprManager->getSprite(spr::MAIN_MENU_BACKGROUND);
+
+    // game name
+    pGameName_		= sprManager->getSprite(spr::MAIN_MENU_GAME_NAME);
 
 }
 void MainMenu::update() {
@@ -114,6 +118,15 @@ void MainMenu::unload() {
     assert(texManager);
 
     texManager->unloadTexture(tex::MAIN_MENU_SPR_SHEET);
+
+
+    auto sprManager(SpriteManager::getInstancePtr());
+    assert(sprManager);
+
+    sprManager->removeSprite(spr::MAIN_MENU_BACKGROUND);
+    sprManager->removeSprite(spr::MAIN_MENU_GAME_NAME);
+    sprManager->removeSprite(spr::MAIN_MENU_PLAY_BT);
+    sprManager->removeSprite(spr::MAIN_MENU_SETTINGS_BT);
 
     detachEvent(ev::id::RENDER_EVENT, *this);
     detachEvent(ev::id::PRE_RENDER_EVENT, *this);
