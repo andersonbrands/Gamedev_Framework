@@ -18,7 +18,7 @@ PlayerBulletManager::~PlayerBulletManager() {
 void PlayerBulletManager::spawnBullet(float x, float y) {
     auto next(getNextFree());
 
-    //if (next) {
-    //    next->spawn(x, y);
-    // }
+    if (next) {
+        next->spawn(x, y);
+    }
 }

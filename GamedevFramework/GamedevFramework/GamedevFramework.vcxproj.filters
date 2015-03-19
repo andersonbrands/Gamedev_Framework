@@ -159,6 +159,15 @@
     <ClCompile Include="src\Game\GameObjects\Player\PlayerShip.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\GameObjects\Bullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameObjects\Player\PlayerBullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameObjects\Player\PlayerBulletManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Framework\Kernel\Kernel.h">
@@ -390,6 +399,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Game\GameObjects\Player\PlayerShip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\Bullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\Player\PlayerBullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\Player\PlayerBulletManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
