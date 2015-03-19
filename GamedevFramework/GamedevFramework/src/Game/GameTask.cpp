@@ -31,6 +31,7 @@ bool GameTask::start() {
 
     registerEvent(ev::id::UPDATE);
     registerEvent(ev::id::PRE_UPDATE);
+    registerEvent(ev::id::POST_UPDATE);
 
     initCurrentScene();
     return true;
@@ -48,6 +49,8 @@ void GameTask::update() {
     assert(pCurrentScene_);
     pCurrentScene_->update();
     sendEvent(ev::id::UPDATE);
+
+    sendEvent(ev::id::POST_UPDATE);
 }
 
 void GameTask::onResume() {
