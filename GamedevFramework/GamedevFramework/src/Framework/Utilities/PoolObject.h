@@ -24,6 +24,8 @@ namespace Framework {
             void setFree(bool free) {
                 free_ = free;
             }
+
+            virtual void init() = 0;
     };
 
 }

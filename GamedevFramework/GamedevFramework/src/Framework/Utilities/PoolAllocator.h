@@ -41,7 +41,10 @@ namespace Framework {
                 objects_.clear();
             };
 
-            virtual void init() = 0;
+            virtual void init() {
+                PoolObjectInit poolObjectInit;
+                for_each(objects_.begin(), objects_.end(), poolObjectInit);
+            }
 
             int getTotalObjects() {
                 return totalObjects_;
@@ -52,7 +55,7 @@ namespace Framework {
             };
 
             T* getNextFree() {
-                IsFree free;
+                PoolObjectIsFree free;
                 Iter iter = find_if(objects_.begin(), objects_.end(), free);
                 if (iter != objects_end())
                     return *iter;

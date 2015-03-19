@@ -12,12 +12,21 @@
 
 namespace Framework {
 
-    class IsFree {
-            IsFree() {}
+    class PoolObjectIsFree {
+            PoolObjectIsFree() {}
             bool operator () (PoolObject *poolObject) {
                 return poolObject->isFree();
             }
     };
+
+    class PoolObjectInit {
+        public:
+            PoolObjectInit() {}
+            void operator() (PoolObject *object) {
+                object->init();
+            }
+    };
+
 
 }
 

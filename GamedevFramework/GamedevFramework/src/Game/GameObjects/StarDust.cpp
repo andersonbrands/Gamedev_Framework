@@ -21,6 +21,8 @@ StarDust::~StarDust() {
 }
 
 void StarDust::init() {
+    PoolAllocator::init();
+
     pStarSprite_ = SpriteManager::getInstancePtr()->getSprite(spr::STAR_SPRITE);
 
     Spawn sp;

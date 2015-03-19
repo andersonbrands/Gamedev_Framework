@@ -17,6 +17,10 @@ Star::~Star() {
 
 }
 
+void Star::init() {
+
+}
+
 void Star::spawn(bool atTop /* = false*/) {
     float posX		= rand_float(-24.0f, 24.0f);
     float scaleX	= rand_float(0.15f, 0.23f);
