@@ -57,12 +57,12 @@ namespace Framework {
     };
 
     template <class T>
-    T* component_cast(GameObject& object) {
+    T* component_cast(const GameObject& object) {
         return object.getComponent<T>();
     }
 
     template <class T>
-    T* component_cast(GameObject* pObject) {
+    T* component_cast(const GameObject* pObject) {
         T* pComponent = nullptr;
         if (pObject) {
             pComponent = pObject->getComponent<T>();
