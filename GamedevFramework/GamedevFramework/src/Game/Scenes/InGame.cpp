@@ -35,7 +35,7 @@ void InGame::load() {
     sprManager->addSprite(spr::STAR_SPRITE);
     sprManager->addSprite(spr::PLAYER_SHIP_SPRITE);
     sprManager->addSprite(spr::ENEMY_A_SHIP_SPRITE);
-
+    sprManager->addSprite(spr::PLAYER_BULLET_SPRITE);
 }
 
 void InGame::init() {
@@ -74,6 +74,7 @@ void InGame::unload() {
     sprManager->removeSprite(spr::STAR_SPRITE);
     sprManager->removeSprite(spr::PLAYER_SHIP_SPRITE);
     sprManager->removeSprite(spr::ENEMY_A_SHIP_SPRITE);
+    sprManager->removeSprite(spr::PLAYER_BULLET_SPRITE);
 
     detachEvent(ev::id::RENDER_EVENT, *this);
     detachEvent(ev::id::PRE_RENDER_EVENT, *this);

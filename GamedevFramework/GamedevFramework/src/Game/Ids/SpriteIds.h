@@ -86,6 +86,14 @@ namespace spr {
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER
     };
+
+    static const SpriteInfo PLAYER_BULLET_SPRITE	= {
+        8,
+        Vector3(0.9843f, 0.9901f, 0.3f),
+        Vector3(0.0f, 0.0097f, 0.5f),
+        tex::IN_GAME_SPR_SHEET.id,
+        SpriteAlign::CENTER
+    };
 }
 
 #endif // SPRITE_IDS_H_
