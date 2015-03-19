@@ -57,7 +57,7 @@ namespace Framework {
             T* getNextFree() {
                 PoolObjectIsFree free;
                 Iter iter = find_if(objects_.begin(), objects_.end(), free);
-                if (iter != objects_end())
+                if (iter != objects_.end())
                     return *iter;
                 else
                     return nullptr;

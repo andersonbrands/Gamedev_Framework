@@ -13,6 +13,7 @@
 namespace Framework {
 
     class PoolObjectIsFree {
+        public:
             PoolObjectIsFree() {}
             bool operator () (PoolObject *poolObject) {
                 return poolObject->isFree();

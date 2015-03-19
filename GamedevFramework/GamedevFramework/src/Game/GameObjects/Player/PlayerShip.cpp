@@ -17,7 +17,7 @@
 
 int PlayerShip::MAX_HP = 100;
 
-PlayerShip::PlayerShip() {
+PlayerShip::PlayerShip() : bulletManager_(15) {
     assert(addComponent<PlayerShipMovement>());
 }
 
@@ -27,7 +27,7 @@ PlayerShip::~PlayerShip() {
 }
 
 void PlayerShip::init() {
-	setActive(true);
+    setActive(true);
 
     pSprite_ = SpriteManager::getInstancePtr()->getSprite(spr::PLAYER_SHIP_SPRITE);
 
@@ -67,6 +67,11 @@ void PlayerShip::handleEvent(Event* pEvent) {
             }
             if (pInput->getKeyboard()->isKeyDown(DIK_LEFTARROW)) {
                 pMove->accelerate(Direction::LEFT, 3.0f);
+            }
+
+            // make it a timed event
+            if (pInput->getKeyboard()->isKeyDown(DIK_SPACE)) {
+                //bulletManager_.spawnBullet(0.0f, 0.0f);
             }
         }
         break;
