@@ -21,7 +21,7 @@ namespace Framework {
                 return free_;
             }
 
-            void setIsFree(bool free) {
+            void setFree(bool free) {
                 free_ = free;
             }
     };

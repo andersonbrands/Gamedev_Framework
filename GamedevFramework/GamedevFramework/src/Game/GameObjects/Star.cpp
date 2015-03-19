@@ -10,7 +10,7 @@
 #include "../../Framework/Utilities/Timer.h"
 
 Star::Star() : PoolObject(), pos_(), scale_(), rotation_() {
-    setIsFree(false);
+    setFree(false);
 }
 
 Star::~Star() {
