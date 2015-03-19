@@ -24,8 +24,8 @@ namespace Framework {
         }
     }
 
-    Component* GameObject::getComponent(unsigned int id) {
-        ComponentUnorderedMapIterator result = components_.find(id);
+    Component* GameObject::getComponent(unsigned int id) const {
+        auto result = components_.find(id);
         return result == components_.end() ? nullptr : result->second;
     }
 

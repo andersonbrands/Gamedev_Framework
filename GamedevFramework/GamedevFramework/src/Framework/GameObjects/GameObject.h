@@ -18,10 +18,10 @@
 namespace Framework {
     class GameObject : public EventHandler {
             template <class T>
-            friend T* component_cast(GameObject& object);
+            friend T* component_cast(const GameObject& object);
 
             template <class T>
-            friend T* component_cast(GameObject* pObject);
+            friend T* component_cast(const GameObject* pObject);
 
         private:
             typedef std::tr1::unordered_map<ComponentId, Component*>	ComponentUnorderedMap;
@@ -29,11 +29,11 @@ namespace Framework {
             ComponentUnorderedMap	components_;
 
             template <class T>
-            T*	getComponent() {
+            T*	getComponent() const {
                 return static_cast<T*>(getComponent(T::getId()));
             }
 
-            Component*	getComponent(ComponentId id);
+            Component*	getComponent(ComponentId id) const;
 
             bool active_;
 
