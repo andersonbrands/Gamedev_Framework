@@ -9,14 +9,15 @@
 #define PLAYER_SHIP_H_
 
 #include "../Ship.h"
-#include "PlayerBulletManager.h"
+#include "../BulletManager.h"
+#include "PlayerBullet.h"
 
 using namespace Framework;
 
 class PlayerShip : public Ship {
     private:
         static int MAX_HP;
-        PlayerBulletManager bulletManager_;
+        BulletManager<PlayerBullet> bulletManager_;
 
     public:
         PlayerShip();
