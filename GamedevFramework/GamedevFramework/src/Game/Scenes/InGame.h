@@ -33,6 +33,15 @@ class InGame : public iScene, public EventHandler {
         virtual void unload();
         virtual void dispose();
 
+        virtual void loadTextures();
+        virtual void unloadTextures();
+
+        virtual void addSprites();
+        virtual void removeSprites();
+
+        virtual void registerEvents();
+        virtual void unregisterEvents();
+
         virtual void handleEvent(Event* pEvent);
 };
 

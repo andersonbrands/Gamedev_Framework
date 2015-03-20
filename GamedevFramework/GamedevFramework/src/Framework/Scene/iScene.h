@@ -22,6 +22,14 @@ namespace Framework {
             virtual void unload()	= 0;
             virtual void dispose()	= 0;
 
+            virtual void loadTextures() = 0;
+            virtual void unloadTextures() = 0;
+
+            virtual void addSprites() = 0;
+            virtual void removeSprites() = 0;
+
+            virtual void registerEvents() = 0;
+            virtual void unregisterEvents() = 0;
     };
 
 }

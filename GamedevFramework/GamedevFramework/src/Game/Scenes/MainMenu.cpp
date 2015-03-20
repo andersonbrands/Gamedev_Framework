@@ -29,18 +29,9 @@ MainMenu::~MainMenu() {
 }
 
 void MainMenu::load() {
-    auto texManager(TextureManager::getInstancePtr());
-    assert(texManager);
+    loadTextures();
 
-    Texture* pTexture = texManager->loadTexture(tex::MAIN_MENU_SPR_SHEET);
-
-    auto sprManager(SpriteManager::getInstancePtr());
-    assert(sprManager);
-
-    sprManager->addSprite(spr::MAIN_MENU_BACKGROUND);
-    sprManager->addSprite(spr::MAIN_MENU_GAME_NAME);
-    sprManager->addSprite(spr::MAIN_MENU_PLAY_BT);
-    sprManager->addSprite(spr::MAIN_MENU_SETTINGS_BT);
+    addSprites();
 }
 void MainMenu::init() {
     attachEvent(ev::id::RENDER_EVENT, *this);
@@ -81,6 +72,48 @@ void MainMenu::init() {
     pGameName_		= sprManager->getSprite(spr::MAIN_MENU_GAME_NAME);
 
 }
+
+
+void MainMenu::loadTextures() {
+    auto texManager(TextureManager::getInstancePtr());
+    assert(texManager);
+
+    Texture* pTexture = texManager->loadTexture(tex::MAIN_MENU_SPR_SHEET);
+}
+void MainMenu::unloadTextures() {
+    auto texManager(TextureManager::getInstancePtr());
+    assert(texManager);
+
+    texManager->unloadTexture(tex::MAIN_MENU_SPR_SHEET);
+}
+
+void MainMenu::addSprites() {
+    auto sprManager(SpriteManager::getInstancePtr());
+    assert(sprManager);
+
+    sprManager->addSprite(spr::MAIN_MENU_BACKGROUND);
+    sprManager->addSprite(spr::MAIN_MENU_GAME_NAME);
+    sprManager->addSprite(spr::MAIN_MENU_PLAY_BT);
+    sprManager->addSprite(spr::MAIN_MENU_SETTINGS_BT);
+}
+void MainMenu::removeSprites() {
+    auto sprManager(SpriteManager::getInstancePtr());
+    assert(sprManager);
+
+    sprManager->removeSprite(spr::MAIN_MENU_BACKGROUND);
+    sprManager->removeSprite(spr::MAIN_MENU_GAME_NAME);
+    sprManager->removeSprite(spr::MAIN_MENU_PLAY_BT);
+    sprManager->removeSprite(spr::MAIN_MENU_SETTINGS_BT);
+}
+
+void MainMenu::registerEvents() {
+
+}
+void MainMenu::unregisterEvents() {
+
+}
+
+
 void MainMenu::update() {
     auto pInput(InputManager::getInstancePtr());
 
@@ -114,19 +147,9 @@ void MainMenu::handleEvent(Event* pEvent) {
 }
 
 void MainMenu::unload() {
-    auto texManager(TextureManager::getInstancePtr());
-    assert(texManager);
+    unloadTextures();
 
-    texManager->unloadTexture(tex::MAIN_MENU_SPR_SHEET);
-
-
-    auto sprManager(SpriteManager::getInstancePtr());
-    assert(sprManager);
-
-    sprManager->removeSprite(spr::MAIN_MENU_BACKGROUND);
-    sprManager->removeSprite(spr::MAIN_MENU_GAME_NAME);
-    sprManager->removeSprite(spr::MAIN_MENU_PLAY_BT);
-    sprManager->removeSprite(spr::MAIN_MENU_SETTINGS_BT);
+    removeSprites();
 
     detachEvent(ev::id::RENDER_EVENT, *this);
     detachEvent(ev::id::PRE_RENDER_EVENT, *this);

@@ -24,19 +24,20 @@ InGame::~InGame() {
 }
 
 void InGame::load() {
-    auto texManager(TextureManager::getInstancePtr());
-    assert(texManager);
+    loadTextures();
 
-    Texture* pTexture = texManager->loadTexture(tex::IN_GAME_SPR_SHEET);
-
-    auto sprManager(SpriteManager::getInstancePtr());
-    assert(sprManager);
-
-    sprManager->addSprite(spr::STAR_SPRITE);
-    sprManager->addSprite(spr::PLAYER_SHIP_SPRITE);
-    sprManager->addSprite(spr::ENEMY_A_SHIP_SPRITE);
-    sprManager->addSprite(spr::PLAYER_BULLET_SPRITE);
+    addSprites();
 }
+
+void InGame::unload() {
+    unloadTextures();
+
+    removeSprites();
+
+    detachEvent(ev::id::RENDER_EVENT, *this);
+    detachEvent(ev::id::PRE_RENDER_EVENT, *this);
+}
+
 
 void InGame::init() {
     starDust_.init();
@@ -62,12 +63,37 @@ void InGame::update() {
     starDust_.update();
 }
 
-void InGame::unload() {
+
+void InGame::dispose() {
+
+}
+
+void InGame::loadTextures() {
+    auto texManager(TextureManager::getInstancePtr());
+    assert(texManager);
+
+    Texture* pTexture = texManager->loadTexture(tex::IN_GAME_SPR_SHEET);
+}
+
+void InGame::unloadTextures() {
     auto texManager(TextureManager::getInstancePtr());
     assert(texManager);
 
     texManager->unloadTexture(tex::IN_GAME_SPR_SHEET);
+}
 
+void InGame::addSprites() {
+    auto sprManager(SpriteManager::getInstancePtr());
+    assert(sprManager);
+
+    sprManager->addSprite(spr::STAR_SPRITE);
+    sprManager->addSprite(spr::PLAYER_SHIP_SPRITE);
+    sprManager->addSprite(spr::ENEMY_A_SHIP_SPRITE);
+    sprManager->addSprite(spr::PLAYER_BULLET_SPRITE);
+    sprManager->addSprite(spr::ENEMY_BULLET_SPRITE);
+}
+
+void InGame::removeSprites() {
     auto sprManager(SpriteManager::getInstancePtr());
     assert(sprManager);
 
@@ -75,12 +101,13 @@ void InGame::unload() {
     sprManager->removeSprite(spr::PLAYER_SHIP_SPRITE);
     sprManager->removeSprite(spr::ENEMY_A_SHIP_SPRITE);
     sprManager->removeSprite(spr::PLAYER_BULLET_SPRITE);
-
-    detachEvent(ev::id::RENDER_EVENT, *this);
-    detachEvent(ev::id::PRE_RENDER_EVENT, *this);
+    sprManager->removeSprite(spr::ENEMY_BULLET_SPRITE);
 }
 
-void InGame::dispose() {
+void InGame::registerEvents() {
+
+}
+void InGame::unregisterEvents() {
 
 }
 
