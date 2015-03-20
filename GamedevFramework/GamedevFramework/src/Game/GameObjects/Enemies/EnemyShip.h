@@ -9,9 +9,14 @@
 #define ENEMY_SHIP_H_
 
 #include "../Ship.h"
+#include "EnemyBullet.h"
+#include "../BulletManager.h"
+
+#include "../../../Framework/Utilities/Utils.h"
 
 class EnemyShip : public Ship {
     private:
+
     public:
         EnemyShip();
         virtual ~EnemyShip();
@@ -21,6 +26,8 @@ class EnemyShip : public Ship {
         virtual void	update() = 0;
         virtual void	spawn(float x, float y) = 0;
         virtual void	reset() = 0;
+
+        void tryToShoot();
 
         virtual void	handleEvent(Event* pEvent);
 };

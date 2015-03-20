@@ -12,6 +12,8 @@
 #include "EnemyBShip.h"
 #include "EnemyCShip.h"
 
+#include "EnemyBulletManager.h"
+
 #include "../../../Framework/EventManager/EventHandler.h"
 
 using namespace Framework;
@@ -21,6 +23,8 @@ class EnemyManager : public EventHandler {
         EnemyAShip		enemyA_[5];
         EnemyBShip		enemyB_[3];
         EnemyCShip		enemyC_[5];
+
+        EnemyBulletManager bulletManager_;
 
         bool			readyToSpawn_;
         bool			paused_;

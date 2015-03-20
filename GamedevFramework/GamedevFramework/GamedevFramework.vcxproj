@@ -157,6 +157,14 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="src\Game\GameObjects\Enemies\EnemyBullet.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameObjects\Enemies\EnemyBulletManager.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Game\GameObjects\Enemies\EnemyCShip.cpp">
       <SubType>
       </SubType>
@@ -170,10 +178,6 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="src\Game\GameObjects\Player\PlayerBullet.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="src\Game\GameObjects\Player\PlayerBulletManager.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -336,6 +340,10 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\BulletManager.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Game\GameObjects\Components\PlayerShipMovement.h">
       <SubType>
       </SubType>
@@ -345,6 +353,11 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\Game\GameObjects\Enemies\EnemyBShip.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\Enemies\EnemyBullet.h" />
+    <ClInclude Include="src\Game\GameObjects\Enemies\EnemyBulletManager.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -361,10 +374,6 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\Game\GameObjects\Player\PlayerBullet.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
-    <ClInclude Include="src\Game\GameObjects\Player\PlayerBulletManager.h">
       <SubType>
       </SubType>
     </ClInclude>

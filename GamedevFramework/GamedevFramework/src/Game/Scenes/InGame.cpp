@@ -16,11 +16,11 @@
 #include "../Ids/SpriteIds.h"
 
 InGame::InGame() : iScene(), starDust_(200), playerShip_(), enemyManager_() {
-
+    registerEvents();
 }
 
 InGame::~InGame() {
-
+    unregisterEvents();
 }
 
 void InGame::load() {
@@ -105,10 +105,10 @@ void InGame::removeSprites() {
 }
 
 void InGame::registerEvents() {
-
+    registerEvent(game::ev::id::SPAWN_ENEMY_BULLET);
 }
 void InGame::unregisterEvents() {
-
+    unregisterEvent(game::ev::id::SPAWN_ENEMY_BULLET);
 }
 
 void InGame::handleEvent(Event* pEvent) {

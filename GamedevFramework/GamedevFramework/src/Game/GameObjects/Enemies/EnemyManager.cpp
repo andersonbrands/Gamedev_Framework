@@ -10,7 +10,7 @@
 #include "../../../Framework/EventManager/EventManager.h"
 
 
-EnemyManager::EnemyManager() : readyToSpawn_(false), paused_(true) {
+EnemyManager::EnemyManager() : readyToSpawn_(false), paused_(true), bulletManager_(25) {
 
 }
 
@@ -31,6 +31,8 @@ void EnemyManager::init() {
     }
     readyToSpawn_ = true;
     setPaused(false);
+
+	bulletManager_.init();
 
     // attach events
     attachEvent(ev::id::UPDATE, *this);

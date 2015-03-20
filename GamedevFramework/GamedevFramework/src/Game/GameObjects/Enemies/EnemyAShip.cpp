@@ -59,6 +59,9 @@ void EnemyAShip::update() {
         auto pMove(component_cast<MovementComponent>(this));
         pMove->accelerate(Direction::DOWN, 0.5f);
 
+        // try to shoot
+        tryToShoot();
+
         if (component_cast<TransformComponent>(this)->getTranslation().getY() < -16.0f) {
             setActive(false);
         }

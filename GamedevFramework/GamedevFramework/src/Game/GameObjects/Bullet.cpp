@@ -12,7 +12,7 @@ Bullet::Bullet() {
     assert(addComponent<MovementComponent>());
     auto movement(component_cast<MovementComponent>(this));
     movement->setMaxSpeed(45.0f);
-    movement->setFrictionMultiplier(0.9f);
+    movement->setFrictionMultiplier(0.93f);
 
     assert(addComponent<SpriteComponent>());
 }

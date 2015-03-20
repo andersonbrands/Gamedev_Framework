@@ -17,7 +17,7 @@ int			EnemyBShip::MAX_HP = 50;
 float		EnemyBShip::BORDER_LIMIT = 22.0f;
 float		EnemyBShip::STOP_HEIGHT = 12.0f;
 
-EnemyBShip::EnemyBShip() : borderDirection_(Direction::DOWN), spawnX_(0.0f), currentStep_(EnemyBShip::NEUTRAL) {
+EnemyBShip::EnemyBShip() : EnemyShip(), borderDirection_(Direction::DOWN), spawnX_(0.0f), currentStep_(EnemyBShip::NEUTRAL) {
     assert(addComponent<MovementComponent>());
     component_cast<MovementComponent>(this)->setFrictionMultiplier(0.93f);
 }
@@ -88,6 +88,9 @@ void EnemyBShip::update() {
                 if (tr.getY() < STOP_HEIGHT) {
                     pMove->setVelocity(0.0f);
 
+                    // try to shoot
+                    tryToShoot();
+
                     // try to leave
                     if (rand_int(0, 8000) < 25)
                         currentStep_ = EnemyBShip::STEP_05;
@@ -111,6 +114,7 @@ void EnemyBShip::update() {
                     pMove->setVelocity(0.0f);
                 } else {
                     // try to shoot
+                    tryToShoot();
                 }
                 break;
             case EnemyBShip::STEP_03:
@@ -121,6 +125,7 @@ void EnemyBShip::update() {
                     pMove->setVelocity(0.0f);
                 } else {
                     // try to shoot
+                    tryToShoot();
                 }
                 break;
             case EnemyBShip::STEP_04:
@@ -131,6 +136,7 @@ void EnemyBShip::update() {
                     pMove->setVelocity(0.0f);
                 } else {
                     // try to shoot
+                    tryToShoot();
 
                     // try to leave
                     if (rand_int(0, 1500) < 25) {

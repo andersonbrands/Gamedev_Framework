@@ -165,7 +165,10 @@
     <ClCompile Include="src\Game\GameObjects\Player\PlayerBullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\GameObjects\Player\PlayerBulletManager.cpp">
+    <ClCompile Include="src\Game\GameObjects\Enemies\EnemyBullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameObjects\Enemies\EnemyBulletManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -407,7 +410,13 @@
     <ClInclude Include="src\Game\GameObjects\Player\PlayerBullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Game\GameObjects\Player\PlayerBulletManager.h">
+    <ClInclude Include="src\Game\GameObjects\Enemies\EnemyBullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\BulletManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\Enemies\EnemyBulletManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

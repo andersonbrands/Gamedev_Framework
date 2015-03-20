@@ -16,7 +16,7 @@
 int		EnemyCShip::MAX_HP = 30;
 int		EnemyCShip::MIN_FLIP_PROB = 1;
 
-EnemyCShip::EnemyCShip() : horizontalDirection_(Direction::LEFT), flipProbability_(MIN_FLIP_PROB) {
+EnemyCShip::EnemyCShip() :EnemyShip(), horizontalDirection_(Direction::LEFT), flipProbability_(MIN_FLIP_PROB) {
     assert(addComponent<MovementComponent>());
     component_cast<MovementComponent>(this)->setFrictionMultiplier(0.9f);
 }
@@ -90,6 +90,9 @@ void EnemyCShip::update() {
             reachHorizontalLimit(Direction::LEFT, limitH);
         else if (rand_int(0, 8000) < flipProbability_++)
             flipH();
+
+        // try to shoot
+        tryToShoot();
 
         auto pMove(component_cast<MovementComponent>(this));
         pMove->accelerate(Direction::DOWN, 0.2f);
