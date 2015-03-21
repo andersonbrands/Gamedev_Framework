@@ -17,9 +17,11 @@
 
 InGame::InGame() : iScene(), starDust_(200), playerShip_(), enemyManager_() {
     registerEvents();
+    sendEvent(ev::id::ATTACH_SCENE_EVENTS);
 }
 
 InGame::~InGame() {
+    sendEvent(ev::id::DETACH_SCENE_EVENTS);
     unregisterEvents();
 }
 

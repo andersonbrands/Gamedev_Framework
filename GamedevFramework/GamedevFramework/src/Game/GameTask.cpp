@@ -33,6 +33,9 @@ bool GameTask::start() {
     registerEvent(ev::id::PRE_UPDATE);
     registerEvent(ev::id::POST_UPDATE);
 
+    registerEvent(ev::id::ATTACH_SCENE_EVENTS);
+    registerEvent(ev::id::DETACH_SCENE_EVENTS);
+
     initCurrentScene();
     return true;
 }

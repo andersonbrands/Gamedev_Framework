@@ -21,11 +21,13 @@
 
 
 MainMenu::MainMenu() : pBackground_(nullptr), pGameName_(nullptr), pPlayBt_(nullptr), pSettingBt_(nullptr) {
-
+    registerEvents();
+    sendEvent(ev::id::ATTACH_SCENE_EVENTS);
 }
 
 MainMenu::~MainMenu() {
-
+    sendEvent(ev::id::DETACH_SCENE_EVENTS);
+    unregisterEvents();
 }
 
 void MainMenu::load() {
