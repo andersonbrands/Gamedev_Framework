@@ -186,4 +186,15 @@ namespace Framework {
         }
     }
 
+    float Vector3::distance(const Vector3& v) const {
+        return sqrt(distanceSquared(v));
+    }
+
+    float Vector3::distanceSquared(const Vector3& v) const {
+        float dX(x_ - v.x_);
+        float dY(y_ + v.y_);
+
+        return dX * dX + dY * dY;
+    }
+
 }

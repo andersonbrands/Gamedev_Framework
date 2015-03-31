@@ -71,6 +71,10 @@ namespace Framework {
             float lengthSquared() const;
             float length() const;
             void normalise();
+
+			// additional operations
+			float distance(const Vector3& v) const;
+			float distanceSquared(const Vector3& v) const;
     };
 
 }
