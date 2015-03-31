@@ -88,6 +88,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="src\Framework\Collision\Colliders\SphereCollider.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Framework\Collision\CollisionGroup.cpp">
       <SubType>
       </SubType>
@@ -230,6 +234,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\Framework\Collision\Colliders\PointCollider.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Collision\Colliders\SphereCollider.h">
       <SubType>
       </SubType>
     </ClInclude>

@@ -171,6 +171,9 @@
     <ClCompile Include="src\Game\GameObjects\Enemies\EnemyBulletManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Framework\Collision\Colliders\SphereCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Framework\Kernel\Kernel.h">
@@ -417,6 +420,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Game\GameObjects\Enemies\EnemyBulletManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Collision\Colliders\SphereCollider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
