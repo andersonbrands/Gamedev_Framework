@@ -14,15 +14,17 @@
 #include "../Utilities/UnorderedMapContainer.h"
 #include "CollisionGroupId.h"
 #include "CollisionGroup.h"
+#include "../Kernel/Task.h"
+#include "../EventManager/EventHandler.h"
 
 namespace Framework {
 
-    class CollisionManager : public UnorderedMapContainer<CollisionGroupId, CollisionGroup>, public Singleton<CollisionManager> {
+    class CollisionManager : public Task, public EventHandler, public UnorderedMapContainer<CollisionGroupId, CollisionGroup>, public Singleton<CollisionManager> {
         private:
             void test(GameObject*, GameObject*);
 
         public:
-            CollisionManager();
+            CollisionManager(const unsigned int priority);
             virtual ~CollisionManager();
 
             void addCollisionGroup(CollisionGroupId groupId);
@@ -30,6 +32,13 @@ namespace Framework {
             void testAgainstGroup(CollisionGroupId groupId, GameObject* pObject);
             void clearGroup(CollisionGroupId groupId);
 
+            virtual bool	start();
+            virtual void	onSuspend();
+            virtual void	update();
+            virtual void	onResume();
+            virtual void	stop();
+
+			virtual void handleEvent(Event* pEvent);
     };
 
 }

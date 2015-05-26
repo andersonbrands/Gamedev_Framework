@@ -14,6 +14,7 @@
 #include "../Framework/Renderer/Texture/TextureManager.h"
 #include "../Framework/Renderer/Sprite/SpriteManager.h"
 #include "../Framework/Utilities/Utils.h"
+#include "../Framework/Collision/CollisionManager.h"
 
 GameApplication::GameApplication(): Application(), pGameTask_(nullptr) {
     seed();
@@ -38,6 +39,9 @@ bool GameApplication::initialize() {
     kernel_.addTask(InputManager::getInstancePtr());
     assert(InputManager::getInstancePtr()->requestKeyboard());
 
+    assert(CollisionManager::getInstancePtr());
+    kernel_.addTask(CollisionManager::getInstancePtr());
+
     assert(Renderer::getInstancePtr());
     kernel_.addTask(Renderer::getInstancePtr());
 
@@ -52,6 +56,7 @@ void GameApplication::createSingletons() {
     new Timer ( Task::TIMER_PRIORITY );
     new Platform( Task::PLATFORM_PRIORITY );
     new InputManager( Task::INPUT_PRIORITY );
+    new CollisionManager( Task::COLLISION_CHECK_PRIORITY );
     new Renderer( Task::RENDER_PRIORITY );
     new TextureManager("data/textures/");
     new SpriteManager();
@@ -70,6 +75,9 @@ void GameApplication::destroySingletons() {
 
     assert(Renderer::getInstancePtr());
     delete Renderer::getInstancePtr();
+
+    assert(CollisionManager::getInstancePtr());
+    delete CollisionManager::getInstancePtr();
 
     assert(InputManager::getInstancePtr());
     delete InputManager::getInstancePtr();

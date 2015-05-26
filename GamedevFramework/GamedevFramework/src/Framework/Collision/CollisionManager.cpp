@@ -16,7 +16,7 @@
 
 namespace Framework {
 
-    CollisionManager::CollisionManager() {
+    CollisionManager::CollisionManager(const unsigned int priority) : Task(priority) {
 
     }
 
@@ -58,9 +58,9 @@ namespace Framework {
         if (pCollider1->getCollider()->collides(pCollider2->getCollider())) {
             ev::data::Collision collisionData;
             collisionData.pGameObject = go2;
-            sendEventToHandler(ev::id::COLISION, *go1, &collisionData);
+            sendEventToHandler(ev::id::COLLISION, *go1, &collisionData);
             collisionData.pGameObject = go1;
-            sendEventToHandler(ev::id::COLISION, *go2, &collisionData);
+            sendEventToHandler(ev::id::COLLISION, *go2, &collisionData);
         }
     }
 
@@ -70,4 +70,34 @@ namespace Framework {
         group->clear();
     }
 
+
+    bool CollisionManager::start() {
+        registerEvent(ev::id::COLLISION_CHECK);
+        return true;
+    }
+    void CollisionManager::onSuspend() {
+        setSuspended(true);
+    }
+    void CollisionManager::update() {
+        sendEvent(ev::id::COLLISION_CHECK);
+    }
+    void CollisionManager::onResume() {
+        setSuspended(false);
+    }
+    void CollisionManager::stop() {
+        unregisterEvent(ev::id::COLLISION_CHECK);
+    }
+
+    void CollisionManager::handleEvent(Event* pEvent) {
+        switch (pEvent->getID()) {
+            case ev::id::PLATFORM_SUSPEND:
+                onSuspend();
+                break;
+            case ev::id::PLATFORM_RESUME:
+                onResume();
+                break;
+            default:
+                break;
+        }
+    }
 }

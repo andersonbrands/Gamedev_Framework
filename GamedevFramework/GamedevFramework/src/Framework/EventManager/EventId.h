@@ -31,9 +31,10 @@ namespace Framework {
             static const EventId PRE_UPDATE				= 11;
             static const EventId UPDATE					= 12;
             static const EventId POST_UPDATE			= 13;
-            static const EventId COLISION				= 14;
-            static const EventId ATTACH_SCENE_EVENTS	= 15;
-            static const EventId DETACH_SCENE_EVENTS	= 16;
+			static const EventId COLLISION_CHECK		= 14;
+            static const EventId COLLISION				= 15;
+            static const EventId ATTACH_SCENE_EVENTS	= 16;
+            static const EventId DETACH_SCENE_EVENTS	= 17;
 
             // EVENT_ID_OFFSET is used to separate Framework events from game specific events
 #define EVENT_ID_OFFSET 50
