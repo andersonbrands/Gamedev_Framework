@@ -24,14 +24,24 @@ void PlayerShipMovement::postMovement() {
 
     const Vector3& tr(pTransformComp->getTranslation());
 
-    float limit(23.3f);
+    float limitX(23.3f);
 
-    if (tr.getX() < -limit) {
-        pTransformComp->setTranslation(Vector3(-limit, tr.getY(), tr.getZ()));
+    if (tr.getX() < -limitX) {
+        pTransformComp->setTranslation(Vector3(-limitX, tr.getY(), tr.getZ()));
         velocity_ *= Vector3(0.0f, 1.0f, 1.0f);
-	} else if (tr.getX() > limit) {
-        pTransformComp->setTranslation(Vector3(limit, tr.getY(), tr.getZ()));
+    } else if (tr.getX() > limitX) {
+        pTransformComp->setTranslation(Vector3(limitX, tr.getY(), tr.getZ()));
         velocity_ *= Vector3(0.0f, 1.0f, 1.0f);
+    }
+
+    float limitY(14.5f);
+
+    if (tr.getY() < -limitY) {
+        pTransformComp->setTranslation(Vector3(tr.getX(), -limitY, tr.getZ()));
+        velocity_ *= Vector3(1.0f, 0.0f, 1.0f);
+    } else if (tr.getY() > limitY) {
+        pTransformComp->setTranslation(Vector3(tr.getX(), limitY, tr.getZ()));
+        velocity_ *= Vector3(1.0f, 0.0f, 1.0f);
     }
 
 

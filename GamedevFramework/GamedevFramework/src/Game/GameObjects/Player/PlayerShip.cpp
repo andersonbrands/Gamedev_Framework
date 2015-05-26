@@ -70,6 +70,13 @@ void PlayerShip::handleEvent(Event* pEvent) {
                 pMove->accelerate(Direction::LEFT, 3.0f);
             }
 
+            if (pInput->getKeyboard()->isKeyDown(DIK_UPARROW)) {
+                pMove->accelerate(Direction::UP, 3.0f);
+            }
+            if (pInput->getKeyboard()->isKeyDown(DIK_DOWNARROW)) {
+                pMove->accelerate(Direction::DOWN, 3.0f);
+            }
+
             // TODO: make it a timed event
             if (pInput->getKeyboard()->onKeyDown(DIK_SPACE)) {
                 auto tr(component_cast<TransformComponent>(this)->getTranslation());
