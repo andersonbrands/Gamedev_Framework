@@ -9,20 +9,20 @@
 #define SPHERE_COLLIDER_H_
 
 #include "Collider.h"
-#include "../../Math/Vector3.h"
+#include "../../Math/Transform.h"
 
 namespace Framework {
 
     class SphereCollider : public Collider {
         private:
-            Vector3* pPos_;
+            Transform* pTransform_;
             float radius_;
 
         public:
-            SphereCollider(Vector3* pPos, float radius);
+            SphereCollider(Transform* pTransform, float radius);
             virtual ~SphereCollider();
 
-            virtual bool collides(Collider*) const;
+            virtual bool collides(const Collider*) const;
             virtual bool collides(const SphereCollider&) const;
 
             const float getRadius() const {
@@ -32,12 +32,12 @@ namespace Framework {
                 radius_ = radius;
             }
 
-            const Vector3 getPos() const {
-                return *pPos_;
+            const Transform getTransform() const {
+                return *pTransform_;
             }
 
-            void setPos(Vector3* pPos) {
-                pPos_ = pPos;
+            void setPos(Transform* pTransform) {
+                pTransform_ = pTransform;
             }
     };
 

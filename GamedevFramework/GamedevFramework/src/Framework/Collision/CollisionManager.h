@@ -29,6 +29,8 @@ namespace Framework {
 
             void addCollisionGroup(CollisionGroupId groupId);
             void addObjectToGroup(CollisionGroupId groupId, GameObject* pObject);
+            void removeObjectFromGroup(CollisionGroupId groupId, GameObject* pObject);
+
             void testAgainstGroup(CollisionGroupId groupId, GameObject* pObject);
             void clearGroup(CollisionGroupId groupId);
 
@@ -38,7 +40,7 @@ namespace Framework {
             virtual void	onResume();
             virtual void	stop();
 
-			virtual void handleEvent(Event* pEvent);
+            virtual void handleEvent(Event* pEvent);
     };
 
 }

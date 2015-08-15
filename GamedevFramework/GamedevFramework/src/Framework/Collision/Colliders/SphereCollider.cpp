@@ -9,7 +9,7 @@
 
 namespace Framework {
 
-    SphereCollider::SphereCollider(Vector3* pPos, float radius) : pPos_(pPos), radius_(radius) {
+    SphereCollider::SphereCollider(Transform* pTransform, float radius) : pTransform_(pTransform), radius_(radius) {
 
     }
 
@@ -17,8 +17,8 @@ namespace Framework {
 
     }
 
-    bool SphereCollider::collides(Collider* pCollider) const {
-        SphereCollider* pSphere(static_cast<SphereCollider*>(pCollider));
+    bool SphereCollider::collides(const Collider* pCollider) const {
+        const SphereCollider* pSphere(static_cast<const SphereCollider*>(pCollider));
         if (pSphere)
             return collides(*pSphere);
 
@@ -30,7 +30,9 @@ namespace Framework {
 
         float bothRadius(radius_ + sphereCollider.radius_);
 
-        if (pPos_->distanceSquared(*sphereCollider.pPos_) < pow(bothRadius, 2)) {
+        const Vector3 pos = pTransform_->getTranslation();
+
+        if (pos.distanceSquared(sphereCollider.pTransform_->getTranslation()) < pow(bothRadius, 2)) {
             collides = true;
         }
 

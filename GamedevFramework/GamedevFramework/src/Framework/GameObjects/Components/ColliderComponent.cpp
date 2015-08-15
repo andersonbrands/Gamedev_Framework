@@ -16,6 +16,10 @@ namespace Framework {
     }
 
     ColliderComponent::~ColliderComponent() {
+        if (pCollider_) {
+            delete pCollider_;
+            pCollider_ = nullptr;
+        }
     }
 
     bool ColliderComponent::collides(ColliderComponent* pCollider) {

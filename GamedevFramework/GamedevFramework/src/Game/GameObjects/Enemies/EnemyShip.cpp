@@ -10,11 +10,17 @@
 #include "../../../Framework/EventManager/EventManager.h"
 #include "../../../Framework/Renderer/Renderer.h"
 #include "../../Ids/EventIds.h"
-
+#include "../../../Framework/GameObjects/Components/ColliderComponent.h"
+#include "../../../Framework/Collision/Colliders/SphereCollider.h"
 
 EnemyShip::EnemyShip()  {
     attachEvent(ev::id::RENDER_EVENT, *this);
+    assert(addComponent<ColliderComponent>());
 
+    auto tr(component_cast<TransformComponent>(this));
+
+    auto col(component_cast<ColliderComponent>(this));
+    col->setCollider(new SphereCollider(tr, 3.0f/2.0f));
 }
 
 EnemyShip::~EnemyShip() {

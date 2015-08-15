@@ -16,7 +16,7 @@
 
 namespace Framework {
 
-    CollisionManager::CollisionManager(const unsigned int priority) : Task(priority) {
+    CollisionManager::CollisionManager(const unsigned int priority) : Task(priority), EventHandler() {
 
     }
 
@@ -33,7 +33,11 @@ namespace Framework {
         assert(group);
         group->addObject(pObject);
     }
-
+    void CollisionManager::removeObjectFromGroup(CollisionGroupId groupId, GameObject* pObject) {
+        auto group(getObject(groupId));
+        assert(group);
+        group->removeObject(pObject);
+    }
     void CollisionManager::testAgainstGroup(CollisionGroupId groupId, GameObject* pObject) {
         auto group(getObject(groupId));
         assert(group);

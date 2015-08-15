@@ -14,11 +14,14 @@
 #include "../../Ids/SpriteIds.h"
 #include "../../Ids/TextureIds.h"
 #include "../Components\PlayerShipMovement.h"
+#include "../../../Framework/GameObjects/Components/ColliderComponent.h"
+#include "../../../Framework/Collision/Colliders/SphereCollider.h"
 
 int PlayerShip::MAX_HP = 100;
 
 PlayerShip::PlayerShip() : bulletManager_(20) {
     assert(addComponent<PlayerShipMovement>());
+    assert(addComponent<ColliderComponent>());
 }
 
 PlayerShip::~PlayerShip() {
@@ -34,6 +37,10 @@ void PlayerShip::init() {
 
     auto tr(component_cast<TransformComponent>(this));
     tr->setTranslation(Vector3(0.0f, -13.5f, -0.1f));
+
+    auto col(component_cast<ColliderComponent>(this));
+    col->setCollider(new SphereCollider(tr, 2.6f/3.5f));
+
 
     attachEvent(ev::id::PRE_UPDATE, *this);
     attachEvent(ev::id::RENDER_EVENT, *this);

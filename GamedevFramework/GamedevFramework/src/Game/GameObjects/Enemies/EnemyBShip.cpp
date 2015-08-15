@@ -10,6 +10,7 @@
 #include "../../../Framework/EventManager/EventManager.h"
 #include "../../../Framework/GameObjects/Components/MovementComponent.h"
 #include "../../../Framework/Renderer/Sprite/SpriteManager.h"
+#include "../../../Framework/Collision/CollisionManager.h"
 #include "../../Ids/SpriteIds.h"
 #include "../../Ids/TextureIds.h"
 
@@ -63,6 +64,8 @@ void EnemyBShip::spawn(float x, float y) {
 void EnemyBShip::spawn(float x, float y, Direction borderDirection) {
     reset();
     setActive(true);
+    auto colManager = CollisionManager::getInstancePtr();
+    colManager->addObjectToGroup(0, this);
 
     borderDirection_ = borderDirection;
 
@@ -150,6 +153,8 @@ void EnemyBShip::update() {
 
                 if (component_cast<TransformComponent>(this)->getTranslation().getY() < -16.0f) {
                     setActive(false);
+                    auto colManager = CollisionManager::getInstancePtr();
+                    colManager->removeObjectFromGroup(0, this);
                 }
                 break;
             default:

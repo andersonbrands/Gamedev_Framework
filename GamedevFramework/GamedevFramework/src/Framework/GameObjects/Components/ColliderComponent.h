@@ -33,6 +33,13 @@ namespace Framework {
             Collider* getCollider() {
                 return pCollider_;
             }
+            void setCollider(Collider* pCollider) {
+                pCollider_ = pCollider;
+            }
+
+            virtual void handleEvent(Event* pEvent) {
+
+            }
     };
 
 }

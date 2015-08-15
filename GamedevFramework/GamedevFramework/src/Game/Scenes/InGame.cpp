@@ -11,6 +11,7 @@
 #include "../../Framework/Renderer/Renderer.h"
 #include "../../Framework/Renderer/Texture/TextureManager.h"
 #include "../../Framework/Renderer/Sprite/SpriteManager.h"
+#include "../../Framework/Collision/CollisionManager.h"
 #include "../Ids/EventIds.h"
 #include "../Ids/TextureIds.h"
 #include "../Ids/SpriteIds.h"
@@ -42,10 +43,15 @@ void InGame::unload() {
 
 
 void InGame::init() {
+    auto colManager = CollisionManager::getInstancePtr();
+
     starDust_.init();
 
     playerShip_.init();
+    colManager->addCollisionGroup(1);
+    colManager->addObjectToGroup(1, &playerShip_);
 
+    colManager->addCollisionGroup(0);
     enemyManager_.init();
 
     attachEvent(ev::id::RENDER_EVENT, *this);
@@ -63,6 +69,10 @@ void InGame::update() {
     }
 
     starDust_.update();
+
+
+    auto colManager = CollisionManager::getInstancePtr();
+    colManager->testAgainstGroup(0, &playerShip_);
 }
 
 

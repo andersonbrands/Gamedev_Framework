@@ -10,6 +10,7 @@
 #include "../../../Framework/EventManager/EventManager.h"
 #include "../../../Framework/GameObjects/Components/MovementComponent.h"
 #include "../../../Framework/Renderer/Sprite/SpriteManager.h"
+#include "../../../Framework/Collision/CollisionManager.h"
 #include "../../Ids/SpriteIds.h"
 #include "../../Ids/TextureIds.h"
 
@@ -47,6 +48,10 @@ void EnemyCShip::reset() {
 void EnemyCShip::spawn(float x, float y) {
     reset();
     setActive(true);
+
+    auto colManager = CollisionManager::getInstancePtr();
+    colManager->addObjectToGroup(0, this);
+
     horizontalDirection_ = (std::rand()%2)?Direction::LEFT:Direction::RIGHT;
 
     component_cast<TransformComponent>(this)->setTranslation(Vector3(x, y, -0.1f));
@@ -100,6 +105,8 @@ void EnemyCShip::update() {
 
         if (tr->getTranslation().getY() < -16.0f) {
             setActive(false);
+            auto colManager = CollisionManager::getInstancePtr();
+            colManager->removeObjectFromGroup(0, this);
         }
     }
 }

@@ -45,7 +45,7 @@ namespace Framework {
             void setScale(const Vector3& scale);
             const Vector3& getScale() const;
 
-			void setMatrix();
+            void setMatrix();
             const Matrix4 getMatrix() const;
     };
 
