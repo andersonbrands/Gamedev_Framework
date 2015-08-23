@@ -44,15 +44,27 @@ namespace Framework {
 
         GameObject* pGroupObject = group->getFirst();
         while (pGroupObject) {
+            auto pCopy = pGroupObject;
+            pGroupObject = group->getNext();
+            test(pObject, pCopy);
+        }
+    }
 
-            test(pObject, pGroupObject);
+    void CollisionManager::testGroups(CollisionGroupId groupId1, CollisionGroupId groupId2) {
+        auto group(getObject(groupId1));
+        assert(group);
+
+        GameObject* pGroupObject = group->getFirst();
+        while (pGroupObject) {
+
+            testAgainstGroup(groupId2, pGroupObject);
 
             pGroupObject = group->getNext();
         }
     }
 
     void CollisionManager::test(GameObject* go1, GameObject* go2) {
-        if (go1 == go2) return;
+        if (go1 == go2 || !go1->isActive() || !go2->isActive()) return;
 
         ColliderComponent* pCollider1 = component_cast<ColliderComponent>(go1);
         ColliderComponent* pCollider2 = component_cast<ColliderComponent>(go2);

@@ -32,6 +32,7 @@ namespace Framework {
             void removeObjectFromGroup(CollisionGroupId groupId, GameObject* pObject);
 
             void testAgainstGroup(CollisionGroupId groupId, GameObject* pObject);
+            void testGroups(CollisionGroupId groupId1, CollisionGroupId groupId2);
             void clearGroup(CollisionGroupId groupId);
 
             virtual bool	start();
