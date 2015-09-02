@@ -19,6 +19,7 @@ class EnemyBullet : public Bullet {
 
         virtual int getDamage() const;
         virtual void init();
+        virtual void	spawn(float x, float y);
 
         virtual void handleEvent(Event* pEvent);
 };

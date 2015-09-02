@@ -66,6 +66,7 @@ void PlayerBullet::handleEvent(Event* pEvent) {
             break;
         }
         default:
+            Bullet::handleEvent(pEvent);
             break;
     }
 }

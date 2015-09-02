@@ -8,16 +8,33 @@
 #include "EnemyBullet.h"
 #include "../../../Framework/Renderer/Sprite/SpriteManager.h"
 #include "../../Ids/SpriteIds.h"
+#include "../../../Framework/Collision/CollisionManager.h"
+#include "../../../Framework/GameObjects/Components/ColliderComponent.h"
+#include "../../../Framework/Collision/Colliders/SphereCollider.h"
 
 int EnemyBullet::damage_ = 10;
 
 EnemyBullet::EnemyBullet() {
+
+    assert(addComponent<ColliderComponent>());
+
+    auto tr(component_cast<TransformComponent>(this));
+
+    auto col(component_cast<ColliderComponent>(this));
+    col->setCollider(new SphereCollider(tr, 0.4f/2.0f));
 
 }
 
 EnemyBullet::~EnemyBullet() {
     detachEvent(ev::id::PRE_UPDATE, *this);
     detachEvent(ev::id::POST_UPDATE, *this);
+}
+
+void EnemyBullet::spawn(float x, float y) {
+    Bullet::spawn(x, y);
+    auto colManager = CollisionManager::getInstancePtr();
+
+    colManager->addObjectToGroup(3, this);
 }
 
 int		EnemyBullet::getDamage() const {
@@ -46,12 +63,12 @@ void EnemyBullet::handleEvent(Event* pEvent) {
             auto translation(component_cast<TransformComponent>(this)->getTranslation());
 
             if (translation.getY() < -16.0f) {
-                setFree(true);
-                setActive(false);
+                remove();
             }
             break;
         }
         default:
+            Bullet::handleEvent(pEvent);
             break;
     }
 }

@@ -47,14 +47,15 @@ void InGame::init() {
 
     starDust_.init();
 
-    // add player bullet collision group
-    colManager->addCollisionGroup(2);
+
+    colManager->addCollisionGroup(2); // add player bullet collision group
 
     playerShip_.init();
-    colManager->addCollisionGroup(1);
+    colManager->addCollisionGroup(1); // add player collision group
     colManager->addObjectToGroup(1, &playerShip_);
 
-    colManager->addCollisionGroup(0);
+    colManager->addCollisionGroup(3); // add enemy bullets collision group
+    colManager->addCollisionGroup(0); // add enemies collision group
     enemyManager_.init();
 
     attachEvent(ev::id::RENDER_EVENT, *this);
@@ -76,6 +77,7 @@ void InGame::update() {
 
     auto colManager = CollisionManager::getInstancePtr();
     colManager->testAgainstGroup(0, &playerShip_);
+    colManager->testAgainstGroup(3, &playerShip_);
     colManager->testGroups(0, 2);
 }
 
