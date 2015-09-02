@@ -28,6 +28,7 @@ class EnemyShip : public Ship {
         virtual void	reset() = 0;
 
         void tryToShoot();
+        void remove();
 
         virtual void	handleEvent(Event* pEvent);
 };

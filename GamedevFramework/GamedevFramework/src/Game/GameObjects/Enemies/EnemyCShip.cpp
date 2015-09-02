@@ -104,9 +104,10 @@ void EnemyCShip::update() {
         pMove->accelerate(horizontalDirection_, 0.8f);
 
         if (tr->getTranslation().getY() < -16.0f) {
-            setActive(false);
-            auto colManager = CollisionManager::getInstancePtr();
-            colManager->removeObjectFromGroup(0, this);
+            remove();
+            //setActive(false);
+            //auto colManager = CollisionManager::getInstancePtr();
+            //colManager->removeObjectFromGroup(0, this);
         }
     }
 }

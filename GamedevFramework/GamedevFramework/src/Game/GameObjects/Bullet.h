@@ -29,6 +29,7 @@ class Bullet : public PoolObject, public GameObject {
         virtual void spawn(float x, float y);
         virtual int getDamage() const = 0;
         virtual void init() = 0;
+        virtual void remove();
 
         virtual void handleEvent(Event* pEvent);
 };

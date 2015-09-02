@@ -47,6 +47,9 @@ void InGame::init() {
 
     starDust_.init();
 
+    // add player bullet collision group
+    colManager->addCollisionGroup(2);
+
     playerShip_.init();
     colManager->addCollisionGroup(1);
     colManager->addObjectToGroup(1, &playerShip_);
@@ -73,6 +76,7 @@ void InGame::update() {
 
     auto colManager = CollisionManager::getInstancePtr();
     colManager->testAgainstGroup(0, &playerShip_);
+    colManager->testGroups(0, 2);
 }
 
 

@@ -45,8 +45,8 @@ namespace Framework {
         GameObject* pGroupObject = group->getFirst();
         while (pGroupObject) {
             auto pCopy = pGroupObject;
-            pGroupObject = group->getNext();
             test(pObject, pCopy);
+            pGroupObject = group->getNext();
         }
     }
 
@@ -71,6 +71,7 @@ namespace Framework {
 
         assert (pCollider1 && pCollider2);
 
+
         if (pCollider1->getCollider()->collides(pCollider2->getCollider())) {
             ev::data::Collision collisionData;
             collisionData.pGameObject = go2;
@@ -89,6 +90,7 @@ namespace Framework {
 
     bool CollisionManager::start() {
         registerEvent(ev::id::COLLISION_CHECK);
+        registerEvent(ev::id::COLLISION);
         return true;
     }
     void CollisionManager::onSuspend() {
@@ -102,6 +104,7 @@ namespace Framework {
     }
     void CollisionManager::stop() {
         unregisterEvent(ev::id::COLLISION_CHECK);
+        unregisterEvent(ev::id::COLLISION);
     }
 
     void CollisionManager::handleEvent(Event* pEvent) {

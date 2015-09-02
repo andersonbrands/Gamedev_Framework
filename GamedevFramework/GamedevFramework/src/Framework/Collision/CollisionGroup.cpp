@@ -20,7 +20,11 @@ namespace Framework {
     }
 
     void CollisionGroup::addObject(GameObject* pGameObject) {
-        collisionObjects_.push_back(pGameObject);
+        auto iter(std::find(collisionObjects_.begin(), collisionObjects_.end(), pGameObject));
+
+        if (iter == collisionObjects_.end()) {
+            collisionObjects_.push_back(pGameObject);
+        }
     }
 
     void CollisionGroup::removeObject(GameObject* pGameObject) {
@@ -42,8 +46,8 @@ namespace Framework {
 
     GameObject* CollisionGroup::getNext() {
         GameObject* pRet = NULL;
-
-        if (currentObject_ != collisionObjects_.end()) {
+        auto end(collisionObjects_.end());
+        if (currentObject_ != end) {
             ++currentObject_;
             pRet = currentObject_ != collisionObjects_.end()
                    ?	*currentObject_

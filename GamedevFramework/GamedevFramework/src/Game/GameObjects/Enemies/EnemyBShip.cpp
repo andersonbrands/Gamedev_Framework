@@ -152,9 +152,10 @@ void EnemyBShip::update() {
                 pMove->accelerate(Direction::DOWN, speed);
 
                 if (component_cast<TransformComponent>(this)->getTranslation().getY() < -16.0f) {
-                    setActive(false);
-                    auto colManager = CollisionManager::getInstancePtr();
-                    colManager->removeObjectFromGroup(0, this);
+                    remove();
+					//setActive(false);
+                    //auto colManager = CollisionManager::getInstancePtr();
+                    //colManager->removeObjectFromGroup(0, this);
                 }
                 break;
             default:

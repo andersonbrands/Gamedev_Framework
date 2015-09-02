@@ -7,12 +7,20 @@
 
 #include "PlayerBullet.h"
 #include "../../../Framework/Renderer/Sprite/SpriteManager.h"
+#include "../../../Framework/Collision/CollisionManager.h"
+#include "../../../Framework/GameObjects/Components/ColliderComponent.h"
+#include "../../../Framework/Collision/Colliders/SphereCollider.h"
 #include "../../Ids/SpriteIds.h"
 
 int PlayerBullet::damage_ = 10;
 
 PlayerBullet::PlayerBullet() {
-    
+    assert(addComponent<ColliderComponent>());
+
+    auto tr(component_cast<TransformComponent>(this));
+
+    auto col(component_cast<ColliderComponent>(this));
+    col->setCollider(new SphereCollider(tr, 0.4f/2.0f));
 }
 
 PlayerBullet::~PlayerBullet() {
@@ -32,6 +40,13 @@ void	PlayerBullet::init() {
     attachEvent(ev::id::POST_UPDATE, *this);
 }
 
+void PlayerBullet::spawn(float x, float y) {
+    Bullet::spawn(x, y);
+    auto colManager = CollisionManager::getInstancePtr();
+
+    colManager->addObjectToGroup(2, this);
+}
+
 void PlayerBullet::handleEvent(Event* pEvent) {
     if (!isActive())
         return;
@@ -46,8 +61,7 @@ void PlayerBullet::handleEvent(Event* pEvent) {
             auto translation(component_cast<TransformComponent>(this)->getTranslation());
 
             if (translation.getY() > 16.0f) {
-                setFree(true);
-                setActive(false);
+                remove();
             }
             break;
         }
