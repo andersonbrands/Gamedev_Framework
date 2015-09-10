@@ -65,40 +65,40 @@ namespace spr {
 
     static const SpriteInfo STAR_SPRITE				= {
         5,
-        Vector3(0.9903f, 1.0f, 1.0f),
-        Vector3(0.0f, 0.0097f, 1.0f),
+        Vector3(0.9903f, 1.0f, 0.6f),
+        Vector3(0.0f, 0.0097f, 0.6f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER
     };
 
     static const SpriteInfo PLAYER_SHIP_SPRITE		= {
         6,
-        Vector3(0.0f, 0.0566f, 2.9f),
-        Vector3(0.0f, 0.0468f, 2.4f),
+        Vector3(0.0f, 0.0566f, 2.9f*0.75f),
+        Vector3(0.0f, 0.0468f, 2.4f*0.75f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER
     };
 
     static const SpriteInfo ENEMY_A_SHIP_SPRITE		= {
         7,
-        Vector3(0.0f, 0.0585f, 3.0f),
-        Vector3(0.0468f, 0.1053f, 3.0f),
+        Vector3(0.0f, 0.0585f, 3.0f*0.75f),
+        Vector3(0.0468f, 0.1053f, 3.0f*0.75f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER
     };
 
     static const SpriteInfo PLAYER_BULLET_SPRITE	= {
         8,
-        Vector3(0.9843f, 0.9901f, 0.3f),
-        Vector3(0.0f, 0.0097f, 0.5f),
+        Vector3(0.9843f, 0.9901f, 0.3f*0.75f),
+        Vector3(0.0f, 0.0097f, 0.5f*0.75f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER
     };
 
 	static const SpriteInfo ENEMY_BULLET_SPRITE	= {
         9,
-		Vector3(0.9785f, 0.9844f, 0.3f),
-        Vector3(0.0f, 0.0097f, 0.5f),
+		Vector3(0.9785f, 0.9844f, 0.3f*0.75f),
+        Vector3(0.0f, 0.0097f, 0.5f*0.75f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER
     };

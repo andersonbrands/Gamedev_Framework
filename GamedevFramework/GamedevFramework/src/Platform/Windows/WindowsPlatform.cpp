@@ -10,7 +10,7 @@
 #include "../../Framework/EventManager/EventManager.h"
 
 #define CLASS_NAME "Main"
-#define WINDOW_NAME "Frame dev project"
+#define WINDOW_NAME "Star Shooter project"
 
 
 WindowsPlatform::WindowsPlatform(const unsigned int priority)
@@ -31,7 +31,7 @@ WindowsPlatform::WindowsPlatform(const unsigned int priority)
 
     RegisterClassEx(&wc_);
 
-    const int w(480), h(320);
+    const int w(480*2), h(320*2);
     lastWindowedPositionX_ = 400;
     lastWindowedPositionY_ = 100;
 
