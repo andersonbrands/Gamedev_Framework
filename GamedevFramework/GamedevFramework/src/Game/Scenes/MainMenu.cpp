@@ -52,7 +52,7 @@ void MainMenu::init() {
     assert(pPlayBt_->addComponent<SpriteComponent>());
     component_cast<SpriteComponent>(pPlayBt_)->setSprite(sprManager->getSprite(spr::MAIN_MENU_PLAY_BT));
     //assert(pPlayBt_->addComponent<ColliderComponent>());
-    pPlayBt_->setActive(true);
+    pPlayBt_->setActive(false);
 
 
     // init settingBt
@@ -65,7 +65,7 @@ void MainMenu::init() {
     assert(pSettingBt_->addComponent<SpriteComponent>());
     component_cast<SpriteComponent>(pSettingBt_)->setSprite(sprManager->getSprite(spr::MAIN_MENU_SETTINGS_BT));
     //assert(pSettingBt_->addComponent<ColliderComponent>());
-    pSettingBt_->setActive(true);
+    pSettingBt_->setActive(false);
 
     // background
     pBackground_	= sprManager->getSprite(spr::MAIN_MENU_BACKGROUND);
@@ -123,7 +123,12 @@ void MainMenu::update() {
 
     if (pInput->getKeyboard()->onKeyUp(DIK_P)) {
         sendEvent(game::ev::id::PLAY_BT_PRESSED);
-    }
+	} else if(pInput->getKeyboard()->onKeyUp(DIK_R)) {
+		// start game and record inpt
+	} else if(pInput->getKeyboard()->onKeyUp(DIK_A)) {
+		// start game and use auto-input
+	}
+
 
 }
 
@@ -135,7 +140,7 @@ void MainMenu::handleEvent(Event* pEvent) {
             pRenderer->setTransform(Vector3(0.0f, 0.0f, 0.001f), Vector3(1.0f), Vector3(0.0f));
             pBackground_->render();
             pRenderer->setTransform(Vector3(0.0f, 15.0f, 0.0f), Vector3(1.0f), Vector3(0.0f));
-            pGameName_->render();
+            //pGameName_->render();
         }
         case ev::id::PRE_RENDER_EVENT: {
             auto pRenderer = Renderer::getInstancePtr();
