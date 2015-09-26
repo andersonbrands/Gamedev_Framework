@@ -22,11 +22,17 @@ int PlayerShip::MAX_HP = 100;
 PlayerShip::PlayerShip() : bulletManager_(20) {
     assert(addComponent<PlayerShipMovement>());
     assert(addComponent<ColliderComponent>());
+
+    attachEvent(ev::id::ATTACH_SCENE_EVENTS, *this);
+    attachEvent(ev::id::DETACH_SCENE_EVENTS, *this);
 }
 
 PlayerShip::~PlayerShip() {
     detachEvent(ev::id::PRE_UPDATE, *this);
     detachEvent(ev::id::RENDER_EVENT, *this);
+
+    detachEvent(ev::id::DETACH_SCENE_EVENTS, *this);
+    detachEvent(ev::id::ATTACH_SCENE_EVENTS, *this);
 }
 
 void PlayerShip::init() {
@@ -56,6 +62,22 @@ void PlayerShip::update() {
 
 void PlayerShip::handleEvent(Event* pEvent) {
     switch (pEvent->getID()) {
+        case ev::id::ATTACH_SCENE_EVENTS : {
+            attachEvent(game::ev::id::PS_MV_LEFT, *this);
+            attachEvent(game::ev::id::PS_MV_UP, *this);
+            attachEvent(game::ev::id::PS_MV_RIGHT, *this);
+            attachEvent(game::ev::id::PS_MV_DOWN, *this);
+            attachEvent(game::ev::id::PS_SHOOT, *this);
+            break;
+        }
+        case ev::id::DETACH_SCENE_EVENTS : {
+            detachEvent(game::ev::id::PS_MV_LEFT, *this);
+            detachEvent(game::ev::id::PS_MV_UP, *this);
+            detachEvent(game::ev::id::PS_MV_RIGHT, *this);
+            detachEvent(game::ev::id::PS_MV_DOWN, *this);
+            detachEvent(game::ev::id::PS_SHOOT, *this);
+            break;
+        }
         case ev::id::RENDER_EVENT: {
             auto pRenderer = Renderer::getInstancePtr();
             assert(pRenderer);
@@ -68,27 +90,59 @@ void PlayerShip::handleEvent(Event* pEvent) {
             auto pInput(InputManager::getInstancePtr());
             assert(pInput);
 
+            // send event to auto input
+
             auto pMove(component_cast<MovementComponent>(this));
 
             if (pInput->getKeyboard()->isKeyDown(DIK_RIGHTARROW)) {
-                pMove->accelerate(Direction::RIGHT, 3.0f);
+                // pMove->accelerate(Direction::RIGHT, 3.0f);
+                sendEvent(game::ev::id::PS_MV_RIGHT);
             }
             if (pInput->getKeyboard()->isKeyDown(DIK_LEFTARROW)) {
-                pMove->accelerate(Direction::LEFT, 3.0f);
+                //pMove->accelerate(Direction::LEFT, 3.0f);
+                sendEvent(game::ev::id::PS_MV_LEFT);
             }
 
             if (pInput->getKeyboard()->isKeyDown(DIK_UPARROW)) {
-                pMove->accelerate(Direction::UP, 3.0f);
+                //pMove->accelerate(Direction::UP, 3.0f);
+                sendEvent(game::ev::id::PS_MV_UP);
             }
             if (pInput->getKeyboard()->isKeyDown(DIK_DOWNARROW)) {
-                pMove->accelerate(Direction::DOWN, 3.0f);
+                //pMove->accelerate(Direction::DOWN, 3.0f);
+                sendEvent(game::ev::id::PS_MV_DOWN);
             }
 
             // TODO: make it a timed event
             if (pInput->getKeyboard()->onKeyDown(DIK_SPACE)) {
-                auto tr(component_cast<TransformComponent>(this)->getTranslation());
-                bulletManager_.spawnBullet(tr.getX(), tr.getY());
+                //auto tr(component_cast<TransformComponent>(this)->getTranslation());
+                //bulletManager_.spawnBullet(tr.getX(), tr.getY());
+                sendEvent(game::ev::id::PS_SHOOT);
             }
+        }
+        break;
+        case game::ev::id::PS_MV_LEFT: {
+            auto pMove(component_cast<MovementComponent>(this));
+            pMove->accelerate(Direction::LEFT, 3.0f);
+        }
+        break;
+        case game::ev::id::PS_MV_UP: {
+            auto pMove(component_cast<MovementComponent>(this));
+            pMove->accelerate(Direction::UP, 3.0f);
+        }
+        break;
+        case game::ev::id::PS_MV_RIGHT: {
+            auto pMove(component_cast<MovementComponent>(this));
+            pMove->accelerate(Direction::RIGHT, 3.0f);
+        }
+        break;
+        case game::ev::id::PS_MV_DOWN: {
+            auto pMove(component_cast<MovementComponent>(this));
+            pMove->accelerate(Direction::DOWN, 3.0f);
+        }
+        break;
+        case game::ev::id::PS_SHOOT: {
+            auto tr(component_cast<TransformComponent>(this)->getTranslation());
+            bulletManager_.spawnBullet(tr.getX(), tr.getY());
         }
         break;
         default:

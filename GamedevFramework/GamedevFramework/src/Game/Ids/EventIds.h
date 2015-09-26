@@ -20,6 +20,13 @@ namespace game {
             static const EventId SETTINGS_BT_PRESSED	= EVENT_ID_OFFSET + 2;
             static const EventId BACK_TO_MAIN_MENU		= EVENT_ID_OFFSET + 3;
             static const EventId SPAWN_ENEMY_BULLET		= EVENT_ID_OFFSET + 4;
+
+            // player ship input events
+            static const EventId PS_MV_LEFT				= EVENT_ID_OFFSET + 5;
+            static const EventId PS_MV_UP				= EVENT_ID_OFFSET + 6;
+            static const EventId PS_MV_RIGHT			= EVENT_ID_OFFSET + 7;
+            static const EventId PS_MV_DOWN				= EVENT_ID_OFFSET + 8;
+            static const EventId PS_SHOOT				= EVENT_ID_OFFSET + 9;
         }
 
         namespace data {

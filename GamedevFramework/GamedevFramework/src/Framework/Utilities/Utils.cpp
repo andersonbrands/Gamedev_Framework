@@ -9,7 +9,8 @@
 namespace Framework {
 
     void seed() {
-        srand(time(0));
+        //srand(time(0));
+        srand(1);
     }
 
     int rand_int(int min, int max) {

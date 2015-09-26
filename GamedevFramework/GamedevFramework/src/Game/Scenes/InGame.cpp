@@ -124,9 +124,20 @@ void InGame::removeSprites() {
 
 void InGame::registerEvents() {
     registerEvent(game::ev::id::SPAWN_ENEMY_BULLET);
+    registerEvent(game::ev::id::PS_MV_LEFT);
+    registerEvent(game::ev::id::PS_MV_UP);
+    registerEvent(game::ev::id::PS_MV_RIGHT);
+    registerEvent(game::ev::id::PS_MV_DOWN);
+    registerEvent(game::ev::id::PS_SHOOT);
 }
 void InGame::unregisterEvents() {
     unregisterEvent(game::ev::id::SPAWN_ENEMY_BULLET);
+
+    unregisterEvent(game::ev::id::PS_MV_LEFT);
+    unregisterEvent(game::ev::id::PS_MV_UP);
+    unregisterEvent(game::ev::id::PS_MV_RIGHT);
+    unregisterEvent(game::ev::id::PS_MV_DOWN);
+    unregisterEvent(game::ev::id::PS_SHOOT);
 }
 
 void InGame::handleEvent(Event* pEvent) {
