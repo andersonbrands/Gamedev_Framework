@@ -36,7 +36,7 @@ bool GameTask::start() {
     registerEvent(ev::id::ATTACH_SCENE_EVENTS);
     registerEvent(ev::id::DETACH_SCENE_EVENTS);
 
-    initCurrentScene();
+    initCurrentScene(nullptr);
     return true;
 }
 
@@ -69,12 +69,12 @@ void GameTask::handleEvent(Event* pEvent) {
         case game::ev::id::PLAY_BT_PRESSED:
             disposeCurrentScene();
             state_ = IN_GAME;
-            initCurrentScene();
+            initCurrentScene(pEvent->getData());
             break;
         case game::ev::id::BACK_TO_MAIN_MENU:
             disposeCurrentScene();
             state_ = MAIN_MENU;
-            initCurrentScene();
+            initCurrentScene(nullptr);
             break;
         case ev::id::PLATFORM_SUSPEND:
             onSuspend();
@@ -87,7 +87,7 @@ void GameTask::handleEvent(Event* pEvent) {
     }
 }
 
-void GameTask::initCurrentScene() {
+void GameTask::initCurrentScene(void* pData) {
     switch (state_) {
         case GameTask::MAIN_MENU:
             pCurrentScene_ = new MainMenu();
@@ -100,7 +100,7 @@ void GameTask::initCurrentScene() {
     }
 
     pCurrentScene_->load();
-    pCurrentScene_->init();
+    pCurrentScene_->init(pData);
 }
 void GameTask::disposeCurrentScene() {
     assert(pCurrentScene_);

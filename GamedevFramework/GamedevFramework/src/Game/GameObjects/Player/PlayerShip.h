@@ -11,6 +11,7 @@
 #include "../Ship.h"
 #include "../BulletManager.h"
 #include "PlayerBullet.h"
+#include "../../FileManagement/GameInputFile.h"
 
 using namespace Framework;
 
@@ -18,11 +19,14 @@ class PlayerShip : public Ship {
     private:
         static int MAX_HP;
         BulletManager<PlayerBullet> bulletManager_;
+        GameInputFile* pGameInput_;
 
     public:
         PlayerShip();
         virtual ~PlayerShip();
         virtual void init();
+        void initReadingFromFile();
+        void initWritingToFile();
         virtual int getMaxHp();
         void update();
 

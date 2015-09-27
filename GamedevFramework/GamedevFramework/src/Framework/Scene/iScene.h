@@ -16,11 +16,11 @@ namespace Framework {
             iScene() {}
             virtual ~iScene() {}
 
-            virtual void load()		= 0;
-            virtual void init()		= 0;
-            virtual void update()	= 0;
-            virtual void unload()	= 0;
-            virtual void dispose()	= 0;
+            virtual void load()				= 0;
+            virtual void init(void* pData)	= 0;
+            virtual void update()			= 0;
+            virtual void unload()			= 0;
+            virtual void dispose()			= 0;
 
             virtual void loadTextures() = 0;
             virtual void unloadTextures() = 0;

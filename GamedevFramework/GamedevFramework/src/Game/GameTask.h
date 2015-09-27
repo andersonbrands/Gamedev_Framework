@@ -24,7 +24,7 @@ class GameTask : public Task, public EventHandler {
         GameState state_;
 
         iScene* pCurrentScene_;
-        void initCurrentScene();
+        void initCurrentScene(void* pData);
         void disposeCurrentScene();
 
     public:

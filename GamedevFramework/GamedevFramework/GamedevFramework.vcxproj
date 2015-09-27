@@ -138,6 +138,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="src\Game\FileManagement\GameInputFile.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Game\GameApplication.cpp" />
     <ClCompile Include="src\Game\GameObjects\Bullet.cpp">
       <SubType>
@@ -331,6 +335,8 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\Framework\Wrapper.h" />
+    <ClInclude Include="src\Game\FileManagement\FileManager.h" />
+    <ClInclude Include="src\Game\FileManagement\GameInputFile.h" />
     <ClInclude Include="src\Game\GameApplication.h" />
     <ClInclude Include="src\Game\GameObjects\Bullet.h">
       <SubType>

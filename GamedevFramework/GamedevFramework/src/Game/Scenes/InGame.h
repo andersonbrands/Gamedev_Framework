@@ -28,7 +28,7 @@ class InGame : public iScene, public EventHandler {
         virtual ~InGame();
 
         virtual void load();
-        virtual void init();
+        virtual void init(void* pData);
         virtual void update();
         virtual void unload();
         virtual void dispose();

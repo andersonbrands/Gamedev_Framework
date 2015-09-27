@@ -29,7 +29,7 @@ class MainMenu : public iScene, public EventHandler {
         virtual ~MainMenu();
 
         virtual void load();
-        virtual void init();
+        virtual void init(void* pData);
         virtual void update();
         virtual void unload();
         virtual void dispose();

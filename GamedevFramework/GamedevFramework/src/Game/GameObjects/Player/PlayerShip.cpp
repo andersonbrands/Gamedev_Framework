@@ -19,7 +19,7 @@
 
 int PlayerShip::MAX_HP = 100;
 
-PlayerShip::PlayerShip() : bulletManager_(20) {
+PlayerShip::PlayerShip() : bulletManager_(20), pGameInput_(nullptr) {
     assert(addComponent<PlayerShipMovement>());
     assert(addComponent<ColliderComponent>());
 
@@ -33,6 +33,11 @@ PlayerShip::~PlayerShip() {
 
     detachEvent(ev::id::DETACH_SCENE_EVENTS, *this);
     detachEvent(ev::id::ATTACH_SCENE_EVENTS, *this);
+
+    if (pGameInput_) {
+        delete pGameInput_;
+        pGameInput_ = nullptr;
+    }
 }
 
 void PlayerShip::init() {
@@ -50,6 +55,23 @@ void PlayerShip::init() {
 
     attachEvent(ev::id::PRE_UPDATE, *this);
     attachEvent(ev::id::RENDER_EVENT, *this);
+}
+
+void PlayerShip::initReadingFromFile() {
+    init();
+
+    if (pGameInput_) return;
+
+    pGameInput_ = new GameInputFile();
+    pGameInput_->openReadMode();
+}
+void PlayerShip::initWritingToFile() {
+    init();
+
+    if (pGameInput_) return;
+
+    pGameInput_ = new GameInputFile();
+    pGameInput_->openWriteMode();
 }
 
 int PlayerShip::getMaxHp() {
@@ -90,34 +112,43 @@ void PlayerShip::handleEvent(Event* pEvent) {
             auto pInput(InputManager::getInstancePtr());
             assert(pInput);
 
-            // send event to auto input
+            game::ev::data::PlayerInputData inputData;
+            inputData.setAll(false);
 
             auto pMove(component_cast<MovementComponent>(this));
 
             if (pInput->getKeyboard()->isKeyDown(DIK_RIGHTARROW)) {
-                // pMove->accelerate(Direction::RIGHT, 3.0f);
+                inputData.right = true;
                 sendEvent(game::ev::id::PS_MV_RIGHT);
             }
             if (pInput->getKeyboard()->isKeyDown(DIK_LEFTARROW)) {
-                //pMove->accelerate(Direction::LEFT, 3.0f);
+                inputData.left = true;
                 sendEvent(game::ev::id::PS_MV_LEFT);
             }
 
             if (pInput->getKeyboard()->isKeyDown(DIK_UPARROW)) {
-                //pMove->accelerate(Direction::UP, 3.0f);
+                inputData.up = true;
                 sendEvent(game::ev::id::PS_MV_UP);
             }
             if (pInput->getKeyboard()->isKeyDown(DIK_DOWNARROW)) {
-                //pMove->accelerate(Direction::DOWN, 3.0f);
+                inputData.down = true;
                 sendEvent(game::ev::id::PS_MV_DOWN);
             }
 
-            // TODO: make it a timed event
+            // TODO: make it a timed event??
             if (pInput->getKeyboard()->onKeyDown(DIK_SPACE)) {
-                //auto tr(component_cast<TransformComponent>(this)->getTranslation());
-                //bulletManager_.spawnBullet(tr.getX(), tr.getY());
+                inputData.shoot = true;
                 sendEvent(game::ev::id::PS_SHOOT);
             }
+
+            if (pGameInput_) {
+                if (pGameInput_->isReadMode()) {
+                    pGameInput_->readSingleEntry();
+                } else if (pGameInput_->isWriteMode()) {
+                    pGameInput_->writeSingleEntry(inputData);
+                }
+            }
+
         }
         break;
         case game::ev::id::PS_MV_LEFT: {

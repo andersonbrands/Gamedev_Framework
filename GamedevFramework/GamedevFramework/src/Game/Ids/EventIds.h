@@ -36,6 +36,31 @@ namespace game {
                     float x;
                     float y;
             };
+            class ReadOrWriteToFromFile {
+                public:
+                    bool readFrom;
+                    bool writeTo;
+                    void setAll(bool flag) {
+                        readFrom = flag;
+                        writeTo  = flag;
+                    }
+            };
+            class PlayerInputData {
+                public:
+                    bool left;
+                    bool up;
+                    bool right;
+                    bool down;
+                    bool shoot;
+
+                    void setAll(bool flag) {
+                        left	= flag;
+                        up		= flag;
+                        right	= flag;
+                        down	= flag;
+                        shoot	= flag;
+                    }
+            };
 
         }
     }

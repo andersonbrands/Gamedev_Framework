@@ -42,7 +42,7 @@ void InGame::unload() {
 }
 
 
-void InGame::init() {
+void InGame::init(void* pData) {
     auto colManager = CollisionManager::getInstancePtr();
 
     starDust_.init();
@@ -50,7 +50,19 @@ void InGame::init() {
 
     colManager->addCollisionGroup(2); // add player bullet collision group
 
-    playerShip_.init();
+    // TODO: check pData read from file or write to file
+    game::ev::data::ReadOrWriteToFromFile* pReadOrWrite =
+        static_cast<game::ev::data::ReadOrWriteToFromFile*>(pData);
+
+    if (pReadOrWrite) {
+        if (pReadOrWrite->readFrom) {
+            playerShip_.initReadingFromFile();
+        } else if (pReadOrWrite->writeTo) {
+            playerShip_.initWritingToFile();
+        }
+    } else {
+        playerShip_.init();
+    }
     colManager->addCollisionGroup(1); // add player collision group
     colManager->addObjectToGroup(1, &playerShip_);
 

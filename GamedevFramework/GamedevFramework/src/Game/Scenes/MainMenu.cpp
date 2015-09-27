@@ -35,7 +35,7 @@ void MainMenu::load() {
 
     addSprites();
 }
-void MainMenu::init() {
+void MainMenu::init(void* pData) {
     attachEvent(ev::id::RENDER_EVENT, *this);
     attachEvent(ev::id::PRE_RENDER_EVENT, *this);
 
@@ -121,13 +121,18 @@ void MainMenu::update() {
 
     assert(pInput);
 
+    game::ev::data::ReadOrWriteToFromFile readOrWrite;
+    readOrWrite.setAll(false);
+
     if (pInput->getKeyboard()->onKeyUp(DIK_P)) {
-        sendEvent(game::ev::id::PLAY_BT_PRESSED);
-	} else if(pInput->getKeyboard()->onKeyUp(DIK_R)) {
-		// start game and record inpt
-	} else if(pInput->getKeyboard()->onKeyUp(DIK_A)) {
-		// start game and use auto-input
-	}
+        sendEvent(game::ev::id::PLAY_BT_PRESSED, nullptr);
+    } else if(pInput->getKeyboard()->onKeyUp(DIK_R)) {
+        readOrWrite.readFrom = true;
+        sendEvent(game::ev::id::PLAY_BT_PRESSED, &readOrWrite);
+    } else if(pInput->getKeyboard()->onKeyUp(DIK_W)) {
+        readOrWrite.writeTo = true;
+        sendEvent(game::ev::id::PLAY_BT_PRESSED, &readOrWrite);
+    }
 
 
 }
