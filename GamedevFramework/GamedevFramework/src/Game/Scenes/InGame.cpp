@@ -24,6 +24,13 @@ InGame::InGame() : iScene(), starDust_(200), playerShip_(), enemyManager_() {
 InGame::~InGame() {
     sendEvent(ev::id::DETACH_SCENE_EVENTS);
     unregisterEvents();
+
+    auto colManager = CollisionManager::getInstancePtr();
+
+    colManager->clearGroup(0);
+    colManager->clearGroup(1);
+    colManager->clearGroup(2);
+    colManager->clearGroup(3);
 }
 
 void InGame::load() {
