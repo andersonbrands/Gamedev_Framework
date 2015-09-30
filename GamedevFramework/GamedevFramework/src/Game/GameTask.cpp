@@ -26,6 +26,9 @@ bool GameTask::start() {
     registerEvent(game::ev::id::BACK_TO_MAIN_MENU);
     attachEvent(game::ev::id::BACK_TO_MAIN_MENU, *this);
 
+    registerEvent(game::ev::id::GAME_OVER_SCREEN);
+    attachEvent(game::ev::id::GAME_OVER_SCREEN, *this);
+
     attachEvent(ev::id::PLATFORM_SUSPEND, *this);
     attachEvent(ev::id::PLATFORM_RESUME, *this);
 
@@ -76,6 +79,11 @@ void GameTask::handleEvent(Event* pEvent) {
             state_ = MAIN_MENU;
             initCurrentScene(nullptr);
             break;
+        case game::ev::id::GAME_OVER_SCREEN:
+            disposeCurrentScene();
+            state_ = GAME_OVER;
+            initCurrentScene(nullptr);
+            break;
         case ev::id::PLATFORM_SUSPEND:
             onSuspend();
             break;
@@ -94,6 +102,9 @@ void GameTask::initCurrentScene(void* pData) {
             break;
         case GameTask::IN_GAME:
             pCurrentScene_ = new InGame();
+            break;
+        case GameTask::GAME_OVER:
+            pCurrentScene_ = new GameOverScreen();
             break;
         default:
             break;

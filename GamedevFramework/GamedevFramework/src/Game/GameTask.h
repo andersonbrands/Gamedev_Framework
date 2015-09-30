@@ -11,6 +11,7 @@
 #include "../Framework/Kernel/Task.h"
 #include "Scenes\MainMenu.h"
 #include "Scenes\InGame.h"
+#include "Scenes\GameOverScreen.h"
 #include "../Framework/EventManager/EventHandler.h"
 
 using namespace Framework;
@@ -18,7 +19,8 @@ using namespace Framework;
 class GameTask : public Task, public EventHandler {
         enum GameState {
             MAIN_MENU,
-            IN_GAME
+            IN_GAME,
+            GAME_OVER
         };
     private:
         GameState state_;
