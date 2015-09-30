@@ -10,7 +10,7 @@
 #include "../../Framework/EventManager/EventManager.h"
 
 #define CLASS_NAME "Main"
-#define WINDOW_NAME "Star Shooter project"
+#define WINDOW_NAME "Space Shooter"
 
 
 WindowsPlatform::WindowsPlatform(const unsigned int priority)
