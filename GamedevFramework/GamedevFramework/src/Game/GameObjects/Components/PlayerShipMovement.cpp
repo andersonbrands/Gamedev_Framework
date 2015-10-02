@@ -36,8 +36,10 @@ void PlayerShipMovement::postMovement() {
 
     float limitY(14.5f);
 
-    if (tr.getY() < -limitY) {
-        pTransformComp->setTranslation(Vector3(tr.getX(), -limitY, tr.getZ()));
+    float offset(1.0f);
+
+    if (tr.getY() < -limitY + offset) {
+        pTransformComp->setTranslation(Vector3(tr.getX(), -limitY + offset, tr.getZ()));
         velocity_ *= Vector3(1.0f, 0.0f, 1.0f);
     } else if (tr.getY() > limitY) {
         pTransformComp->setTranslation(Vector3(tr.getX(), limitY, tr.getZ()));
