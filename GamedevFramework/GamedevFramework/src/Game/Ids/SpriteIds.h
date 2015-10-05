@@ -121,71 +121,71 @@ namespace spr {
 
 	static const SpriteInfo ZERO_TEXT				= {
         12,
-        Vector3(204.822f/1024.0f, 225.136f/1024.0f, 1.0f),
-        Vector3(996.75f/1024.0f, 1.0, 1.0f * (20.314f/12.517f)),
+        Vector3(204.822f/1024.0f, 225.136f/1024.0f, 1.0f * (12.517f/20.314f)),
+        Vector3(996.75f/1024.0f, 1.0, 1.0f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER_LEFT
     };
 	static const SpriteInfo ONE_TEXT				= {
         13,
-        Vector3(225.136f/1024.0f, 245.45f/1024.0f, 1.0f),
-        Vector3(996.75f/1024.0f, 1.0, 1.0f * (20.314f/12.517f)),
+        Vector3(225.136f/1024.0f, 245.45f/1024.0f, 1.0f * (12.517f/20.314f)),
+        Vector3(996.75f/1024.0f, 1.0, 1.0f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER_LEFT
     };
 	static const SpriteInfo TWO_TEXT				= {
         14,
-        Vector3(245.45f/1024.0f, 265.764f/1024.0f, 1.0f),
-        Vector3(996.75f/1024.0f, 1.0, 1.0f * (20.314f/12.517f)),
+        Vector3(245.45f/1024.0f, 265.764f/1024.0f, 1.0f * (12.517f/20.314f)),
+        Vector3(996.75f/1024.0f, 1.0, 1.0f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER_LEFT
     };
 	static const SpriteInfo THREE_TEXT				= {
         15,
-        Vector3(265.764f/1024.0f, 286.078f/1024.0f, 1.0f),
-        Vector3(996.75f/1024.0f, 1.0, 1.0f * (20.314f/12.517f)),
+        Vector3(265.764f/1024.0f, 286.078f/1024.0f, 1.0f * (12.517f/20.314f)),
+        Vector3(996.75f/1024.0f, 1.0, 1.0f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER_LEFT
     };
 	static const SpriteInfo FOUR_TEXT				= {
         16,
-        Vector3(286.078f/1024.0f, 306.392f/1024.0f, 1.0f),
-        Vector3(996.75f/1024.0f, 1.0, 1.0f * (20.314f/12.517f)),
+        Vector3(286.078f/1024.0f, 306.392f/1024.0f, 1.0f * (12.517f/20.314f)),
+        Vector3(996.75f/1024.0f, 1.0, 1.0f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER_LEFT
     };
 	static const SpriteInfo FIVE_TEXT				= {
         17,
-        Vector3(306.392f/1024.0f, 326.706f/1024.0f, 1.0f),
-        Vector3(996.75f/1024.0f, 1.0, 1.0f * (20.314f/12.517f)),
+        Vector3(306.392f/1024.0f, 326.706f/1024.0f, 1.0f * (12.517f/20.314f)),
+        Vector3(996.75f/1024.0f, 1.0, 1.0f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER_LEFT
     };
 	static const SpriteInfo SIX_TEXT				= {
         18,
-        Vector3(326.706f/1024.0f, 347.02f/1024.0f, 1.0f),
-        Vector3(996.75f/1024.0f, 1.0, 1.0f * (20.314f/12.517f)),
+        Vector3(326.706f/1024.0f, 347.02f/1024.0f, 1.0f * (12.517f/20.314f)),
+        Vector3(996.75f/1024.0f, 1.0, 1.0f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER_LEFT
     };
 	static const SpriteInfo SEVEN_TEXT				= {
         19,
-        Vector3(347.02f/1024.0f, 367.334f/1024.0f, 1.0f),
-        Vector3(996.75f/1024.0f, 1.0, 1.0f * (20.314f/12.517f)),
+        Vector3(347.02f/1024.0f, 367.334f/1024.0f, 1.0f * (12.517f/20.314f)),
+        Vector3(996.75f/1024.0f, 1.0, 1.0f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER_LEFT
     };
 	static const SpriteInfo EIGHT_TEXT				= {
         20,
-        Vector3(367.334f/1024.0f, 387.648f/1024.0f, 1.0f),
-        Vector3(996.75f/1024.0f, 1.0, 1.0f * (20.314f/12.517f)),
+        Vector3(367.334f/1024.0f, 387.648f/1024.0f, 1.0f * (12.517f/20.314f)),
+        Vector3(996.75f/1024.0f, 1.0, 1.0f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER_LEFT
     };
 	static const SpriteInfo NINE_TEXT				= {
         21,
-        Vector3(387.648f/1024.0f, 407.962f/1024.0f, 1.0f),
-        Vector3(996.75f/1024.0f, 1.0, 1.0f * (20.314f/12.517f)),
+        Vector3(387.648f/1024.0f, 407.962f/1024.0f, 1.0f * (12.517f/20.314f)),
+        Vector3(996.75f/1024.0f, 1.0, 1.0f),
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER_LEFT
     };

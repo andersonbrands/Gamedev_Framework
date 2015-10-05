@@ -32,7 +32,7 @@ void EnemyManager::init() {
     readyToSpawn_ = true;
     setPaused(false);
 
-	bulletManager_.init();
+    bulletManager_.init();
 
     // attach events
     attachEvent(ev::id::UPDATE, *this);
@@ -59,7 +59,7 @@ void EnemyManager::update() {
     if (!isPaused()) {
         if (readyToSpawn_) {
             // try to spawn
-            if (rand_int(0, 1000) < 10)
+            if (rand_int(0, 1000) < 40)
                 spawnEnemies();
 
         } else {
@@ -78,7 +78,7 @@ void EnemyManager::spawnEnemies() {
         case 1:
             enemyA_[0].spawn(0.0f, 18.0f);
 
-            if (rand_int(0,1)) {
+            if (!rand_int(0,2)) {
                 enemyA_[1].spawn(-12.0f, 18.0f);
                 enemyA_[2].spawn(12.0f, 18.0f);
             } else {
@@ -96,7 +96,7 @@ void EnemyManager::spawnEnemies() {
         case 3:
             enemyC_[0].spawn(0.0f, 18.0f);
 
-            if (rand_int(0,1)) {
+            if (!rand_int(0,2)) {
                 enemyC_[1].spawn(-12.0f, 18.0f);
                 enemyC_[2].spawn(12.0f, 18.0f);
             } else {

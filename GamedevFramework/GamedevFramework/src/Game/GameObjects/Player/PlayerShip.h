@@ -12,6 +12,7 @@
 #include "../BulletManager.h"
 #include "PlayerBullet.h"
 #include "../../FileManagement/GameInputFile.h"
+#include "PlayerScore.h"
 
 using namespace Framework;
 
@@ -20,6 +21,7 @@ class PlayerShip : public Ship {
         static int MAX_HP;
         BulletManager<PlayerBullet> bulletManager_;
         GameInputFile* pGameInput_;
+        PlayerScore playerScore_;
 
     public:
         PlayerShip();

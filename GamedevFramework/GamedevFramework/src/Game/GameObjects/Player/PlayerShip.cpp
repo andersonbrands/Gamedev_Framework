@@ -19,7 +19,7 @@
 
 int PlayerShip::MAX_HP = 100;
 
-PlayerShip::PlayerShip() : bulletManager_(20), pGameInput_(nullptr) {
+PlayerShip::PlayerShip() : bulletManager_(20), pGameInput_(nullptr), playerScore_() {
     assert(addComponent<PlayerShipMovement>());
     assert(addComponent<ColliderComponent>());
 
@@ -45,13 +45,15 @@ void PlayerShip::init() {
     setActive(true);
 
     pSprite_ = SpriteManager::getInstancePtr()->getSprite(spr::PLAYER_SHIP_SPRITE);
-
+	
     auto tr(component_cast<TransformComponent>(this));
     tr->setTranslation(Vector3(0.0f, -13.5f, -0.1f));
 
     auto col(component_cast<ColliderComponent>(this));
     col->setCollider(new SphereCollider(tr, 2.6f/3.5f));
 
+    // init player score
+    playerScore_.init();
 
     attachEvent(ev::id::PRE_UPDATE, *this);
     attachEvent(ev::id::RENDER_EVENT, *this);
@@ -106,6 +108,8 @@ void PlayerShip::handleEvent(Event* pEvent) {
             pRenderer->setTransform(*static_cast<Transform*>(component_cast<TransformComponent>(this)));
 
             pSprite_->render();
+
+            playerScore_.render();
             break;
         }
         case ev::id::PRE_UPDATE: {
