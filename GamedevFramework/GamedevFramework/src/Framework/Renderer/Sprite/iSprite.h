@@ -34,7 +34,12 @@ namespace Framework {
             virtual void setup(const Vector3& uuWidth, const Vector3& vvHeight, unsigned int textureId, SpriteAlign align) = 0;
 
             virtual void render() = 0;
-
+            float getHeight() const {
+                return height_;
+            }
+            float getWidth() const {
+                return width_;
+            }
         protected:
             virtual void applySettings() = 0;
             virtual void setUVCoord(int index, float u, float v) = 0;
