@@ -128,6 +128,17 @@ void InGame::addSprites() {
 
     sprManager->addSprite(spr::STAR_SPRITE);
     sprManager->addSprite(spr::PLAYER_SHIP_SPRITE);
+    sprManager->addSprite(spr::SCORE_TEXT);
+    sprManager->addSprite(spr::ZERO_TEXT);
+    sprManager->addSprite(spr::ONE_TEXT);
+    sprManager->addSprite(spr::TWO_TEXT);
+    sprManager->addSprite(spr::THREE_TEXT);
+    sprManager->addSprite(spr::FOUR_TEXT);
+    sprManager->addSprite(spr::FIVE_TEXT);
+    sprManager->addSprite(spr::SIX_TEXT);
+    sprManager->addSprite(spr::SEVEN_TEXT);
+    sprManager->addSprite(spr::EIGHT_TEXT);
+    sprManager->addSprite(spr::NINE_TEXT);
     sprManager->addSprite(spr::ENEMY_A_SHIP_SPRITE);
     sprManager->addSprite(spr::PLAYER_BULLET_SPRITE);
     sprManager->addSprite(spr::ENEMY_BULLET_SPRITE);

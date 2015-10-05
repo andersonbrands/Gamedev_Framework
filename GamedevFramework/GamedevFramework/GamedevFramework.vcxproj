@@ -442,6 +442,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="bin\data\textures\sample.png" />
+    <Image Include="data\textures\game_over_sprite_sheet.png" />
     <Image Include="data\textures\in_game_sprite_sheet.png" />
     <Image Include="data\textures\main_menu_sprite_sheet.png" />
     <Image Include="data\textures\sample.png" />
