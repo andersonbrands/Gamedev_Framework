@@ -10,18 +10,22 @@
 #include "../../../Framework/Renderer/Sprite/SpriteManager.h"
 #include "../../../Framework/EventManager/EventManager.h"
 #include "../../../Framework/Renderer/Renderer.h"
+#include "../../../Framework/EventManager/EventData.h"
 #include "../../Ids/EventIds.h"
 #include "../../Ids/SpriteIds.h"
 #include "../../Ids/TextureIds.h"
 #include "../Components\PlayerShipMovement.h"
 #include "../../../Framework/GameObjects/Components/ColliderComponent.h"
 #include "../../../Framework/Collision/Colliders/SphereCollider.h"
+#include "../Enemies/EnemyShip.h"
 
 int PlayerShip::MAX_HP = 100;
 
-PlayerShip::PlayerShip() : bulletManager_(20), pGameInput_(nullptr), playerScore_() {
+PlayerShip::PlayerShip() : bulletManager_(20), pGameInput_(nullptr), playerScore_(), playerHealth_(hp_, MAX_HP) {
     assert(addComponent<PlayerShipMovement>());
     assert(addComponent<ColliderComponent>());
+
+    attachEvent(ev::id::COLLISION, *this);
 
     attachEvent(ev::id::ATTACH_SCENE_EVENTS, *this);
     attachEvent(ev::id::DETACH_SCENE_EVENTS, *this);
@@ -30,6 +34,8 @@ PlayerShip::PlayerShip() : bulletManager_(20), pGameInput_(nullptr), playerScore
 PlayerShip::~PlayerShip() {
     detachEvent(ev::id::PRE_UPDATE, *this);
     detachEvent(ev::id::RENDER_EVENT, *this);
+
+    detachEvent(ev::id::COLLISION, *this);
 
     detachEvent(ev::id::DETACH_SCENE_EVENTS, *this);
     detachEvent(ev::id::ATTACH_SCENE_EVENTS, *this);
@@ -41,6 +47,8 @@ PlayerShip::~PlayerShip() {
 }
 
 void PlayerShip::init() {
+    hp_ = MAX_HP;
+
     bulletManager_.init();
     setActive(true);
 
@@ -54,6 +62,7 @@ void PlayerShip::init() {
 
     // init player score
     playerScore_.init();
+    playerHealth_.init();
 
     attachEvent(ev::id::PRE_UPDATE, *this);
     attachEvent(ev::id::RENDER_EVENT, *this);
@@ -86,6 +95,17 @@ void PlayerShip::update() {
 
 void PlayerShip::handleEvent(Event* pEvent) {
     switch (pEvent->getID()) {
+        case ev::id::COLLISION: {
+            void* vP();
+            ev::data::Collision* pData(static_cast<ev::data::Collision*>(pEvent->getData()));
+            EnemyShip* pEnemy(dynamic_cast<EnemyShip*>(pData->pGameObject));
+            if (pEnemy) {
+                damage(40);
+            } else {
+                damage(20);
+            }
+            break;
+        }
         case ev::id::ATTACH_SCENE_EVENTS : {
             attachEvent(game::ev::id::PS_MV_LEFT, *this);
             attachEvent(game::ev::id::PS_MV_UP, *this);
@@ -112,6 +132,7 @@ void PlayerShip::handleEvent(Event* pEvent) {
             pSprite_->render();
 
             playerScore_.render();
+            playerHealth_.render();
             break;
         }
         case ev::id::PRE_UPDATE: {

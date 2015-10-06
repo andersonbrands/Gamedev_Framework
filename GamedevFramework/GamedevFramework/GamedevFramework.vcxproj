@@ -183,6 +183,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="src\Game\GameObjects\Player\PlayerHealth.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="src\Game\GameObjects\Player\PlayerScore.cpp">
       <SubType>
       </SubType>
@@ -384,6 +388,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\Game\GameObjects\Player\PlayerBullet.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameObjects\Player\PlayerHealth.h">
       <SubType>
       </SubType>
     </ClInclude>

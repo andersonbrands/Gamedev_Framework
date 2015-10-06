@@ -13,6 +13,7 @@
 #include "PlayerBullet.h"
 #include "../../FileManagement/GameInputFile.h"
 #include "PlayerScore.h"
+#include "PlayerHealth.h"
 
 using namespace Framework;
 
@@ -22,7 +23,7 @@ class PlayerShip : public Ship {
         BulletManager<PlayerBullet> bulletManager_;
         GameInputFile* pGameInput_;
         PlayerScore playerScore_;
-
+        PlayerHealth playerHealth_;
     public:
         PlayerShip();
         virtual ~PlayerShip();

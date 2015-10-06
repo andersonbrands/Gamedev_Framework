@@ -189,6 +189,20 @@ namespace spr {
         tex::IN_GAME_SPR_SHEET.id,
         SpriteAlign::CENTER_LEFT
     };
+	static const SpriteInfo HEALTH_GREEN			= {
+        22,
+        Vector3(0.0f, 14.0f/1024.0f, 8.0f),
+        Vector3(987.0f/1024.0f, 991.0f/1024.0f, 1.0f),
+        tex::IN_GAME_SPR_SHEET.id,
+        SpriteAlign::CENTER_LEFT
+    };
+	static const SpriteInfo HEALTH_GREY				= {
+        23,
+        Vector3(0.0f, 14.0f/1024.0f, 8.0f),
+        Vector3(992.0f/1024.0f, 996.0f/1024.0f, 1.0f),
+        tex::IN_GAME_SPR_SHEET.id,
+        SpriteAlign::CENTER_LEFT
+    };
 
 }
 

@@ -139,6 +139,8 @@ void InGame::addSprites() {
     sprManager->addSprite(spr::SEVEN_TEXT);
     sprManager->addSprite(spr::EIGHT_TEXT);
     sprManager->addSprite(spr::NINE_TEXT);
+    sprManager->addSprite(spr::HEALTH_GREEN);
+    sprManager->addSprite(spr::HEALTH_GREY);
     sprManager->addSprite(spr::ENEMY_A_SHIP_SPRITE);
     sprManager->addSprite(spr::PLAYER_BULLET_SPRITE);
     sprManager->addSprite(spr::ENEMY_BULLET_SPRITE);
