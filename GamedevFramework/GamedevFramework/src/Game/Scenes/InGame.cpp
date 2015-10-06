@@ -89,7 +89,7 @@ void InGame::update() {
     if (pInput->getKeyboard()->onKeyUp(DIK_B)) {
         sendEvent(game::ev::id::BACK_TO_MAIN_MENU);
         return;
-    } else if(pInput->getKeyboard()->onKeyUp(DIK_G)) {
+    } else if(pInput->getKeyboard()->onKeyUp(DIK_G) || playerShip_.getHp() <= 0) {
         sendEvent(game::ev::id::GAME_OVER_SCREEN);
         return;
     }
