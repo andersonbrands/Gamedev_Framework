@@ -27,6 +27,10 @@ class Ship : public GameObject {
         void damage(int value);
         void heal(int value);
 
+        int getHp() const {
+            return hp_;
+        }
+
         virtual void handleEvent(Event* pEvent) {}
 };
 
