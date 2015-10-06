@@ -28,6 +28,8 @@ namespace game {
             static const EventId PS_MV_RIGHT			= EVENT_ID_OFFSET + 8;
             static const EventId PS_MV_DOWN				= EVENT_ID_OFFSET + 9;
             static const EventId PS_SHOOT				= EVENT_ID_OFFSET + 10;
+
+            static const EventId ENEMY_DESTROYED		= EVENT_ID_OFFSET + 11;
         }
 
         namespace data {

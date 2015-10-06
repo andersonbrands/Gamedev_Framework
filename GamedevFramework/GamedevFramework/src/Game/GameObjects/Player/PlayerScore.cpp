@@ -8,7 +8,10 @@
 #include "PlayerScore.h"
 #include "../../../Framework/Renderer/Renderer.h"
 #include "../../../Framework/Renderer/Sprite/SpriteManager.h"
+#include "../../../Framework/EventManager/EventManager.h"
+#include "../../../Framework/EventManager/Event.h"
 #include "../../Ids/SpriteIds.h"
+#include "../../Ids/EventIds.h"
 #include <cmath>
 
 PlayerScore::PlayerScore() : score_(0), label_(nullptr), numbers_(10, nullptr) {
@@ -54,10 +57,9 @@ void PlayerScore::render() const {
 
     label_->render();
 
-    x += label_->getWidth() + 0.2f;
+    x += label_->getWidth() + 0.25f;
 
     int score(score_);
-	score = 567890;
     // break score into pieces
     for (int i = 0, n = 5; i < 6; ++i, --n) {
         int p = pow(10, n);
@@ -71,4 +73,16 @@ void PlayerScore::render() const {
 
         pSpr->render();
     }
+}
+
+void PlayerScore::handleEvent(Event* pEvent) {
+    switch (pEvent->getID()) {
+        case game::ev::id::ENEMY_DESTROYED: {
+            score_ += 50;
+            break;
+        }
+        default:
+            break;
+    }
+
 }

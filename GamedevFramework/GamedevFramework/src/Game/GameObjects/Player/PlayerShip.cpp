@@ -45,7 +45,7 @@ void PlayerShip::init() {
     setActive(true);
 
     pSprite_ = SpriteManager::getInstancePtr()->getSprite(spr::PLAYER_SHIP_SPRITE);
-	
+
     auto tr(component_cast<TransformComponent>(this));
     tr->setTranslation(Vector3(0.0f, -13.5f, -0.1f));
 
@@ -92,6 +92,7 @@ void PlayerShip::handleEvent(Event* pEvent) {
             attachEvent(game::ev::id::PS_MV_RIGHT, *this);
             attachEvent(game::ev::id::PS_MV_DOWN, *this);
             attachEvent(game::ev::id::PS_SHOOT, *this);
+            attachEvent(game::ev::id::ENEMY_DESTROYED, playerScore_);
             break;
         }
         case ev::id::DETACH_SCENE_EVENTS : {
@@ -100,6 +101,7 @@ void PlayerShip::handleEvent(Event* pEvent) {
             detachEvent(game::ev::id::PS_MV_RIGHT, *this);
             detachEvent(game::ev::id::PS_MV_DOWN, *this);
             detachEvent(game::ev::id::PS_SHOOT, *this);
+            detachEvent(game::ev::id::ENEMY_DESTROYED, playerScore_);
             break;
         }
         case ev::id::RENDER_EVENT: {

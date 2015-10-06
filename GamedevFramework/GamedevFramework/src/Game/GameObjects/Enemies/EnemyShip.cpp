@@ -66,6 +66,7 @@ void EnemyShip::handleEvent(Event* pEvent) {
         case ev::id::COLLISION: {
             if (isActive()) {
                 //auto pData(static_cast<ev::data::Collision*>(pEvent->getData()));
+                sendEvent(game::ev::id::ENEMY_DESTROYED);
                 remove();
             }
             break;

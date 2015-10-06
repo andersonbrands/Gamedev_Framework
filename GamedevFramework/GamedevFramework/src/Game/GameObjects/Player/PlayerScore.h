@@ -10,12 +10,13 @@
 
 #include <vector>
 #include "../../../Framework/Renderer/Sprite/Sprite.h"
+#include "../../../Framework/EventManager/EventHandler.h"
 
 
 using namespace Framework;
 using namespace std;
 
-class PlayerScore {
+class PlayerScore : public EventHandler {
     private:
         int score_;
         Sprite* label_;
@@ -38,6 +39,8 @@ class PlayerScore {
             return score_;
         }
         void		render() const;
+
+        virtual void handleEvent(Event* pEvent);
 };
 
 #endif // PLAYER_SCORE_H_

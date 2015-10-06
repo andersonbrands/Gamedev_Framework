@@ -162,6 +162,7 @@ void InGame::registerEvents() {
     registerEvent(game::ev::id::PS_MV_RIGHT);
     registerEvent(game::ev::id::PS_MV_DOWN);
     registerEvent(game::ev::id::PS_SHOOT);
+    registerEvent(game::ev::id::ENEMY_DESTROYED);
 }
 void InGame::unregisterEvents() {
     unregisterEvent(game::ev::id::SPAWN_ENEMY_BULLET);
@@ -171,6 +172,7 @@ void InGame::unregisterEvents() {
     unregisterEvent(game::ev::id::PS_MV_RIGHT);
     unregisterEvent(game::ev::id::PS_MV_DOWN);
     unregisterEvent(game::ev::id::PS_SHOOT);
+    unregisterEvent(game::ev::id::ENEMY_DESTROYED);
 }
 
 void InGame::handleEvent(Event* pEvent) {
