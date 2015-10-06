@@ -18,7 +18,7 @@ namespace Framework {
     }
 
     bool SphereCollider::collides(const Collider* pCollider) const {
-        const SphereCollider* pSphere(static_cast<const SphereCollider*>(pCollider));
+        const SphereCollider* pSphere(dynamic_cast<const SphereCollider*>(pCollider));
         if (pSphere)
             return collides(*pSphere);
 
