@@ -10,7 +10,7 @@
 
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include "../../MyAssert.h"
 #include "Functors.h"
 
 namespace Framework {

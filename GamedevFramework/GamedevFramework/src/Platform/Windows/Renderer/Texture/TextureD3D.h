@@ -10,7 +10,7 @@
 
 #include "../../../../Framework/Renderer/Texture/iTexture.h"
 #include <d3dx9.h>
-#include <cassert>
+#include "../../../../MyAssert.h"
 
 using namespace Framework;
 

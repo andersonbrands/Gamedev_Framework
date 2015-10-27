@@ -10,7 +10,7 @@
 #ifndef MATRIX_4_H_
 #define MATRIX_4_H_
 
-#include <cassert>
+#include "../../MyAssert.h"
 #include "Vector3.h"
 
 namespace Framework {

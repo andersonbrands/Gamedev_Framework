@@ -452,6 +452,9 @@
     <ClInclude Include="src\Game\GameObjects\Player\PlayerHealth.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\MyAssert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="bin\data\textures\sample.png">

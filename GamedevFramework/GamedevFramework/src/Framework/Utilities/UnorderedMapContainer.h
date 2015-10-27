@@ -9,7 +9,7 @@
 #define UNORDERED_MAP_CONTAINER_H_
 
 #include <unordered_map>
-#include <cassert>
+#include "../../MyAssert.h"
 
 using namespace std;
 

@@ -15,7 +15,7 @@
 #include "EventId.h"
 #include "Event.h"
 
-#include <cassert>
+#include "../../MyAssert.h"
 
 namespace Framework {
     class EventManager : public Singleton<EventManager> {

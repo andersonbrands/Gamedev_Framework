@@ -10,7 +10,7 @@
 #ifndef SINGLETON_H_
 #define SINGLETON_H_
 
-#include <cassert>
+#include "../../MyAssert.h"
 
 namespace Framework {
     template <typename T>

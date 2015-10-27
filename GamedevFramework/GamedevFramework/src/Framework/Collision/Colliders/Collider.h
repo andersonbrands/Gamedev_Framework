@@ -8,7 +8,7 @@
 #ifndef COLLIDER_H_
 #define COLLIDER_H_
 
-#include <cassert>
+#include "../../../MyAssert.h"
 
 namespace Framework {
 
