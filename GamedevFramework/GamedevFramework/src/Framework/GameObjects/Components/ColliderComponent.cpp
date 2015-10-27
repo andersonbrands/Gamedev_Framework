@@ -7,7 +7,7 @@
 
 #include "ColliderComponent.h"
 #include "../GameObject.h"
-#include <cassert>
+#include "../../../MyAssert.h"
 
 namespace Framework {
 

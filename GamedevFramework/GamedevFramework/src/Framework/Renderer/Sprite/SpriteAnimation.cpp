@@ -7,7 +7,7 @@
 
 #include "SpriteAnimation.h"
 #include "../../Utilities/Timer.h"
-#include <cassert>
+#include "../../../MyAssert.h"
 
 namespace Framework {
 

@@ -12,7 +12,7 @@
 #include "Colliders\Collider.h"
 #include "../EventManager/EventManager.h"
 #include "../EventManager/EventData.h"
-#include <cassert>
+#include "../../MyAssert.h"
 
 namespace Framework {
 

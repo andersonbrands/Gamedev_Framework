@@ -8,7 +8,7 @@
 ***************************************************************************************/
 
 #include "Event.h"
-#include <cassert>
+#include "../../MyAssert.h"
 
 namespace Framework {
     Event::Event(EventId eventId)
