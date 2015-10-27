@@ -14,6 +14,7 @@
 #include "../../../Framework/Collision/CollisionManager.h"
 #include "../../../Framework/GameObjects/Components/ColliderComponent.h"
 #include "../../../Framework/Collision/Colliders/SphereCollider.h"
+#include "../../../Framework/Collision/Colliders/AABBCollider.h"
 
 EnemyShip::EnemyShip()  {
     attachEvent(ev::id::RENDER_EVENT, *this);
@@ -23,7 +24,10 @@ EnemyShip::EnemyShip()  {
     auto tr(component_cast<TransformComponent>(this));
 
     auto col(component_cast<ColliderComponent>(this));
-    col->setCollider(new SphereCollider(tr, 3.0f/2.0f));
+    // TODO: change collider
+    float radius(3.0f/2.0f);
+    //col->setCollider(new SphereCollider(tr, radius));
+    col->setCollider(new AABBCollider(tr, Vector3(-radius, -radius, -2.0f), Vector3(radius, radius, 2.0f)));
 }
 
 EnemyShip::~EnemyShip() {
@@ -58,7 +62,6 @@ void EnemyShip::handleEvent(Event* pEvent) {
                 auto pRenderer = Renderer::getInstancePtr();
                 assert(pRenderer);
                 pRenderer->setTransform(*static_cast<Transform*>(component_cast<TransformComponent>(this)));
-
                 pSprite_->render();
             }
             break;

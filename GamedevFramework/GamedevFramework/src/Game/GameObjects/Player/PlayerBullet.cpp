@@ -10,6 +10,7 @@
 #include "../../../Framework/Collision/CollisionManager.h"
 #include "../../../Framework/GameObjects/Components/ColliderComponent.h"
 #include "../../../Framework/Collision/Colliders/SphereCollider.h"
+#include "../../../Framework/Collision/Colliders/AABBCollider.h"
 #include "../../Ids/SpriteIds.h"
 
 int PlayerBullet::damage_ = 10;
@@ -20,7 +21,11 @@ PlayerBullet::PlayerBullet() {
     auto tr(component_cast<TransformComponent>(this));
 
     auto col(component_cast<ColliderComponent>(this));
-    col->setCollider(new SphereCollider(tr, 0.4f/2.0f));
+
+	// TODO: change collider
+	float radius(0.4f/2.0f);
+    //col->setCollider(new SphereCollider(tr, radius));
+	col->setCollider(new AABBCollider(tr, Vector3(-radius, -radius, -2.0f), Vector3(radius, radius, 2.0f)));
 }
 
 PlayerBullet::~PlayerBullet() {

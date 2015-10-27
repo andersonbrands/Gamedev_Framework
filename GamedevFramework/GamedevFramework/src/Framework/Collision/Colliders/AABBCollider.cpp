@@ -9,7 +9,7 @@
 
 namespace Framework {
 
-    AABBCollider::AABBCollider() {
+    AABBCollider::AABBCollider(Transform* pTransform, const Vector3& min, const Vector3& max) : pTransform_(pTransform), min_(min), max_(max) {
 
     }
 
@@ -17,12 +17,12 @@ namespace Framework {
 
     }
 
-    bool AABBCollider::collides(Collider* pCollider) const {
-        AABBCollider* aabb(dynamic_cast<AABBCollider*>(pCollider));
+    bool AABBCollider::collides(const Collider* pCollider) const {
+        const AABBCollider* aabb(dynamic_cast<const AABBCollider*>(pCollider));
         if (aabb)
             return collides(*aabb);
 
-        PointCollider* point(dynamic_cast<PointCollider*>(pCollider));
+        const PointCollider* point(dynamic_cast<const PointCollider*>(pCollider));
         if (point)
             return collides(*point);
 
@@ -34,12 +34,16 @@ namespace Framework {
 
         Vector3 point(pointCollider.getPoint());
 
-        if (	point.getX() > max_.getX() ||
-                point.getX() < min_.getX() ||
-                point.getY() > max_.getY() ||
-                point.getY() < min_.getY() ||
-                point.getZ() > max_.getZ() ||
-                point.getZ() < min_.getZ() ) {
+        Vector3 pos(pTransform_->getTranslation());
+        Vector3 max(pos + max_);
+        Vector3 min(pos + min_);
+
+        if (	point.getX() > max.getX() ||
+                point.getX() < min.getX() ||
+                point.getY() > max.getY() ||
+                point.getY() < min.getY() ||
+                point.getZ() > max.getZ() ||
+                point.getZ() < min.getZ() ) {
 
             collides = false;
         }
@@ -49,13 +53,22 @@ namespace Framework {
     bool AABBCollider::collides(const AABBCollider& bb) const {
         bool collides(true);
 
-        if (	min_.getX() > bb.max_.getX() ||
-                min_.getY() > bb.max_.getY() ||
-                min_.getZ() > bb.max_.getZ() ||
+        if (!pTransform_) {
+            return false;
+        }
 
-                max_.getX() < bb.min_.getX() ||
-                max_.getY() < bb.min_.getY() ||
-                max_.getZ() < bb.min_.getZ() ) {
+        Vector3 max(getMax());
+        Vector3 min(getMin());
+        Vector3 max2(bb.getMax());
+        Vector3 min2(bb.getMin());
+
+        if (	min.getX() > max2.getX() ||
+                min.getY() > max2.getY() ||
+                min.getZ() > max2.getZ() ||
+
+                max.getX() < min2.getX() ||
+                max.getY() < min2.getY() ||
+                max.getZ() < min2.getZ() ) {
 
             collides = false;
 

@@ -11,18 +11,20 @@
 #include "Collider.h"
 #include "PointCollider.h"
 #include "../../Math/Vector3.h"
+#include "../../Math/Transform.h"
 
 namespace Framework {
 
     class AABBCollider : public Collider {
         private:
+            Transform* pTransform_;
             Vector3 max_;
             Vector3 min_;
         public:
-            AABBCollider();
+            AABBCollider(Transform* pTransform, const Vector3& min, const Vector3& max);
             virtual ~AABBCollider();
 
-            virtual bool collides(Collider*) const;
+            virtual bool collides(const Collider*) const;
             virtual bool collides(const AABBCollider&) const;
             virtual bool collides(const PointCollider&) const;
 
@@ -31,7 +33,8 @@ namespace Framework {
             }
 
             const Vector3 getMin() const {
-                return min_;
+                Vector3 pos(pTransform_->getTranslation());
+                return min_ + pos;
             }
 
             void setMax(const Vector3& max) {
@@ -39,7 +42,8 @@ namespace Framework {
             }
 
             const Vector3 getMax() const {
-                return max_;
+                Vector3 pos(pTransform_->getTranslation());
+                return max_ + pos;
             }
     };
 

@@ -17,6 +17,7 @@
 #include "../Components\PlayerShipMovement.h"
 #include "../../../Framework/GameObjects/Components/ColliderComponent.h"
 #include "../../../Framework/Collision/Colliders/SphereCollider.h"
+#include "../../../Framework/Collision/Colliders/AABBCollider.h"
 #include "../Enemies/EnemyShip.h"
 
 int PlayerShip::MAX_HP = 100;
@@ -58,7 +59,11 @@ void PlayerShip::init() {
     tr->setTranslation(Vector3(0.0f, -13.5f, -0.1f));
 
     auto col(component_cast<ColliderComponent>(this));
-    col->setCollider(new SphereCollider(tr, 2.6f/3.5f));
+
+    // TODO: change collider
+    float radius(2.6f/3.5f);
+    //col->setCollider(new SphereCollider(tr, radius));
+    col->setCollider(new AABBCollider(tr, Vector3(-radius, -radius, -2.0f), Vector3(radius, radius, 2.0f)));
 
     // init player score
     playerScore_.init();
@@ -144,20 +149,20 @@ void PlayerShip::handleEvent(Event* pEvent) {
 
             auto pMove(component_cast<MovementComponent>(this));
 
-            if (pInput->getKeyboard()->isKeyDown(DIK_RIGHTARROW)) {
+            if (pInput->getKeyboard()->isKeyDown(DIK_RIGHTARROW) || pInput->getKeyboard()->isKeyDown(DIK_D)) {
                 inputData.right = true;
                 sendEvent(game::ev::id::PS_MV_RIGHT);
             }
-            if (pInput->getKeyboard()->isKeyDown(DIK_LEFTARROW)) {
+            if (pInput->getKeyboard()->isKeyDown(DIK_LEFTARROW) || pInput->getKeyboard()->isKeyDown(DIK_A)) {
                 inputData.left = true;
                 sendEvent(game::ev::id::PS_MV_LEFT);
             }
 
-            if (pInput->getKeyboard()->isKeyDown(DIK_UPARROW)) {
+            if (pInput->getKeyboard()->isKeyDown(DIK_UPARROW) || pInput->getKeyboard()->isKeyDown(DIK_W)) {
                 inputData.up = true;
                 sendEvent(game::ev::id::PS_MV_UP);
             }
-            if (pInput->getKeyboard()->isKeyDown(DIK_DOWNARROW)) {
+            if (pInput->getKeyboard()->isKeyDown(DIK_DOWNARROW) || pInput->getKeyboard()->isKeyDown(DIK_S)) {
                 inputData.down = true;
                 sendEvent(game::ev::id::PS_MV_DOWN);
             }

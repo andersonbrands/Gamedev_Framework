@@ -11,6 +11,7 @@
 #include "../../../Framework/Collision/CollisionManager.h"
 #include "../../../Framework/GameObjects/Components/ColliderComponent.h"
 #include "../../../Framework/Collision/Colliders/SphereCollider.h"
+#include "../../../Framework/Collision/Colliders/AABBCollider.h"
 
 int EnemyBullet::damage_ = 10;
 
@@ -21,7 +22,10 @@ EnemyBullet::EnemyBullet() {
     auto tr(component_cast<TransformComponent>(this));
 
     auto col(component_cast<ColliderComponent>(this));
-    col->setCollider(new SphereCollider(tr, 0.4f/2.0f));
+    float radius(0.4f/2.0f);
+	// TODO: change collider
+    //col->setCollider(new SphereCollider(tr, radius));
+    col->setCollider(new AABBCollider(tr, Vector3(-radius, -radius, -2.0f), Vector3(radius, radius, 2.0f)));
 
 }
 
