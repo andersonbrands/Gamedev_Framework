@@ -227,3 +227,4 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 *.tlog
+*.lastbuildstate
