@@ -6,7 +6,7 @@ A C++ game development framework featuring a 2D shoot 'em up game.
 
 #### Important:
 
-**sample_game_ao branch has the more recent version, which actuallu features the 2D shoot 'em up game**
+**sample_game_ao branch has the more recent version, which actually features the 2D shoot 'em up game**
 
 ---
 
