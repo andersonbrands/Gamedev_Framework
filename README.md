@@ -1,5 +1,4 @@
 ## C++ Game Development framework
-###### A game development framework.
 
 A C++ game development framework featuring a 2D shoot 'em up game.
 
