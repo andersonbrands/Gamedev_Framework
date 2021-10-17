@@ -16,4 +16,4 @@ A C++ game development framework featuring a 2D shoot 'em up game.
 
 ---
 
-I am currently reimplementing this in a more up to date C++ version. Will update repo soon.
+[WIP] Reimplementation in a more up to date C++ version: https://github.com/andersonbrands/pitomba
